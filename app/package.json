@@ -1,11 +1,11 @@
 {
-  "name": "partybid alert bot",
+  "name": "partybid-alert-bot",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Steve Klebanoff <steve.klebnoff@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "generate:typechain": "typechain --target ethers-v5 --outDir ./tmp './abis/*.json'"
+    "generate:typechain": "typechain --target ethers-v5 --outDir ./src/contracts './abis/*.json'"
   },
   "devDependencies": {
     "@types/node-cron": "^2.0.3",

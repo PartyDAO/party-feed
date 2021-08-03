@@ -1,49 +1,68 @@
+import { openSeaPort } from "./opensea";
+import { ethersProvider } from "./ethereum";
+import { PartyEvent } from "./party_events";
 import { config, etherscanIo } from "./config";
 import axios from "axios";
-import { TradeItem } from "./types";
-
-const swapText = (params: { giveItem: TradeItem; receiveItem: TradeItem }) => {
-  const { giveItem, receiveItem } = params;
-  const firstText =
-    giveItem.type === "art" ? `${giveItem.asset.name}` : "1 $RATS";
-  const secondText =
-    receiveItem.type === "art" ? `${receiveItem.asset.name}` : "1 $RATS";
-  const swapText = `${firstText} <-> ${secondText}`;
-  return swapText;
-};
 
 type DiscordEmbed = {
   image: { url: string };
 }[];
 
-export const alertDiscord = (params: {
-  giveItem: TradeItem;
-  receiveItem: TradeItem;
-  txnHash: string;
-}) => {
-  const { giveItem, receiveItem, txnHash } = params;
+const bestUserName = async (address: string): Promise<string> => {
+  const ens = await ethersProvider.lookupAddress(address);
+  if (ens) {
+    return ens;
+  } else {
+    return address;
+  }
+};
 
+const swapText = async (event: PartyEvent): Promise<string> => {
+  const partyDesc = `${event.party.name} (${
+    event.party.tokenSymbol
+  }) ${`https://www.partybid.app/party/${event.party.partyBidAddress}`}`;
+  switch (event.eventType) {
+    case "bid":
+      return `🗳️ Bid placed for ${event.bid.amountInEth} ETH by ${partyDesc}`;
+    case "start":
+      const creatorName = await bestUserName(event.party.creatorAddress);
+      return `🥳 New PartyBid **${partyDesc}** created by ${creatorName}`;
+    case "contribution":
+      const userName = await bestUserName(
+        event.contribution.contributorAddress
+      );
+      return `💰 ${userName} contributed ${event.contribution.amountInEth} ETH to ${partyDesc}`;
+  }
+  return "Unknown event";
+};
+
+const getImageUrl = async (event: PartyEvent): Promise<string | undefined> => {
+  if (event.eventType === "bid" || event.eventType === "start") {
+    try {
+      const r = await openSeaPort.api.getAsset({
+        tokenAddress: event.party.nftContract,
+        tokenId: event.party.nftTokenId,
+      });
+      if (r) {
+        return r.imageUrlOriginal;
+      } else {
+        return undefined;
+      }
+    } catch (e) {
+      console.error(e);
+      return undefined;
+    }
+  } else {
+    return undefined;
+  }
+};
+
+export const alertDiscord = async (event: PartyEvent) => {
   let discordText = "";
-
-  discordText += `${swapText(params)}`;
-  discordText += `\n\n ${`https://rats.art/receipt/${txnHash}`}`;
-
-  const imageUrls: string[] = [];
-  if (giveItem.type === "art") {
-    imageUrls.push(giveItem.asset.imageUrlOriginal);
-  }
-  if (receiveItem.type === "art") {
-    imageUrls.push(receiveItem.asset.imageUrlOriginal);
-  }
-
-  const embeds: DiscordEmbed = imageUrls.map((url) => {
-    return {
-      image: {
-        url: url,
-      },
-    };
-  });
-
+  discordText += await swapText(event);
+  const imageUrl = await getImageUrl(event);
+  const embeds: DiscordEmbed = imageUrl ? [{ image: { url: imageUrl } }] : [];
+  console.info(`Sending alert ${discordText}`);
   return axios.post(config.discordWebhookUrl, {
     content: discordText,
     embeds,

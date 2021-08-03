@@ -3,4 +3,4 @@
 /scripts/new_machine.sh
 /app/tmp
 /app/transpiled
-/app/src/demo.transpiled
+/app/src/demo.ts

@@ -1,3 +1,8 @@
+const MAINNET_FACTORY_ADDRESS = "0xD96Ff9e48f095f5a22Db5bDFFCA080bCC3B98c7f";
+const MAINNET_ZORA_WRAPPER = "0x11c07cE1315a3b92C9755F90cDF40B04b88c5731";
+const MAINNET_FOUNDATION_MARKET_WRAPPER =
+  "0x11c07cE1315a3b92C9755F90cDF40B04b88c5731";
+
 const dotEnvPath = process.env.DOTENV_PATH;
 if (!dotEnvPath) {
   throw new Error(
@@ -14,13 +19,7 @@ const stringFromENVorThrow = (value: string, description: string) => {
   }
 };
 
-const chosenNetwork = process.env.NETWORK_CHOICE;
-if (chosenNetwork !== "testnet" && chosenNetwork !== "mainnet") {
-  throw new Error(`Choose a network`);
-}
-const isTestnet = chosenNetwork === "testnet";
-
-export const etherscanIo = !isTestnet ? "etherscan.io" : "rinkeby.etherscan.io";
+export const etherscanIo = "etherscan.io";
 
 export const config = {
   infuraId: stringFromENVorThrow(process.env.INFURA_ID, "infura id"),
@@ -28,6 +27,7 @@ export const config = {
     process.env.DISCORD_WEBHOOK_URL,
     "discord webhook url"
   ),
-  isTestnet,
-  contractAddress: isTestnet ? TESTNET_ADDRESS : MAINNET_ADDRESS,
+  factoryAddress: MAINNET_FACTORY_ADDRESS,
+  zoraMarketWrapperAddress: MAINNET_ZORA_WRAPPER,
+  foundationMarketWrapperAddress: MAINNET_FOUNDATION_MARKET_WRAPPER,
 };

@@ -1,19 +1,29 @@
+import { alertDiscord } from "./discord";
+import { getAllPartyEvents } from "./party_events";
 import { ethersProvider } from "./ethereum";
-import { alertForBlocks } from "./alert";
 import {
   getAppropriateEndingBlock,
   getLastBlockAlerted,
   setLastBlockAlerted,
 } from "./storage";
-// import { twitterClient, uploadTwitterImage } from "./twitter";
 import axios from "axios";
 import * as fs from "fs";
 import { schedule } from "node-cron";
+import delay from "delay";
+
+const alertForBlocks = async (fromBlock: number) => {
+  const allNewEvents = await getAllPartyEvents(fromBlock);
+  console.log(`Alerting on ${allNewEvents.length} events`);
+  for (const newEvent of allNewEvents) {
+    await alertDiscord(newEvent);
+    await delay(2000);
+  }
+};
 
 const checkBlockNum = async () => {
   const lastBlockNum = await getLastBlockAlerted();
   if (!lastBlockNum) {
-    const blockNumber = await ethersProvider.getBlockNumber();
+    const blockNumber = 12862631;
     await setLastBlockAlerted(blockNumber);
     console.info(`Block number set to latest ${blockNumber} -- restart`);
     process.exit();
@@ -34,20 +44,20 @@ const tick = async () => {
   if (!lastBlockAlerted) {
     throw new Error(`No last block set`);
   }
-  const endingBlock = await getAppropriateEndingBlock();
-  console.info(`Querying for `, { lastBlockAlerted, endingBlock });
+  console.info(`Querying for `, { lastBlockAlerted });
 
+  const lastBlock = await ethersProvider.getBlockNumber();
   isRunning = true;
   try {
     // TICK LOGIC HERE
-    await alertForBlocks(lastBlockAlerted, endingBlock);
+    await alertForBlocks(lastBlockAlerted);
     console.log("Tick successfully completed");
   } catch (e) {
     console.log("error");
     console.error(e);
     console.log("Tick errored out.");
   } finally {
-    await setLastBlockAlerted(endingBlock);
+    await setLastBlockAlerted(lastBlock);
     isRunning = false;
   }
 };

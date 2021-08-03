@@ -3,9 +3,7 @@ import { config } from "./config";
 import { OpenSeaPort, Network } from "opensea-js";
 import { OpenSeaAsset } from "opensea-js/lib/types";
 import { providers } from "ethers";
-export const openSeaIo = config.isTestnet
-  ? "testnets.opensea.io"
-  : "opensea.io";
+export const openSeaIo = "opensea.io";
 
 export const openSeaAccountUrl = (address: string) => {
   return `https://${openSeaIo}/accounts/${address}`;
@@ -29,5 +27,5 @@ export const sanitizeAsset = (asset: OpenSeaAsset): OpenSeaAsset => {
 };
 
 export const openSeaPort = new OpenSeaPort(ethersProvider, {
-  networkName: config.isTestnet ? Network.Rinkeby : Network.Main,
+  networkName: Network.Main,
 });
