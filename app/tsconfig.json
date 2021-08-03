@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "outDir": "./transpiled/",
+        "sourceMap": true,
+        "noImplicitAny": false,
+        "module": "commonjs",
+        "target": "es5",
+        "baseUrl": "./src/",
+        "typeRoots": ["node_modules/@types"],
+        "resolveJsonModule": true
+    },
+    "include": ["./src/**/*", "./src/contracts/**/*"]
+}

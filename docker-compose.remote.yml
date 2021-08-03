@@ -1,0 +1,5 @@
+version: "3.1"
+services:
+  web:
+    volumes:
+      - /configs/:/configs/:ro
