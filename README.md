@@ -1,1 +1,3 @@
-# art-blocks-alert-bot
+# party-feed
+
+discord alerts for partydao
