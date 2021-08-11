@@ -6,6 +6,8 @@ import {
   getBids,
   getContributions,
   PartyInfo,
+  Finalization,
+  getFinalizations,
 } from "./party";
 
 interface StartPartyEvent {
@@ -22,10 +24,16 @@ interface ContributionPartyEvent {
   contribution: Contribution;
   party: PartyInfo;
 }
+interface FinalizationPartyEvent {
+  eventType: "finalization";
+  finalization: Finalization;
+  party: PartyInfo;
+}
 export type PartyEvent =
   | StartPartyEvent
   | BidPartyEvent
-  | ContributionPartyEvent;
+  | ContributionPartyEvent
+  | FinalizationPartyEvent;
 
 export const haveSeenParty = async (address: string) => {
   const key = `party_seen_${address}`;
@@ -82,6 +90,20 @@ export const getAllPartyEvents = async (fromBlock: number) => {
       };
     });
     events.push(...bidEvents);
+
+    // add new finalizations
+    const finalizations = await getFinalizations(
+      partyBid.partyBidAddress,
+      fromBlock
+    );
+    const finalEvents: FinalizationPartyEvent[] = finalizations.map((b) => {
+      return {
+        eventType: "finalization",
+        finalization: b,
+        party: partyBid,
+      };
+    });
+    events.push(...finalEvents);
   }
   return events;
 };

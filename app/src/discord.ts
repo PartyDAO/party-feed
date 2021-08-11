@@ -43,12 +43,22 @@ const swapText = async (event: PartyEvent): Promise<string> => {
       return `${contributionEmoji(event.contribution.amountInEth)} ${
         event.contribution.amountInEth
       } ETH contributed to ${partyDesc} by ${userName}`;
+    case "finalization":
+      if (event.finalization.won) {
+        return `🙂 🙂 🙂 ${partyDesc} won and finalized. ${event.finalization.totalSpentInEth} ETH spent. `;
+      } else {
+        return `😭 ${partyDesc} lost and finalized.`;
+      }
   }
   return "Unknown event";
 };
 
 const getImageUrl = async (event: PartyEvent): Promise<string | undefined> => {
-  if (event.eventType === "bid" || event.eventType === "start") {
+  if (
+    event.eventType === "bid" ||
+    event.eventType === "start" ||
+    event.eventType === "finalization"
+  ) {
     try {
       const r = await openSeaPort.api.getAsset({
         tokenAddress: event.party.nftContract,

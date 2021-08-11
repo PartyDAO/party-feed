@@ -91,3 +91,28 @@ export const getBids = async (
     };
   });
 };
+
+export interface Finalization {
+  won: boolean;
+  totalSpentInEth: string;
+}
+export const getFinalizations = async (
+  address: string,
+  fromBlock: number
+): Promise<Finalization[]> => {
+  const party = getPartyBidInstance(address);
+  const finalEvents = await party.queryFilter(
+    party.filters.Finalized(null, null, null, null),
+    fromBlock
+  );
+  return finalEvents.map((c) => {
+    const finalization: Finalization = {
+      won: parseInt(c.args[0].toString()) == 1,
+      totalSpentInEth: (
+        parseInt(c.args[1].toString()) /
+        10 ** 18
+      ).toLocaleString(),
+    };
+    return finalization;
+  });
+};
