@@ -17,6 +17,17 @@ const bestUserName = async (address: string): Promise<string> => {
   }
 };
 
+const contributionEmoji = (amountString: string) => {
+  const amt = parseFloat(amountString);
+  if (amt <= 0.99) {
+    return "💰";
+  } else if (amt <= 5) {
+    return "💰💰";
+  } else {
+    return "🐳 🐳 🐳";
+  }
+};
+
 const swapText = async (event: PartyEvent): Promise<string> => {
   const partyDesc = `${event.party.name} (${event.party.tokenSymbol})`;
   switch (event.eventType) {
@@ -29,7 +40,9 @@ const swapText = async (event: PartyEvent): Promise<string> => {
       const userName = await bestUserName(
         event.contribution.contributorAddress
       );
-      return `💰 ${userName} contributed ${event.contribution.amountInEth} ETH to ${partyDesc}`;
+      return `${contributionEmoji(event.contribution.amountInEth)} ${
+        event.contribution.amountInEth
+      } ETH contributed to ${partyDesc} by ${userName}`;
   }
   return "Unknown event";
 };
@@ -58,6 +71,9 @@ const getImageUrl = async (event: PartyEvent): Promise<string | undefined> => {
 export const alertDiscord = async (event: PartyEvent) => {
   let discordText = "";
   discordText += await swapText(event);
+  if (event.eventType === "bid" || event.eventType === "start") {
+    discordText += ` https://partybid.app/party/${event.party.partyBidAddress}`;
+  }
   const imageUrl = await getImageUrl(event);
   const embeds: DiscordEmbed = imageUrl ? [{ image: { url: imageUrl } }] : [];
   console.info(`Sending alert ${discordText}`);
