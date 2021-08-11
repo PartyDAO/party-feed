@@ -1,4 +1,8 @@
-import { getPartyBidInstance, partyBidFactory } from "./ethereum";
+import {
+  getPartyBidInstance,
+  partyBidFactory1,
+  partyBidFactory2,
+} from "./ethereum";
 
 export interface PartyInfo {
   partyBidAddress: string;
@@ -12,8 +16,8 @@ export interface PartyInfo {
 }
 
 export const getAllPartyBidsDeployed = async (): Promise<PartyInfo[]> => {
-  const deployEvents = await partyBidFactory.queryFilter(
-    partyBidFactory.filters.PartyBidDeployed(
+  const deployEvents1 = await partyBidFactory1.queryFilter(
+    partyBidFactory1.filters.PartyBidDeployed(
       null,
       null,
       null,
@@ -24,7 +28,20 @@ export const getAllPartyBidsDeployed = async (): Promise<PartyInfo[]> => {
       null
     )
   );
-  return deployEvents.map((d) => {
+  const deployEvents2 = await partyBidFactory2.queryFilter(
+    partyBidFactory2.filters.PartyBidDeployed(
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    )
+  );
+  const allDeployEvents = deployEvents1.concat(...deployEvents2);
+  return allDeployEvents.map((d) => {
     return {
       partyBidAddress: d.args[0],
       creatorAddress: d.args[1],

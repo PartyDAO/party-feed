@@ -43,6 +43,7 @@ export const haveSeenParty = async (address: string) => {
 export const getAllPartyEvents = async (fromBlock: number) => {
   // get all parties
   const partyBids = await getAllPartyBidsDeployed();
+  console.log("parties", JSON.stringify(partyBids));
 
   const events: PartyEvent[] = [];
 

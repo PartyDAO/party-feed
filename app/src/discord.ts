@@ -18,9 +18,7 @@ const bestUserName = async (address: string): Promise<string> => {
 };
 
 const swapText = async (event: PartyEvent): Promise<string> => {
-  const partyDesc = `${event.party.name} (${
-    event.party.tokenSymbol
-  }) ${`https://www.partybid.app/party/${event.party.partyBidAddress}`}`;
+  const partyDesc = `${event.party.name} (${event.party.tokenSymbol})`;
   switch (event.eventType) {
     case "bid":
       return `🗳️ Bid placed for ${event.bid.amountInEth} ETH by ${partyDesc}`;

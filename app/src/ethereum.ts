@@ -7,8 +7,13 @@ export const ethersProvider = new ethers.providers.InfuraProvider(
   config.infuraId
 );
 
-export const partyBidFactory = PartyBidFactory__factory.connect(
-  config.factoryAddress,
+export const partyBidFactory1 = PartyBidFactory__factory.connect(
+  config.factoryAddress1,
+  ethersProvider
+);
+
+export const partyBidFactory2 = PartyBidFactory__factory.connect(
+  config.factoryAddress2,
   ethersProvider
 );
 
