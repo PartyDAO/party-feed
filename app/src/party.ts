@@ -88,6 +88,7 @@ export const getAllPartyBidsDeployed = async (): Promise<PartyInfo[]> => {
 export interface Contribution {
   contributorAddress: string;
   amountInEth: string;
+  txHash: string;
 }
 export const getContributions = async (
   address: string,
@@ -102,12 +103,14 @@ export const getContributions = async (
     return {
       contributorAddress: c.args[0],
       amountInEth: (parseInt(c.args[1].toString()) / 10 ** 18).toLocaleString(),
+      txHash: c.transactionHash,
     };
   });
 };
 
 export interface Bid {
   amountInEth: string;
+  txHash: string;
 }
 export const getBids = async (
   address: string,
@@ -118,6 +121,7 @@ export const getBids = async (
   return bidEvents.map((c) => {
     return {
       amountInEth: (parseInt(c.args[0].toString()) / 10 ** 18).toLocaleString(),
+      txHash: c.transactionHash,
     };
   });
 };
@@ -125,6 +129,7 @@ export const getBids = async (
 export interface Finalization {
   won: boolean;
   totalSpentInEth: string;
+  txHash: string;
 }
 export const getFinalizations = async (
   address: string,
@@ -137,6 +142,7 @@ export const getFinalizations = async (
   );
   return finalEvents.map((c) => {
     const finalization: Finalization = {
+      txHash: c.transactionHash,
       won: parseInt(c.args[0].toString()) == 1,
       totalSpentInEth: (
         parseInt(c.args[1].toString()) /

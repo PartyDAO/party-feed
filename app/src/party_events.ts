@@ -35,6 +35,19 @@ export type PartyEvent =
   | ContributionPartyEvent
   | FinalizationPartyEvent;
 
+export const haveSeenTxHash = async (txHash: string) => {
+  const key = `tx_seen_${txHash}`;
+  const res = await getRedisAsync(key);
+  if (res) {
+    console.info(`already alerted about start of ${txHash}`);
+    return true;
+  } else {
+    console.info(`have NOT alerted about start of ${txHash}`);
+    await setRedisAsync(key, "true");
+    return false;
+  }
+};
+
 export const haveSeenParty = async (address: string) => {
   const key = `party_seen_${address}`;
   const res = await getRedisAsync(key);
@@ -67,9 +80,12 @@ export const getAllPartyEvents = async (fromBlock: number) => {
     }
 
     // add new contributions
-    const contributions = await getContributions(
+    const rawContributions = await getContributions(
       partyBid.partyBidAddress,
       fromBlock
+    );
+    const contributions = rawContributions.filter(
+      (c) => !haveSeenTxHash(c.txHash)
     );
     const contribEvents: ContributionPartyEvent[] = contributions.map((c) => {
       return {
@@ -81,7 +97,8 @@ export const getAllPartyEvents = async (fromBlock: number) => {
     events.push(...contribEvents);
 
     // add new bids
-    const bids = await getBids(partyBid.partyBidAddress, fromBlock);
+    const rawBids = await getBids(partyBid.partyBidAddress, fromBlock);
+    const bids = rawBids.filter((x) => !haveSeenTxHash(x.txHash));
     const bidEvents: BidPartyEvent[] = bids.map((b) => {
       return {
         eventType: "bid",
@@ -92,9 +109,12 @@ export const getAllPartyEvents = async (fromBlock: number) => {
     events.push(...bidEvents);
 
     // add new finalizations
-    const finalizations = await getFinalizations(
+    const rawFinalizations = await getFinalizations(
       partyBid.partyBidAddress,
       fromBlock
+    );
+    const finalizations = rawFinalizations.filter(
+      (x) => !haveSeenTxHash(x.txHash)
     );
     const finalEvents: FinalizationPartyEvent[] = finalizations.map((b) => {
       return {
