@@ -2,6 +2,7 @@ import {
   getPartyBidInstance,
   partyBidFactory1,
   partyBidFactory2,
+  partyBidV2Factory,
 } from "./ethereum";
 
 export interface PartyInfo {
@@ -41,7 +42,7 @@ export const getAllPartyBidsDeployed = async (): Promise<PartyInfo[]> => {
     )
   );
   const allDeployEvents = deployEvents1.concat(...deployEvents2);
-  return allDeployEvents.map((d) => {
+  const allV1Parties = allDeployEvents.map((d) => {
     return {
       partyBidAddress: d.args[0],
       creatorAddress: d.args[1],
@@ -53,11 +54,41 @@ export const getAllPartyBidsDeployed = async (): Promise<PartyInfo[]> => {
       tokenSymbol: d.args[7],
     };
   });
+
+  const allV2Events = await partyBidV2Factory.queryFilter(
+    partyBidV2Factory.filters.PartyBidDeployed(
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    )
+  );
+  const allV2Parties = allV2Events.map((d) => {
+    return {
+      partyBidAddress: d.args[0],
+      creatorAddress: d.args[1],
+      nftContract: d.args[2],
+      nftTokenId: parseInt(d.args[3].toString()),
+      marketWrapper: d.args[4],
+      auctionId: parseInt(d.args[5].toString()),
+      name: d.args[8],
+      tokenSymbol: d.args[9],
+    };
+  });
+
+  return allV1Parties.concat(...allV2Parties);
 };
 
 export interface Contribution {
   contributorAddress: string;
   amountInEth: string;
+  txHash: string;
 }
 export const getContributions = async (
   address: string,
@@ -72,12 +103,14 @@ export const getContributions = async (
     return {
       contributorAddress: c.args[0],
       amountInEth: (parseInt(c.args[1].toString()) / 10 ** 18).toLocaleString(),
+      txHash: c.transactionHash,
     };
   });
 };
 
 export interface Bid {
   amountInEth: string;
+  txHash: string;
 }
 export const getBids = async (
   address: string,
@@ -88,6 +121,7 @@ export const getBids = async (
   return bidEvents.map((c) => {
     return {
       amountInEth: (parseInt(c.args[0].toString()) / 10 ** 18).toLocaleString(),
+      txHash: c.transactionHash,
     };
   });
 };
@@ -95,6 +129,7 @@ export const getBids = async (
 export interface Finalization {
   won: boolean;
   totalSpentInEth: string;
+  txHash: string;
 }
 export const getFinalizations = async (
   address: string,
@@ -107,6 +142,7 @@ export const getFinalizations = async (
   );
   return finalEvents.map((c) => {
     const finalization: Finalization = {
+      txHash: c.transactionHash,
       won: parseInt(c.args[0].toString()) == 1,
       totalSpentInEth: (
         parseInt(c.args[1].toString()) /

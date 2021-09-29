@@ -3,6 +3,8 @@
 /* eslint-disable */
 export type { PartyBid } from "./PartyBid";
 export type { PartyBidFactory } from "./PartyBidFactory";
+export type { PartyBidFactoryV2 } from "./PartyBidFactoryV2";
 
 export { PartyBid__factory } from "./factories/PartyBid__factory";
 export { PartyBidFactory__factory } from "./factories/PartyBidFactory__factory";
+export { PartyBidFactoryV2__factory } from "./factories/PartyBidFactoryV2__factory";

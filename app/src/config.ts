@@ -30,6 +30,7 @@ export const config = {
   ),
   factoryAddress1: MAINNET_FACTORY_ADDRESS_1,
   factoryAddress2: MAINNET_FACTORY_ADDRESS_2,
+  factoryV2Address: "0xaba3506ddf718278632b245ad0d86bb81070ba47",
   zoraMarketWrapperAddress: MAINNET_ZORA_WRAPPER,
   foundationMarketWrapperAddress: MAINNET_FOUNDATION_MARKET_WRAPPER,
 };
