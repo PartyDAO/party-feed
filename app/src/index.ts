@@ -51,7 +51,7 @@ const tick = async () => {
   try {
     // TICK LOGIC HERE
     await alertForBlocks(lastBlockAlerted);
-    console.log("Tick successfully completed");
+    console.log("Tick successfully completed", { lastBlockAlerted });
   } catch (e) {
     console.log("error");
     console.error(e);
