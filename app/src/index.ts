@@ -23,13 +23,12 @@ const alertForBlocks = async (fromBlock: number) => {
 const checkBlockNum = async () => {
   const lastBlockNum = await getLastBlockAlerted();
   if (!lastBlockNum) {
-    const blockNumber = 12862631;
+    const blockNumber = process.env.START_BLOCK && Number(process.env.START_BLOCK) || 12862631;
     await setLastBlockAlerted(blockNumber);
     console.info(`Block number set to latest ${blockNumber} -- restart`);
     process.exit();
   }
 };
-checkBlockNum();
 
 let isRunning = false;
 const tick = async () => {
@@ -40,6 +39,7 @@ const tick = async () => {
 
   console.log(`${new Date().toLocaleString()} Ticking...`);
 
+  await checkBlockNum();
   const lastBlockAlerted = await getLastBlockAlerted();
   if (!lastBlockAlerted) {
     throw new Error(`No last block set`);
