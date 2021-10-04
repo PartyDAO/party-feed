@@ -29,7 +29,6 @@ const checkBlockNum = async () => {
     process.exit();
   }
 };
-checkBlockNum();
 
 let isRunning = false;
 const tick = async () => {
@@ -40,6 +39,7 @@ const tick = async () => {
 
   console.log(`${new Date().toLocaleString()} Ticking...`);
 
+  await checkBlockNum();
   const lastBlockAlerted = await getLastBlockAlerted();
   if (!lastBlockAlerted) {
     throw new Error(`No last block set`);
