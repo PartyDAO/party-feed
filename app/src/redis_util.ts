@@ -6,6 +6,7 @@ console.log("host", process.env.REDIS_HOST);
 const redisClient = redis.createClient({
   host: process.env.REDIS_HOST || "redis",
   port: 6379,
+  db: process.env.REDIS_DB || 0,
 });
 
 const getAsyncRaw = promisify(redisClient.get);
