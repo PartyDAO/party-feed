@@ -1,6 +1,6 @@
+import { ethersProvider } from "./ethereum";
 import { alertDiscord } from "./discord";
 import { getAllPartyEvents } from "./party_events";
-import { ethersProvider } from "./ethereum";
 import {
   getAppropriateEndingBlock,
   getLastBlockAlerted,
