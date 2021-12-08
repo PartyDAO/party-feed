@@ -1,6 +1,6 @@
+import { PartyEvent } from "./types";
 import { openSeaPort } from "./opensea";
 import { ethersProvider } from "./ethereum";
-import { PartyEvent } from "./party_events";
 import { config, etherscanIo } from "./config";
 import axios from "axios";
 

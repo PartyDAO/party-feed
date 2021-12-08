@@ -1,3 +1,9 @@
+import {
+  getBids,
+  getContributions,
+  getCreations,
+  getFinalizations,
+} from "./fetchers";
 import { getRedisAsync, setRedisAsync } from "./redis_util";
 import {
   Bid,
