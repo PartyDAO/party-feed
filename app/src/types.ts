@@ -10,19 +10,16 @@ export interface PartyInfo {
 
 export interface Bid {
   amountInEth: string;
-  txHash: string;
 }
 
 export interface Contribution {
   contributorAddress: string;
   amountInEth: string;
-  txHash: string;
 }
 
 export interface Finalization {
   won: boolean;
   totalSpentInEth: string;
-  txHash: string;
 }
 
 export interface StartPartyEvent {

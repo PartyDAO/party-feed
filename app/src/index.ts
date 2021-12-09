@@ -50,7 +50,6 @@ const tick = async () => {
   const lastBlock = await getLastKnownBlockNumber();
   isRunning = true;
   try {
-    // TICK LOGIC HERE
     await alertForBlocks(lastBlockAlerted);
     console.log("Tick successfully completed", { lastBlockAlerted });
   } catch (e) {

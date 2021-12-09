@@ -83,7 +83,6 @@ export const getContributions = async (
       contribution: {
         contributorAddress: c.contributedBy,
         amountInEth: (parseInt(c.contributedAmountWei) / 10 ** 18).toString(),
-        txHash: c.transactionHash,
       },
     };
   });
@@ -108,7 +107,6 @@ export const getBids = async (fromBlock: number): Promise<BidPartyEvent[]> => {
       txHash: b.transactionHash,
       bid: {
         amountInEth: (parseInt(b.amount) / 10 ** 18).toString(),
-        txHash: b.transactionHash,
       },
     };
   });
@@ -134,7 +132,6 @@ export const getFinalizations = async (
     const finalization = {
       won: won,
       totalSpentInEth: (parseInt(f.totalSpentWei) / 10 ** 18).toString(),
-      txHash: f.transactionHash,
     };
 
     return {
