@@ -1,3 +1,4 @@
+import { getLastKnownBlockNumber } from "./fetchers";
 import { ethersProvider } from "./ethereum";
 import { alertDiscord } from "./discord";
 import { getAllPartyEvents } from "./party_events";
@@ -46,7 +47,7 @@ const tick = async () => {
   }
   console.info(`Querying for `, { lastBlockAlerted });
 
-  const lastBlock = await ethersProvider.getBlockNumber();
+  const lastBlock = await getLastKnownBlockNumber();
   isRunning = true;
   try {
     // TICK LOGIC HERE

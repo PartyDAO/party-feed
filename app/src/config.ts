@@ -22,4 +22,5 @@ export const config = {
     "discord webhook url"
   ),
   infuraId: stringFromENVorThrow(process.env.INFURA_ID, "infura id"),
+  hasuraUrl: "TODO",
 };
