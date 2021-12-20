@@ -13,6 +13,8 @@ import * as fs from "fs";
 import { schedule } from "node-cron";
 import delay from "delay";
 
+const DEFAULT_START_BLOCK = 13839598;
+
 const alertForBlocks = async (fromBlock: number) => {
   const allNewEvents = await getAllPartyEvents(fromBlock);
   console.log(`Alerting on ${allNewEvents.length} events`);
@@ -25,15 +27,14 @@ const alertForBlocks = async (fromBlock: number) => {
 const checkBlockNum = async () => {
   const lastBlockNum = await getLastBlockAlerted();
   if (!lastBlockNum) {
-    const blockNumber = 13812511;
-    await setLastBlockAlerted(blockNumber);
-    console.info(`Block number set to latest ${blockNumber} -- restart`);
-    process.exit();
+    await setLastBlockAlerted(DEFAULT_START_BLOCK);
+    console.info(`Block number set to latest ${DEFAULT_START_BLOCK}`);
   }
 };
-checkBlockNum();
 
 const tick = async () => {
+  await checkBlockNum();
+
   const isRunning = await getIsRunning();
   if (isRunning) {
     console.log(`Not ticking because running`);
@@ -64,4 +65,6 @@ const tick = async () => {
   }
 };
 
-tick();
+tick().then(() => {
+  process.exit();
+});

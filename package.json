@@ -5,6 +5,7 @@
   "author": "Steve Klebanoff <steve.klebnoff@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "dev": "tsc && node ./transpiled/index.js",
     "generate:typechain": "typechain --target ethers-v5 --outDir ./src/contracts './abis/*.json'"
   },
   "devDependencies": {
