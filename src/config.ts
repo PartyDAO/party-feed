@@ -17,4 +17,5 @@ export const config = {
   ),
   infuraId: stringFromENVorThrow(process.env.INFURA_ID, "infura id"),
   hasuraUrl: stringFromENVorThrow(process.env.HASURA_URL, "hasura url"),
+  redisUri: stringFromENVorThrow(process.env.REDIS_URI, "redis uri"),
 };
