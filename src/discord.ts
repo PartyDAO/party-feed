@@ -1,6 +1,6 @@
+import { PartyEvent } from "./types";
 import { openSeaPort } from "./opensea";
 import { ethersProvider } from "./ethereum";
-import { PartyEvent } from "./party_events";
 import { config, etherscanIo } from "./config";
 import axios from "axios";
 
@@ -29,12 +29,12 @@ const contributionEmoji = (amountString: string) => {
 };
 
 const swapText = async (event: PartyEvent): Promise<string> => {
-  const partyDesc = `${event.party.name} (${event.party.tokenSymbol})`;
+  const partyDesc = `${event.party.name} (${event.party.symbol})`;
   switch (event.eventType) {
     case "bid":
       return `🗳️ Bid placed for ${event.bid.amountInEth} ETH by ${partyDesc}`;
     case "start":
-      const creatorName = await bestUserName(event.party.creatorAddress);
+      const creatorName = await bestUserName(event.party.createdBy);
       return `🥳 New PartyBid **${partyDesc}** created by ${creatorName}`;
     case "contribution":
       const userName = await bestUserName(
@@ -61,7 +61,7 @@ const getImageUrl = async (event: PartyEvent): Promise<string | undefined> => {
   ) {
     try {
       const r = await openSeaPort.api.getAsset({
-        tokenAddress: event.party.nftContract,
+        tokenAddress: event.party.nftContractAddress,
         tokenId: event.party.nftTokenId,
       });
       if (r) {
@@ -81,8 +81,16 @@ const getImageUrl = async (event: PartyEvent): Promise<string | undefined> => {
 export const alertDiscord = async (event: PartyEvent) => {
   let discordText = "";
   discordText += await swapText(event);
-  if (event.eventType === "bid" || event.eventType === "start") {
-    discordText += ` https://partybid.app/party/${event.party.partyBidAddress}`;
+  if (
+    event.eventType === "start" ||
+    event.eventType === "finalization" ||
+    event.eventType === "bid"
+  ) {
+    if (event.party.partyType === "bid") {
+      discordText += ` https://partybid.app/party/${event.party.partyAddress}`;
+    } else if (event.party.partyType === "buy") {
+      discordText += ` https://partybid.app/buy/${event.party.partyAddress}`;
+    }
   }
   const imageUrl = await getImageUrl(event);
   const embeds: DiscordEmbed = imageUrl ? [{ image: { url: imageUrl } }] : [];

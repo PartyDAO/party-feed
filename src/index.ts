@@ -1,15 +1,19 @@
+import { getLastKnownBlockNumber } from "./fetchers";
 import { alertDiscord } from "./discord";
 import { getAllPartyEvents } from "./party_events";
-import { ethersProvider } from "./ethereum";
 import {
-  getAppropriateEndingBlock,
+  getIsRunning,
   getLastBlockAlerted,
+  setIsNotRunning,
+  setIsRunning,
   setLastBlockAlerted,
 } from "./storage";
 import axios from "axios";
 import * as fs from "fs";
 import { schedule } from "node-cron";
 import delay from "delay";
+
+const DEFAULT_START_BLOCK = 13839598;
 
 const alertForBlocks = async (fromBlock: number) => {
   const allNewEvents = await getAllPartyEvents(fromBlock);
@@ -23,16 +27,17 @@ const alertForBlocks = async (fromBlock: number) => {
 const checkBlockNum = async () => {
   const lastBlockNum = await getLastBlockAlerted();
   if (!lastBlockNum) {
-    const blockNumber = 12862631;
-    await setLastBlockAlerted(blockNumber);
-    console.info(`Block number set to latest ${blockNumber} -- restart`);
-    process.exit();
+    await setLastBlockAlerted(DEFAULT_START_BLOCK);
+    console.info(
+      `~*~*~* Block number set to latest ${DEFAULT_START_BLOCK} ~*~*~*`
+    );
   }
 };
-checkBlockNum();
 
-let isRunning = false;
 const tick = async () => {
+  await checkBlockNum();
+
+  const isRunning = await getIsRunning();
   if (isRunning) {
     console.log(`Not ticking because running`);
     return;
@@ -44,23 +49,27 @@ const tick = async () => {
   if (!lastBlockAlerted) {
     throw new Error(`No last block set`);
   }
-  console.info(`Querying for `, { lastBlockAlerted });
 
-  const lastBlock = await ethersProvider.getBlockNumber();
-  isRunning = true;
+  const lastBlock = await getLastKnownBlockNumber();
+  console.info(`Querying from `, lastBlockAlerted, "to", lastBlock);
+
+  await setIsRunning();
   try {
-    // TICK LOGIC HERE
     await alertForBlocks(lastBlockAlerted);
-    console.log("Tick successfully completed", { lastBlockAlerted });
+    console.log(
+      `Tick successfully completed from ${lastBlockAlerted} to ${lastBlock}`
+    );
   } catch (e) {
     console.log("error");
     console.error(e);
     console.log("Tick errored out.");
   } finally {
+    console.log("setting lastBlock", lastBlock);
     await setLastBlockAlerted(lastBlock);
-    isRunning = false;
+    await setIsNotRunning();
   }
 };
 
-tick();
-schedule("*/2 * * * *", tick);
+tick().then(() => {
+  process.exit();
+});
