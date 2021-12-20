@@ -1,10 +1,4 @@
-const dotEnvPath = process.env.DOTENV_PATH;
-if (!dotEnvPath) {
-  throw new Error(
-    "No dotenv path required, please specify via DOTENV_PATH env var"
-  );
-}
-require("dotenv").config({ path: dotEnvPath });
+require("dotenv").config({ path: ".env.local" });
 
 const stringFromENVorThrow = (value: string, description: string) => {
   if (value) {
@@ -22,5 +16,5 @@ export const config = {
     "discord webhook url"
   ),
   infuraId: stringFromENVorThrow(process.env.INFURA_ID, "infura id"),
-  hasuraUrl: "TODO",
+  hasuraUrl: stringFromENVorThrow(process.env.HASURA_URL, "hasura url"),
 };

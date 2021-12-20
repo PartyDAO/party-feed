@@ -1,10 +1,11 @@
 import { getLastKnownBlockNumber } from "./fetchers";
-import { ethersProvider } from "./ethereum";
 import { alertDiscord } from "./discord";
 import { getAllPartyEvents } from "./party_events";
 import {
-  getAppropriateEndingBlock,
+  getIsRunning,
   getLastBlockAlerted,
+  setIsNotRunning,
+  setIsRunning,
   setLastBlockAlerted,
 } from "./storage";
 import axios from "axios";
@@ -24,7 +25,7 @@ const alertForBlocks = async (fromBlock: number) => {
 const checkBlockNum = async () => {
   const lastBlockNum = await getLastBlockAlerted();
   if (!lastBlockNum) {
-    const blockNumber = 12862631;
+    const blockNumber = 13812511;
     await setLastBlockAlerted(blockNumber);
     console.info(`Block number set to latest ${blockNumber} -- restart`);
     process.exit();
@@ -32,8 +33,8 @@ const checkBlockNum = async () => {
 };
 checkBlockNum();
 
-let isRunning = false;
 const tick = async () => {
+  const isRunning = await getIsRunning();
   if (isRunning) {
     console.log(`Not ticking because running`);
     return;
@@ -48,7 +49,7 @@ const tick = async () => {
   console.info(`Querying for `, { lastBlockAlerted });
 
   const lastBlock = await getLastKnownBlockNumber();
-  isRunning = true;
+  await setIsRunning();
   try {
     await alertForBlocks(lastBlockAlerted);
     console.log("Tick successfully completed", { lastBlockAlerted });
@@ -57,10 +58,10 @@ const tick = async () => {
     console.error(e);
     console.log("Tick errored out.");
   } finally {
+    console.log("setting lastBlock", lastBlock);
     await setLastBlockAlerted(lastBlock);
-    isRunning = false;
+    await setIsNotRunning();
   }
 };
 
 tick();
-schedule("*/2 * * * *", tick);
