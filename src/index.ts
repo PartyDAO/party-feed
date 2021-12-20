@@ -28,7 +28,9 @@ const checkBlockNum = async () => {
   const lastBlockNum = await getLastBlockAlerted();
   if (!lastBlockNum) {
     await setLastBlockAlerted(DEFAULT_START_BLOCK);
-    console.info(`Block number set to latest ${DEFAULT_START_BLOCK}`);
+    console.info(
+      `~*~*~* Block number set to latest ${DEFAULT_START_BLOCK} ~*~*~*`
+    );
   }
 };
 
@@ -47,13 +49,16 @@ const tick = async () => {
   if (!lastBlockAlerted) {
     throw new Error(`No last block set`);
   }
-  console.info(`Querying for `, { lastBlockAlerted });
 
   const lastBlock = await getLastKnownBlockNumber();
+  console.info(`Querying from `, lastBlockAlerted, "to", lastBlock);
+
   await setIsRunning();
   try {
     await alertForBlocks(lastBlockAlerted);
-    console.log("Tick successfully completed", { lastBlockAlerted });
+    console.log(
+      `Tick successfully completed from ${lastBlockAlerted} to ${lastBlock}`
+    );
   } catch (e) {
     console.log("error");
     console.error(e);

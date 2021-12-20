@@ -13,13 +13,13 @@ export const getLastBlockAlerted = async (): Promise<number | undefined> => {
 };
 
 export const setIsRunning = async () => {
-  await setRedisAsync(LAST_BLOCK_KEY_NAME, "true");
+  await setRedisAsync(IS_RUNNING_KEY_NAME, "true");
 };
 export const setIsNotRunning = async () => {
-  await setRedisAsync(LAST_BLOCK_KEY_NAME, "false");
+  await setRedisAsync(IS_RUNNING_KEY_NAME, "false");
 };
 export const getIsRunning = async () => {
-  const res = await getRedisAsync(LAST_BLOCK_KEY_NAME);
+  const res = await getRedisAsync(IS_RUNNING_KEY_NAME);
   return res === "true";
 };
 

@@ -145,12 +145,16 @@ export const getFinalizations = async (
 
 export const getLastKnownBlockNumber = async (): Promise<number> => {
   const zr = await chain.query({
-    block: [
-      { order_by: [{ blockNumber: order_by.desc }], limit: 1 },
+    run: [
       {
-        blockNumber: true,
+        where: { status: { _eq: "success" } },
+        order_by: [{ ranAt: order_by.desc }],
+        limit: 1,
+      },
+      {
+        toBlock: true,
       },
     ],
   });
-  return parseInt(zr.block[0].blockNumber);
+  return parseInt(zr.run[0].toBlock);
 };
