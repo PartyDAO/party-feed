@@ -24,7 +24,8 @@ const alertForBlocks = async (fromBlock: number) => {
     try {
       await postTweet(newEvent);
     } catch (e) {
-      /* do nothing */
+      console.error("Error posting to twitter");
+      console.error(e);
     }
     await delay(2000);
   }
