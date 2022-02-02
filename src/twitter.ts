@@ -1,4 +1,5 @@
 import axios from "axios";
+import { openSeaPort } from "./opensea";
 import { config } from "./config";
 import { PartyEvent, PartyInfo } from "./types";
 import {
@@ -6,6 +7,7 @@ import {
   getIsNewPartyWithContribution,
   getIsPartyHalfWay,
 } from "./utils";
+import { OpenSeaCollection } from "opensea-js/lib/types";
 
 const getMarketplaceText = (party: PartyInfo): string => {
   const twHandles = {
@@ -19,22 +21,62 @@ const getMarketplaceText = (party: PartyInfo): string => {
   return marketplaceHandle ? `on ${marketplaceHandle}` : "";
 };
 
+const getOpenseaCollection = async (
+  event: PartyEvent
+): Promise<OpenSeaCollection> => {
+  try {
+    const r = await openSeaPort.api.getAsset({
+      tokenAddress: event.party.nftContractAddress,
+      tokenId: event.party.nftTokenId,
+    });
+    if (r) {
+      return r.collection;
+    } else {
+      return undefined;
+    }
+  } catch (e) {
+    console.error(e);
+    return undefined;
+  }
+};
+
+const getTwitterHandleOrNameFromCollection = (
+  collection: OpenSeaCollection
+): string => {
+  if (!collection) {
+    return "";
+  }
+
+  // @ts-ignore
+  return collection.twitter_username
+    ? // add "@" to the collection twitter username so that twitter will hyperlink
+      // to that collection's twitter account
+      // @ts-ignore
+      `@${collection.twitter_username}`
+    : collection.name;
+};
+
+const getTwitterHandleOrNameFromEvent = async (
+  event: PartyEvent
+): Promise<string> => {
+  if (
+    event.eventType === "contribution" ||
+    event.eventType === "finalization"
+  ) {
+    const collection = await getOpenseaCollection(event);
+    const twitterHandleOrName =
+      getTwitterHandleOrNameFromCollection(collection);
+    return twitterHandleOrName;
+  }
+};
+
 const swapText = async (event: PartyEvent): Promise<string> => {
   const partyDesc = `${event.party.name} (${event.party.symbol})`;
-  const marketplaceText = getMarketplaceText(event.party);
+  const creatorName = await bestUserName(event.party.createdBy);
+  const twitterHandleOrName = await getTwitterHandleOrNameFromEvent(event);
+  // const marketplaceText = getMarketplaceText(event.party);
+
   switch (event.eventType) {
-    // case "bid":
-    //   return `${event.bid.amountInEth} ETH bid by ${partyDesc} on [itemName] ${marketplaceText}`;
-    case "start":
-      const creatorName = await bestUserName(event.party.createdBy);
-      if (event.party.partyType === "bid") {
-        return `New Party! ${partyDesc} is partying on [itemName] with [#] ETH reserve ${marketplaceText}created by ${creatorName}`;
-      } else if (event.party.partyType === "buy") {
-        return `New Party! ${partyDesc} is partying on [itemName] with [#] ETH reserve ${marketplaceText}created by ${creatorName}`;
-      } else {
-        console.error("Unknown party type", event);
-        return "";
-      }
     case "contribution":
       const isNewParty = getIsNewPartyWithContribution(event.party);
       if (isNewParty) {
@@ -43,13 +85,13 @@ const swapText = async (event: PartyEvent): Promise<string> => {
 
       const isPartyHalfWay = getIsPartyHalfWay(event.party);
       if (isPartyHalfWay) {
-        return `${partyDesc} on [tags collection] is half way to winning…`;
+        return `${partyDesc} on ${twitterHandleOrName} is half way to winning…`;
       }
 
       return "";
     case "finalization":
       if (event.finalization.won) {
-        return `${partyDesc} on [tags collection] has won!`;
+        return `${partyDesc} on ${twitterHandleOrName} has won!`;
       } else {
         return "";
       }
