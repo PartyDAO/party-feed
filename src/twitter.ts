@@ -1,91 +1,88 @@
 import axios from "axios";
 import { config } from "./config";
-import { openSeaPort } from "./opensea";
-import { PartyEvent } from "./types";
-import { bestUserName } from "./utils";
+import { PartyEvent, PartyInfo } from "./types";
+import {
+  bestUserName,
+  getIsNewPartyWithContribution,
+  getIsPartyHalfWay,
+} from "./utils";
 
-// todo: look into twitter embed api
-type DiscordEmbed = {
-  image: { url: string };
-}[];
+const getMarketplaceText = (party: PartyInfo): string => {
+  const twHandles = {
+    foundation: "@withfnd",
+    opensea: "@opensea",
+    zora: "@ourzora",
+  };
 
-const contributionEmoji = (amountString: string) => {
-  const amt = parseFloat(amountString);
-  if (amt <= 0.99) {
-    return "💰";
-  } else if (amt <= 5) {
-    return "💰💰";
-  } else {
-    return "🐳 🐳 🐳";
-  }
+  const marketplaceHandle = twHandles.opensea;
+
+  return marketplaceHandle ? `on ${marketplaceHandle}` : "";
 };
 
 const swapText = async (event: PartyEvent): Promise<string> => {
   const partyDesc = `${event.party.name} (${event.party.symbol})`;
+  const marketplaceText = getMarketplaceText(event.party);
   switch (event.eventType) {
-    case "bid":
-      return `🗳️ Bid placed for ${event.bid.amountInEth} ETH by ${partyDesc}`;
+    // case "bid":
+    //   return `${event.bid.amountInEth} ETH bid by ${partyDesc} on [itemName] ${marketplaceText}`;
     case "start":
       const creatorName = await bestUserName(event.party.createdBy);
-      return `🥳 New PartyBid **${partyDesc}** created by ${creatorName}`;
+      if (event.party.partyType === "bid") {
+        return `New Party! ${partyDesc} is partying on [itemName] with [#] ETH reserve ${marketplaceText}created by ${creatorName}`;
+      } else if (event.party.partyType === "buy") {
+        return `New Party! ${partyDesc} is partying on [itemName] with [#] ETH reserve ${marketplaceText}created by ${creatorName}`;
+      } else {
+        console.error("Unknown party type", event);
+        return "";
+      }
     case "contribution":
-      const userName = await bestUserName(
-        event.contribution.contributorAddress
-      );
-      return `${contributionEmoji(event.contribution.amountInEth)} ${
-        event.contribution.amountInEth
-      } ETH contributed to ${partyDesc} by ${userName}`;
+      const isNewParty = getIsNewPartyWithContribution(event.party);
+      if (isNewParty) {
+        return `New party created by ${creatorName} has its first contribution…`;
+      }
+
+      const isPartyHalfWay = getIsPartyHalfWay(event.party);
+      if (isPartyHalfWay) {
+        return `${partyDesc} on [tags collection] is half way to winning…`;
+      }
+
+      return "";
     case "finalization":
       if (event.finalization.won) {
-        return `🙂 🙂 🙂 ${partyDesc} won and finalized. ${event.finalization.totalSpentInEth} ETH spent. `;
+        return `${partyDesc} on [tags collection] has won!`;
       } else {
-        return `😭 ${partyDesc} lost and finalized.`;
+        return "";
       }
-  }
-  return "Unknown event";
-};
-
-const getImageUrl = async (event: PartyEvent): Promise<string | undefined> => {
-  if (
-    event.eventType === "bid" ||
-    event.eventType === "start" ||
-    event.eventType === "finalization"
-  ) {
-    try {
-      const r = await openSeaPort.api.getAsset({
-        tokenAddress: event.party.nftContractAddress,
-        tokenId: event.party.nftTokenId,
-      });
-      if (r) {
-        return r.imageUrlOriginal;
-      } else {
-        return undefined;
-      }
-    } catch (e) {
-      console.error(e);
-      return undefined;
-    }
-  } else {
-    return undefined;
+    default:
+      console.error("Unknown event", event);
+      return "";
   }
 };
 
 export const postTweet = async (event: PartyEvent) => {
+  // do not tweet if the party lost
+  if (event.eventType === "finalization" && !event.finalization.won) {
+    return;
+  }
+
   let tweetText = "";
   tweetText += await swapText(event);
+  // do not tweet if the event is unknown
+  if (!tweetText) {
+    return;
+  }
+
   if (
     event.eventType === "start" ||
     event.eventType === "finalization" ||
     event.eventType === "bid"
   ) {
     if (event.party.partyType === "bid") {
-      tweetText += ` https://partybid.app/party/${event.party.partyAddress}`;
+      tweetText += `\n\nLink: https://partybid.app/party/${event.party.partyAddress}`;
     } else if (event.party.partyType === "buy") {
-      tweetText += ` https://partybid.app/buy/${event.party.partyAddress}`;
+      tweetText += `\n\nLink: https://partybid.app/buy/${event.party.partyAddress}`;
     }
   }
-  const imageUrl = await getImageUrl(event);
-  const embeds: DiscordEmbed = imageUrl ? [{ image: { url: imageUrl } }] : [];
 
   console.info(`Sending tweet ${tweetText}`);
   return axios.post(
