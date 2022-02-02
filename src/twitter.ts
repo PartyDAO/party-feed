@@ -21,6 +21,11 @@ const getMarketplaceText = (party: PartyInfo): string => {
   return marketplaceHandle ? `on ${marketplaceHandle}` : "";
 };
 
+/**
+ * queries opensea api for the nft's opensea colleciton
+ * @param {PartyEvent} event
+ * @returns {Promise<OpenSeaCollection>}
+ */
 const getOpenseaCollection = async (
   event: PartyEvent
 ): Promise<OpenSeaCollection> => {
@@ -40,6 +45,12 @@ const getOpenseaCollection = async (
   }
 };
 
+/**
+ * extracts the twitter username from the opensea collection if available. otherwise
+ *   extracts the opensea collection name
+ * @param {OpenSeaCollection} collection - opensea collection
+ * @returns {string} - twitter username or collection name
+ */
 const getTwitterHandleOrNameFromCollection = (
   collection: OpenSeaCollection
 ): string => {
@@ -47,12 +58,13 @@ const getTwitterHandleOrNameFromCollection = (
     return "";
   }
 
+  // twitter_username is returned by the API, but is not on the OpenSeaCollection type
   // @ts-ignore
-  return collection.twitter_username
+  const twitterUsername = collection.twitter_username;
+  return twitterUsername
     ? // add "@" to the collection twitter username so that twitter will hyperlink
       // to that collection's twitter account
-      // @ts-ignore
-      `@${collection.twitter_username}`
+      `@${twitterUsername}`
     : collection.name;
 };
 
@@ -67,6 +79,8 @@ const getTwitterHandleOrNameFromEvent = async (
     const twitterHandleOrName =
       getTwitterHandleOrNameFromCollection(collection);
     return twitterHandleOrName;
+  } else {
+    return "";
   }
 };
 
