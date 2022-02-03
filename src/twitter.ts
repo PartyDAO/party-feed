@@ -1,13 +1,13 @@
 import axios from "axios";
-import { openSeaPort } from "./opensea";
+import { OpenSeaCollection } from "opensea-js/lib/types";
 import { config } from "./config";
+import { openSeaPort } from "./opensea";
 import { PartyEvent } from "./types";
 import {
   bestUserName,
   getIsNewPartyWithContribution,
   // getIsPartyHalfWay,
 } from "./utils";
-import { OpenSeaCollection } from "opensea-js/lib/types";
 
 /**
  * queries opensea api for the nft's opensea colleciton
