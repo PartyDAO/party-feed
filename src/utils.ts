@@ -1,5 +1,11 @@
 import { ContributionPartyEvent } from "types";
 import { ethersProvider } from "./ethereum";
+import {
+  haveSetNewPartyWithContribution,
+  haveSetPartyHalfway,
+  setNewPartyWithContribution,
+  setPartyHalfway,
+} from "./party_events";
 
 export const bestUserName = async (address: string): Promise<string> => {
   const ens = await ethersProvider.lookupAddress(address);
@@ -10,29 +16,53 @@ export const bestUserName = async (address: string): Promise<string> => {
   }
 };
 
-export const getIsNewPartyWithContribution = (
+export const getIsNewPartyWithContribution = async (
   event: ContributionPartyEvent
-): boolean => {
-  const { createdBy } = event.party;
-  const { amountInEth, contributorAddress } = event.contribution;
+): Promise<boolean> => {
+  const { partyAddress, createdBy } = event.party;
 
-  if (contributorAddress.toLowerCase() === createdBy.toLowerCase()) {
+  // check redis to see if alert has already been sent
+  const hasSet = await haveSetNewPartyWithContribution(partyAddress);
+  if (hasSet) {
     return false;
   }
 
-  if (amountInEth)
-    // get all contributions
-    // filter out contributions by creator
-    // if length of resulting list is 0 OR > 1, return false
-    // if length of resulting list is 1, true
-    return false;
+  // do not alert for the case that the creator started the party, and made a contribution
+  const { contributorAddress } = event.contribution;
+  if (contributorAddress.toLowerCase() !== createdBy.toLowerCase()) {
+    await setNewPartyWithContribution(partyAddress);
+    return true;
+  }
+
+  // otherwise
+  return false;
 };
 
-export const getIsPartyHalfWay = (event: ContributionPartyEvent): boolean => {
+export const getIsPartyHalfWay = async (
+  event: ContributionPartyEvent
+): Promise<boolean> => {
   const { party } = event;
-  // get all contributions
-  // add up all contributions until amount raised >= (amountNeeded / 2)
-  // if the contributions list after this contribution is length 0, return true
-  // otherwise, return false
+  const { partyAddress } = party;
+
+  // check redis to see if alert has already been sent
+  const hasSet = await haveSetPartyHalfway(partyAddress);
+  if (hasSet) {
+    return false;
+  }
+
+  // todo:
+  // 1. create api endpoint that does the following:
+  //   * if partybid - fetch auction reserve price
+  //   * if partybuy - fetch maxPrice from contract
+  //   * if collectionbuy - fetch current floor price
+  // 2. compare (fetched value) / totalContributions >= .5
+  // 3. return boolean
+  const isPartyHalfway = false;
+  if (isPartyHalfway) {
+    await setPartyHalfway(partyAddress);
+    return true;
+  }
+
+  // otherwise
   return false;
 };
