@@ -92,12 +92,12 @@ const swapText = async (event: PartyEvent): Promise<string> => {
 
   switch (event.eventType) {
     case "contribution":
-      const isNewParty = getIsNewPartyWithContribution(event.party);
+      const isNewParty = getIsNewPartyWithContribution(event);
       if (isNewParty) {
         return `New party created by ${creatorName} has its first contribution…`;
       }
 
-      const isPartyHalfWay = getIsPartyHalfWay(event.party);
+      const isPartyHalfWay = getIsPartyHalfWay(event);
       if (isPartyHalfWay) {
         return `${partyDesc} on ${twitterHandleOrName} is half way to winning…`;
       }
