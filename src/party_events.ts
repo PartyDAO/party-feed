@@ -77,7 +77,9 @@ export const getAllPartyEvents = async (fromBlock: number) => {
   return events;
 };
 
-export const haveSetNewPartyWithContribution = async (partyAddress: string) => {
+export const haveSetNewPartyWithContribution = async (
+  partyAddress: string
+): Promise<boolean> => {
   const key = `new_party_with_contribution_${partyAddress}`;
   const res = await getRedisAsync(key);
   if (res) {
@@ -99,7 +101,9 @@ export const setNewPartyWithContribution = async (partyAddress: string) => {
   await setRedisAsync(key, "true");
 };
 
-export const haveSetPartyHalfway = async (partyAddress: string) => {
+export const haveSetPartyHalfway = async (
+  partyAddress: string
+): Promise<boolean> => {
   const key = `party_halfway_contribution_${partyAddress}`;
   const res = await getRedisAsync(key);
   if (res) {
