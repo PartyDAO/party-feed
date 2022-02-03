@@ -76,3 +76,47 @@ export const getAllPartyEvents = async (fromBlock: number) => {
 
   return events;
 };
+
+export const haveSetNewPartyWithContribution = async (partyAddress: string) => {
+  const key = `new_party_with_contribution_${partyAddress}`;
+  const res = await getRedisAsync(key);
+  if (res) {
+    console.info(
+      `already alerted about new party with contribution ${partyAddress}`
+    );
+    return true;
+  } else {
+    console.info(
+      `have NOT alerted about new party with contribution ${partyAddress}`
+    );
+    return false;
+  }
+};
+
+export const setNewPartyWithContribution = async (partyAddress: string) => {
+  const key = `new_party_with_contribution_${partyAddress}`;
+  console.info(`setting new party with contribution ${partyAddress}`);
+  await setRedisAsync(key, "true");
+};
+
+export const haveSetPartyHalfway = async (partyAddress: string) => {
+  const key = `party_halfway_contribution_${partyAddress}`;
+  const res = await getRedisAsync(key);
+  if (res) {
+    console.info(
+      `already alerted about new party with contribution ${partyAddress}`
+    );
+    return true;
+  } else {
+    console.info(
+      `have NOT alerted about new party with contribution ${partyAddress}`
+    );
+    return false;
+  }
+};
+
+export const setPartyHalfway = async (partyAddress: string) => {
+  const key = `party_halfway_contribution_${partyAddress}`;
+  console.info(`setting party halfway ${partyAddress}`);
+  await setRedisAsync(key, "true");
+};
