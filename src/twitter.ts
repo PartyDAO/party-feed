@@ -1,25 +1,13 @@
 import axios from "axios";
 import { openSeaPort } from "./opensea";
 import { config } from "./config";
-import { PartyEvent, PartyInfo } from "./types";
+import { PartyEvent } from "./types";
 import {
   bestUserName,
   getIsNewPartyWithContribution,
-  getIsPartyHalfWay,
+  // getIsPartyHalfWay,
 } from "./utils";
 import { OpenSeaCollection } from "opensea-js/lib/types";
-
-const getMarketplaceText = (party: PartyInfo): string => {
-  const twHandles = {
-    foundation: "@withfnd",
-    opensea: "@opensea",
-    zora: "@ourzora",
-  };
-
-  const marketplaceHandle = twHandles.opensea;
-
-  return marketplaceHandle ? `on ${marketplaceHandle}` : "";
-};
 
 /**
  * queries opensea api for the nft's opensea colleciton
@@ -88,19 +76,19 @@ const swapText = async (event: PartyEvent): Promise<string> => {
   const partyDesc = `${event.party.name} (${event.party.symbol})`;
   const creatorName = await bestUserName(event.party.createdBy);
   const twitterHandleOrName = await getTwitterHandleOrNameFromEvent(event);
-  // const marketplaceText = getMarketplaceText(event.party);
 
   switch (event.eventType) {
     case "contribution":
-      const isNewParty = getIsNewPartyWithContribution(event);
+      const isNewParty = await getIsNewPartyWithContribution(event);
       if (isNewParty) {
         return `New party created by ${creatorName} has its first contribution…`;
       }
 
-      const isPartyHalfWay = getIsPartyHalfWay(event);
-      if (isPartyHalfWay) {
-        return `${partyDesc} on ${twitterHandleOrName} is half way to winning…`;
-      }
+      // todo: add support for "party halfway" alert
+      // const isPartyHalfWay = await getIsPartyHalfWay(event);
+      // if (isPartyHalfWay) {
+      //   return `${partyDesc} on ${twitterHandleOrName} is half way to winning…`;
+      // }
 
       return "";
     case "finalization":
