@@ -117,9 +117,8 @@ export const postTweet = async (event: PartyEvent) => {
   }
 
   if (
-    event.eventType === "start" ||
-    event.eventType === "finalization" ||
-    event.eventType === "bid"
+    event.eventType === "contribution" ||
+    event.eventType === "finalization"
   ) {
     if (event.party.partyType === "bid") {
       tweetText += `\n\nLink: https://partybid.app/party/${event.party.partyAddress}`;
