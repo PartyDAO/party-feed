@@ -22,4 +22,8 @@ export const config = {
     process.env.TWITTER_ACCESS_TOKEN,
     "twitter access token"
   ),
+  openSeaApiKey: stringFromENVorThrow(
+    process.env.OPENSEA_API_KEY,
+    "opensea api key"
+  ),
 };
