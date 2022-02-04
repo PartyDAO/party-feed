@@ -17,13 +17,20 @@ import {
 const getOpenseaCollection = async (
   event: PartyEvent
 ): Promise<OpenSeaCollection> => {
+  const {
+    party: { nftContractAddress, nftTokenId },
+  } = event;
   try {
-    const r = await openSeaPort.api.getAsset({
-      tokenAddress: event.party.nftContractAddress,
-      tokenId: event.party.nftTokenId,
-    });
+    const r = await axios.get(
+      `https://api.opensea.io/api/v1/asset/${nftContractAddress}/${nftTokenId}`,
+      {
+        headers: {
+          "X-API-KEY": config.openSeaApiKey,
+        },
+      }
+    );
     if (r) {
-      return r.collection;
+      return r.data.collection;
     } else {
       return undefined;
     }
