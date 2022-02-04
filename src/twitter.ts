@@ -88,7 +88,11 @@ const swapText = async (event: PartyEvent): Promise<string> => {
     case "contribution":
       const isNewParty = await getIsNewPartyWithContribution(event);
       if (isNewParty) {
-        return `New party created by ${creatorName} has its first contribution…`;
+        return (
+          `New party created by ${creatorName} has its first contribution…` +
+          "\n\n" +
+          `${partyDesc} on ${twitterHandleOrName}`
+        );
       }
 
       // todo: add support for "party halfway" alert
