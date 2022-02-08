@@ -77,10 +77,14 @@ export const getAllPartyEvents = async (fromBlock: number) => {
   return events;
 };
 
+export const getHaveSetNewPartyWithContributionCacheKey = (
+  partyAddress: string
+): string => `new_party_with_contribution_${partyAddress}`;
+
 export const haveSetNewPartyWithContribution = async (
   partyAddress: string
 ): Promise<boolean> => {
-  const key = `new_party_with_contribution_${partyAddress}`;
+  const key = getHaveSetNewPartyWithContributionCacheKey(partyAddress);
   const res = await getRedisAsync(key);
   if (res) {
     console.info(
@@ -96,15 +100,18 @@ export const haveSetNewPartyWithContribution = async (
 };
 
 export const setNewPartyWithContribution = async (partyAddress: string) => {
-  const key = `new_party_with_contribution_${partyAddress}`;
+  const key = getHaveSetNewPartyWithContributionCacheKey(partyAddress);
   console.info(`setting new party with contribution ${partyAddress}`);
   await setRedisAsync(key, "true");
 };
 
+export const getHaveSetPartyHalfwayCacheKey = (partyAddress: string): string =>
+  `party_halfway_contribution_${partyAddress}`;
+
 export const haveSetPartyHalfway = async (
   partyAddress: string
 ): Promise<boolean> => {
-  const key = `party_halfway_contribution_${partyAddress}`;
+  const key = getHaveSetPartyHalfwayCacheKey(partyAddress);
   const res = await getRedisAsync(key);
   if (res) {
     console.info(
@@ -120,7 +127,7 @@ export const haveSetPartyHalfway = async (
 };
 
 export const setPartyHalfway = async (partyAddress: string) => {
-  const key = `party_halfway_contribution_${partyAddress}`;
+  const key = getHaveSetPartyHalfwayCacheKey(partyAddress);
   console.info(`setting party halfway ${partyAddress}`);
   await setRedisAsync(key, "true");
 };
