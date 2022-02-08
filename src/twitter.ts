@@ -71,15 +71,16 @@ const getTwitterHandleOrNameFromEvent = async (
     event.eventType === "finalization"
   ) {
     const collection = await getOpenseaCollection(event);
-    const twitterHandleOrName =
-      getTwitterHandleOrNameFromCollection(collection);
+    const twitterHandleOrName = getTwitterHandleOrNameFromCollection(
+      collection
+    );
     return twitterHandleOrName;
   } else {
     return "";
   }
 };
 
-const swapText = async (event: PartyEvent): Promise<string> => {
+const eventText = async (event: PartyEvent): Promise<string> => {
   const partyDesc = `${event.party.name} (${event.party.symbol})`;
   const creatorName = await bestUserName(event.party.createdBy);
   const twitterHandleOrName = await getTwitterHandleOrNameFromEvent(event);
@@ -121,7 +122,7 @@ export const postTweet = async (event: PartyEvent) => {
   }
 
   let tweetText = "";
-  tweetText += await swapText(event);
+  tweetText += await eventText(event);
   // do not tweet if the event is unknown
   if (!tweetText) {
     return;
