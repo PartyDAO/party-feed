@@ -40,7 +40,7 @@ const lookupAttrs = (fromBlock: number) => {
 export const getCreations = async (
   fromBlock: number
 ): Promise<StartPartyEvent[]> => {
-  const zr = await chain.query({
+  const zr = await chain("query")({
     party_created: [
       lookupAttrs(fromBlock),
       {
@@ -51,6 +51,7 @@ export const getCreations = async (
       },
     ],
   });
+  // @ts-ignore
   return zr.party_created.map((c) => {
     return {
       eventType: "start",
@@ -63,7 +64,7 @@ export const getCreations = async (
 export const getContributions = async (
   fromBlock: number
 ): Promise<ContributionPartyEvent[]> => {
-  const zr = await chain.query({
+  const zr = await chain("query")({
     party_contribution: [
       lookupAttrs(fromBlock),
       {
@@ -75,6 +76,7 @@ export const getContributions = async (
       },
     ],
   });
+  // @ts-ignore
   return zr.party_contribution.map((c) => {
     return {
       eventType: "contribution",
@@ -89,7 +91,7 @@ export const getContributions = async (
 };
 
 export const getBids = async (fromBlock: number): Promise<BidPartyEvent[]> => {
-  const zr = await chain.query({
+  const zr = await chain("query")({
     bid: [
       lookupAttrs(fromBlock),
       {
@@ -100,6 +102,7 @@ export const getBids = async (fromBlock: number): Promise<BidPartyEvent[]> => {
       },
     ],
   });
+  // @ts-ignore
   return zr.bid.map((b) => {
     return {
       eventType: "bid",
@@ -115,7 +118,7 @@ export const getBids = async (fromBlock: number): Promise<BidPartyEvent[]> => {
 export const getFinalizations = async (
   fromBlock: number
 ): Promise<FinalizationPartyEvent[]> => {
-  const zr = await chain.query({
+  const zr = await chain("query")({
     party_finalized: [
       lookupAttrs(fromBlock),
       {
@@ -127,6 +130,7 @@ export const getFinalizations = async (
       },
     ],
   });
+  // @ts-ignore
   return zr.party_finalized.map((f) => {
     const won = parseInt(f.result).toString() == "1";
     const finalization = {
@@ -144,7 +148,7 @@ export const getFinalizations = async (
 };
 
 export const getLastKnownBlockNumber = async (): Promise<number> => {
-  const zr = await chain.query({
+  const zr = await chain("query")({
     run: [
       {
         where: { status: { _eq: "success" } },
