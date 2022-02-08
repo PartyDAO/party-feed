@@ -80,7 +80,7 @@ const getTwitterHandleOrNameFromEvent = async (
   }
 };
 
-const eventText = async (event: PartyEvent): Promise<string> => {
+const eventText = async (event: PartyEvent): Promise<string | undefined> => {
   const partyDesc = `${event.party.name} (${event.party.symbol})`;
   const creatorName = await bestUserName(event.party.createdBy);
   const twitterHandleOrName = await getTwitterHandleOrNameFromEvent(event);
@@ -102,16 +102,16 @@ const eventText = async (event: PartyEvent): Promise<string> => {
       //   return `${partyDesc} on ${twitterHandleOrName} is half way to winning…`;
       // }
 
-      return "";
+      return undefined;
     case "finalization":
       if (event.finalization.won) {
         return `${partyDesc} on ${twitterHandleOrName} has won!`;
       } else {
-        return "";
+        return undefined;
       }
     default:
       console.error("Unknown event", event);
-      return "";
+      return undefined;
   }
 };
 
