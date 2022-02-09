@@ -18,10 +18,24 @@ export const config = {
   infuraId: stringFromENVorThrow(process.env.INFURA_ID, "infura id"),
   hasuraUrl: stringFromENVorThrow(process.env.HASURA_URL, "hasura url"),
   redisUri: stringFromENVorThrow(process.env.REDIS_URI, "redis uri"),
-  twitterAccessToken: stringFromENVorThrow(
-    process.env.TWITTER_ACCESS_TOKEN,
-    "twitter access token"
-  ),
+  twitter: {
+    apiKey: stringFromENVorThrow(
+      process.env.TWITTER_API_KEY,
+      "twitter api key"
+    ),
+    apiSecret: stringFromENVorThrow(
+      process.env.TWITTER_API_SECRET,
+      "twitter api secret"
+    ),
+    accessToken: stringFromENVorThrow(
+      process.env.TWITTER_ACCESS_TOKEN,
+      "twitter access token"
+    ),
+    accessSecret: stringFromENVorThrow(
+      process.env.TWITTER_ACCESS_SECRET,
+      "twitter access token"
+    ),
+  },
   openSeaApiKey: stringFromENVorThrow(
     process.env.OPENSEA_API_KEY,
     "opensea api key"
