@@ -116,7 +116,7 @@ const eventText = async (event: PartyEvent): Promise<string | undefined> => {
   }
 };
 
-export const postTweet = async (event: PartyEvent) => {
+export const postTweetIfRelevant = async (event: PartyEvent) => {
   // do not tweet if the party lost
   if (event.eventType === "finalization" && !event.finalization.won) {
     return;
