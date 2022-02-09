@@ -3,7 +3,7 @@ export interface PartyInfo {
   partyType: string;
   partyAddress: string;
   nftContractAddress: string;
-  nftTokenId: number;
+  nftTokenId?: number;
   symbol: string;
   createdBy: string;
 }

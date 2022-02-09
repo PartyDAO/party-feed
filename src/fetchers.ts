@@ -8,6 +8,7 @@ import {
   FinalizationPartyEvent,
   BidPartyEvent,
   StartPartyEvent,
+  PartyInfo,
 } from "./types";
 
 const chain = Chain(config.hasuraUrl);
@@ -51,14 +52,15 @@ export const getCreations = async (
       },
     ],
   });
-  // @ts-ignore
-  return zr.party_created.map((c) => {
-    return {
-      eventType: "start",
-      party: c.party,
-      txHash: c.transactionHash,
-    };
-  });
+  return zr.party_created.map(
+    (c): StartPartyEvent => {
+      return {
+        eventType: "start",
+        party: c.party,
+        txHash: c.transactionHash,
+      };
+    }
+  );
 };
 
 export const getContributions = async (
@@ -76,18 +78,19 @@ export const getContributions = async (
       },
     ],
   });
-  // @ts-ignore
-  return zr.party_contribution.map((c) => {
-    return {
-      eventType: "contribution",
-      party: c.party,
-      txHash: c.transactionHash,
-      contribution: {
-        contributorAddress: c.contributedBy,
-        amountInEth: (parseInt(c.contributedAmountWei) / 10 ** 18).toString(),
-      },
-    };
-  });
+  return zr.party_contribution.map(
+    (c): ContributionPartyEvent => {
+      return {
+        eventType: "contribution",
+        party: c.party,
+        txHash: c.transactionHash,
+        contribution: {
+          contributorAddress: c.contributedBy,
+          amountInEth: (parseInt(c.contributedAmountWei) / 10 ** 18).toString(),
+        },
+      };
+    }
+  );
 };
 
 export const getBids = async (fromBlock: number): Promise<BidPartyEvent[]> => {
@@ -102,17 +105,18 @@ export const getBids = async (fromBlock: number): Promise<BidPartyEvent[]> => {
       },
     ],
   });
-  // @ts-ignore
-  return zr.bid.map((b) => {
-    return {
-      eventType: "bid",
-      party: b.party,
-      txHash: b.transactionHash,
-      bid: {
-        amountInEth: (parseInt(b.amount) / 10 ** 18).toString(),
-      },
-    };
-  });
+  return zr.bid.map(
+    (b): BidPartyEvent => {
+      return {
+        eventType: "bid",
+        party: b.party,
+        txHash: b.transactionHash,
+        bid: {
+          amountInEth: (parseInt(b.amount) / 10 ** 18).toString(),
+        },
+      };
+    }
+  );
 };
 
 export const getFinalizations = async (
@@ -130,21 +134,22 @@ export const getFinalizations = async (
       },
     ],
   });
-  // @ts-ignore
-  return zr.party_finalized.map((f) => {
-    const won = parseInt(f.result).toString() == "1";
-    const finalization = {
-      won: won,
-      totalSpentInEth: (parseInt(f.totalSpentWei) / 10 ** 18).toString(),
-    };
+  return zr.party_finalized.map(
+    (f): FinalizationPartyEvent => {
+      const won = parseInt(f.result).toString() == "1";
+      const finalization = {
+        won: won,
+        totalSpentInEth: (parseInt(f.totalSpentWei) / 10 ** 18).toString(),
+      };
 
-    return {
-      eventType: "finalization",
-      party: f.party,
-      txHash: f.transactionHash,
-      finalization: finalization,
-    };
-  });
+      return {
+        eventType: "finalization",
+        party: f.party,
+        txHash: f.transactionHash,
+        finalization: finalization,
+      };
+    }
+  );
 };
 
 export const getLastKnownBlockNumber = async (): Promise<number> => {
