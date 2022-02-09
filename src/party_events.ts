@@ -81,7 +81,7 @@ export const getAllPartyEvents = async (fromBlock: number) => {
   return events;
 };
 
-export const haveAlertedAboutNewParty = async (
+export const getHaveAlertedAboutNewParty = async (
   partyAddress: string
 ): Promise<boolean> => {
   const key = getHaveAlertedAboutNewPartyCacheKey(partyAddress);
@@ -105,7 +105,7 @@ export const setHaveAlertedAboutNewParty = async (partyAddress: string) => {
   await setRedisAsync(key, "true");
 };
 
-export const haveAlertedAboutPartyHalfway = async (
+export const getHaveAlertedAboutPartyHalfway = async (
   partyAddress: string
 ): Promise<boolean> => {
   const key = getHaveAlertedAboutPartyHalfwayCacheKey(partyAddress);

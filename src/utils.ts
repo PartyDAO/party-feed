@@ -1,8 +1,8 @@
 import { ContributionPartyEvent } from "types";
 import { ethersProvider } from "./ethereum";
 import {
-  haveAlertedAboutNewParty,
-  haveAlertedAboutPartyHalfway,
+  getHaveAlertedAboutNewParty,
+  getHaveAlertedAboutPartyHalfway,
   setHaveAlertedAboutNewParty,
   setHaveAlertedAboutPartyHalfway,
 } from "./party_events";
@@ -22,7 +22,7 @@ export const getShouldAlertAboutNewParty = async (
   const { partyAddress, createdBy } = event.party;
 
   // check redis to see if alert has already been sent
-  const hasSet = await haveAlertedAboutNewParty(partyAddress);
+  const hasSet = await getHaveAlertedAboutNewParty(partyAddress);
   if (hasSet) {
     return false;
   }
@@ -45,7 +45,7 @@ export const getShouldAlertAboutPartyHalfWay = async (
   const { partyAddress } = party;
 
   // check redis to see if alert has already been sent
-  const hasSet = await haveAlertedAboutPartyHalfway(partyAddress);
+  const hasSet = await getHaveAlertedAboutPartyHalfway(partyAddress);
   if (hasSet) {
     return false;
   }
