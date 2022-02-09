@@ -135,7 +135,10 @@ export const postTweet = async (event: PartyEvent) => {
   ) {
     if (event.party.partyType === "bid") {
       tweetText += `\nhttps://partybid.app/party/${event.party.partyAddress}`;
-    } else if (event.party.partyType === "buy") {
+    } else if (
+      event.party.partyType === "buy" ||
+      event.party.partyType === "collection"
+    ) {
       tweetText += `\nhttps://partybid.app/buy/${event.party.partyAddress}`;
     }
   }
