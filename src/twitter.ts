@@ -85,6 +85,9 @@ const eventText = async (event: PartyEvent): Promise<string | undefined> => {
   const partyDesc = `${event.party.name} (${event.party.symbol})`;
   const creatorName = await bestUserName(event.party.createdBy);
   const twitterHandleOrName = await getTwitterHandleOrNameFromEvent(event);
+  const twitterHandleOrNameStr = twitterHandleOrName
+    ? ` on ${twitterHandleOrName}`
+    : "";
 
   switch (event.eventType) {
     case "contribution":
@@ -93,20 +96,20 @@ const eventText = async (event: PartyEvent): Promise<string | undefined> => {
         return (
           `New party created by ${creatorName} has its first contribution…` +
           "\n\n" +
-          `${partyDesc} on ${twitterHandleOrName}`
+          `${partyDesc}${twitterHandleOrNameStr}`
         );
       }
 
       // todo: add support for "party halfway" alert
       // const shouldAlertAboutPartyHalfWay = await getShouldAlertAboutPartyHalfWay(event);
       // if (shouldAlertAboutPartyHalfWay) {
-      //   return `${partyDesc} on ${twitterHandleOrName} is half way to winning…`;
+      //   return `${partyDesc}${twitterHandleOrNameStr} is half way to winning…`;
       // }
 
       return undefined;
     case "finalization":
       if (event.finalization.won) {
-        return `${partyDesc} on ${twitterHandleOrName} has won!`;
+        return `${partyDesc}${twitterHandleOrNameStr} has won!`;
       } else {
         return undefined;
       }
