@@ -6,6 +6,10 @@ import {
 } from "./fetchers";
 import { getRedisAsync, setRedisAsync } from "./redis_util";
 import {
+  getHaveAlertedAboutNewPartyCacheKey,
+  getHaveAlertedAboutPartyHalfwayCacheKey,
+} from "./redis_key_util";
+import {
   PartyEvent,
   StartPartyEvent,
   ContributionPartyEvent,
@@ -77,10 +81,6 @@ export const getAllPartyEvents = async (fromBlock: number) => {
   return events;
 };
 
-export const getHaveAlertedAboutNewPartyCacheKey = (
-  partyAddress: string
-): string => `new_party_with_contribution_${partyAddress}`;
-
 export const haveAlertedAboutNewParty = async (
   partyAddress: string
 ): Promise<boolean> => {
@@ -104,10 +104,6 @@ export const setHaveAlertedAboutNewParty = async (partyAddress: string) => {
   console.info(`setting new party with contribution ${partyAddress}`);
   await setRedisAsync(key, "true");
 };
-
-export const getHaveAlertedAboutPartyHalfwayCacheKey = (
-  partyAddress: string
-): string => `party_halfway_contribution_${partyAddress}`;
 
 export const haveAlertedAboutPartyHalfway = async (
   partyAddress: string
