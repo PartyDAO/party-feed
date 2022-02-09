@@ -1,10 +1,10 @@
 import { ContributionPartyEvent } from "types";
 import { ethersProvider } from "./ethereum";
 import {
-  haveSetNewPartyWithContribution,
-  haveSetPartyHalfway,
-  setNewPartyWithContribution,
-  setPartyHalfway,
+  haveAlertedAboutNewParty,
+  haveAlertedAboutPartyHalfway,
+  setHaveAlertedAboutNewParty,
+  setHaveAlertedAboutPartyHalfway,
 } from "./party_events";
 
 export const bestUserName = async (address: string): Promise<string> => {
@@ -22,7 +22,7 @@ export const getIsNewPartyWithContribution = async (
   const { partyAddress, createdBy } = event.party;
 
   // check redis to see if alert has already been sent
-  const hasSet = await haveSetNewPartyWithContribution(partyAddress);
+  const hasSet = await haveAlertedAboutNewParty(partyAddress);
   if (hasSet) {
     return false;
   }
@@ -30,7 +30,7 @@ export const getIsNewPartyWithContribution = async (
   // do not alert for the case that the creator started the party, and made a contribution
   const { contributorAddress } = event.contribution;
   if (contributorAddress.toLowerCase() !== createdBy.toLowerCase()) {
-    await setNewPartyWithContribution(partyAddress);
+    await setHaveAlertedAboutNewParty(partyAddress);
     return true;
   }
 
@@ -45,7 +45,7 @@ export const getIsPartyHalfWay = async (
   const { partyAddress } = party;
 
   // check redis to see if alert has already been sent
-  const hasSet = await haveSetPartyHalfway(partyAddress);
+  const hasSet = await haveAlertedAboutPartyHalfway(partyAddress);
   if (hasSet) {
     return false;
   }
@@ -59,7 +59,7 @@ export const getIsPartyHalfWay = async (
   // 3. return boolean
   const isPartyHalfway = false;
   if (isPartyHalfway) {
-    await setPartyHalfway(partyAddress);
+    await setHaveAlertedAboutPartyHalfway(partyAddress);
     return true;
   }
 

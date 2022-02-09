@@ -77,14 +77,14 @@ export const getAllPartyEvents = async (fromBlock: number) => {
   return events;
 };
 
-export const getHaveSetNewPartyWithContributionCacheKey = (
+export const getHaveAlertedAboutNewPartyCacheKey = (
   partyAddress: string
 ): string => `new_party_with_contribution_${partyAddress}`;
 
-export const haveSetNewPartyWithContribution = async (
+export const haveAlertedAboutNewParty = async (
   partyAddress: string
 ): Promise<boolean> => {
-  const key = getHaveSetNewPartyWithContributionCacheKey(partyAddress);
+  const key = getHaveAlertedAboutNewPartyCacheKey(partyAddress);
   const res = await getRedisAsync(key);
   if (res) {
     console.info(
@@ -99,19 +99,20 @@ export const haveSetNewPartyWithContribution = async (
   }
 };
 
-export const setNewPartyWithContribution = async (partyAddress: string) => {
-  const key = getHaveSetNewPartyWithContributionCacheKey(partyAddress);
+export const setHaveAlertedAboutNewParty = async (partyAddress: string) => {
+  const key = getHaveAlertedAboutNewPartyCacheKey(partyAddress);
   console.info(`setting new party with contribution ${partyAddress}`);
   await setRedisAsync(key, "true");
 };
 
-export const getHaveSetPartyHalfwayCacheKey = (partyAddress: string): string =>
-  `party_halfway_contribution_${partyAddress}`;
+export const getHaveAlertedAboutPartyHalfwayCacheKey = (
+  partyAddress: string
+): string => `party_halfway_contribution_${partyAddress}`;
 
-export const haveSetPartyHalfway = async (
+export const haveAlertedAboutPartyHalfway = async (
   partyAddress: string
 ): Promise<boolean> => {
-  const key = getHaveSetPartyHalfwayCacheKey(partyAddress);
+  const key = getHaveAlertedAboutPartyHalfwayCacheKey(partyAddress);
   const res = await getRedisAsync(key);
   if (res) {
     console.info(
@@ -126,8 +127,8 @@ export const haveSetPartyHalfway = async (
   }
 };
 
-export const setPartyHalfway = async (partyAddress: string) => {
-  const key = getHaveSetPartyHalfwayCacheKey(partyAddress);
+export const setHaveAlertedAboutPartyHalfway = async (partyAddress: string) => {
+  const key = getHaveAlertedAboutPartyHalfwayCacheKey(partyAddress);
   console.info(`setting party halfway ${partyAddress}`);
   await setRedisAsync(key, "true");
 };
