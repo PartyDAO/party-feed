@@ -33,7 +33,7 @@ export const config = {
     ),
     accessSecret: stringFromENVorThrow(
       process.env.TWITTER_ACCESS_SECRET,
-      "twitter access token"
+      "twitter access secret"
     ),
   },
   openSeaApiKey: stringFromENVorThrow(
