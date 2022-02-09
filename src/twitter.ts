@@ -6,8 +6,8 @@ import { openSeaPort } from "./opensea";
 import { PartyEvent } from "./types";
 import {
   bestUserName,
-  getIsNewPartyWithContribution,
-  // getIsPartyHalfWay,
+  getShouldAlertAboutNewParty,
+  // getShouldAlertAboutPartyHalfWay,
 } from "./utils";
 
 /**
@@ -88,8 +88,8 @@ const eventText = async (event: PartyEvent): Promise<string | undefined> => {
 
   switch (event.eventType) {
     case "contribution":
-      const isNewParty = await getIsNewPartyWithContribution(event);
-      if (isNewParty) {
+      const shouldAlertAboutNewParty = await getShouldAlertAboutNewParty(event);
+      if (shouldAlertAboutNewParty) {
         return (
           `New party created by ${creatorName} has its first contribution…` +
           "\n\n" +
@@ -98,8 +98,8 @@ const eventText = async (event: PartyEvent): Promise<string | undefined> => {
       }
 
       // todo: add support for "party halfway" alert
-      // const isPartyHalfWay = await getIsPartyHalfWay(event);
-      // if (isPartyHalfWay) {
+      // const shouldAlertAboutPartyHalfWay = await getShouldAlertAboutPartyHalfWay(event);
+      // if (shouldAlertAboutPartyHalfWay) {
       //   return `${partyDesc} on ${twitterHandleOrName} is half way to winning…`;
       // }
 

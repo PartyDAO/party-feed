@@ -16,7 +16,7 @@ export const bestUserName = async (address: string): Promise<string> => {
   }
 };
 
-export const getIsNewPartyWithContribution = async (
+export const getShouldAlertAboutNewParty = async (
   event: ContributionPartyEvent
 ): Promise<boolean> => {
   const { partyAddress, createdBy } = event.party;
@@ -38,7 +38,7 @@ export const getIsNewPartyWithContribution = async (
   return false;
 };
 
-export const getIsPartyHalfWay = async (
+export const getShouldAlertAboutPartyHalfWay = async (
   event: ContributionPartyEvent
 ): Promise<boolean> => {
   const { party } = event;
