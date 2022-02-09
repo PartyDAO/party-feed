@@ -1,5 +1,6 @@
 import axios from "axios";
 import { OpenSeaCollection } from "opensea-js/lib/types";
+import { TwitterApi } from "twitter-api-v2";
 import { config } from "./config";
 import { openSeaPort } from "./opensea";
 import { PartyEvent } from "./types";
@@ -140,16 +141,21 @@ export const postTweet = async (event: PartyEvent) => {
   }
 
   console.info(`Sending tweet ${tweetText}`);
-  return axios.post(
-    "https://api.twitter.com/2/tweets",
-    {
-      text: tweetText,
-    },
-    {
-      headers: {
-        Authorization: `Bearer ${config.twitterAccessToken}`,
-        "Content-type": "application/json",
-      },
-    }
-  );
+  return twitterApiPostTweet(tweetText);
+};
+
+const twitterApiPostTweet = async (tweetText: string): Promise<any> => {
+  const client = new TwitterApi({
+    appKey: config.twitter.apiKey,
+    appSecret: config.twitter.apiSecret,
+    accessToken: config.twitter.accessToken,
+    accessSecret: config.twitter.accessSecret,
+  });
+
+  const tweetRes = await client.v1.tweet(tweetText);
+  const tweetUrl = `https://twitter.com/partybidbot/status/${tweetRes.id_str}`;
+
+  console.log("success:", tweetUrl);
+
+  return tweetRes;
 };
