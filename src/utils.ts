@@ -60,7 +60,7 @@ export const getShouldAlertAboutPartyHalfWay = async (
   // convert wei values to BigNumbers
   const totalEthNeededBN = BigNumber.from(totalEthNeeded);
   const totalContributionAmountBN = BigNumber.from(
-    event.contribution.amountInEth // todo: this is not the right value. get totalContribution from event
+    event.contribution.totalAmountContributedToParyInWei
   );
 
   // BN.js cannot handle decimal values, so instead we multiply the total contributions by 2 and compare to
