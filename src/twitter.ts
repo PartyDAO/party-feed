@@ -54,14 +54,18 @@ const getTwitterHandleOrNameFromCollection = (
     return "";
   }
 
+  // NOTE: It is against Twitter's terms to @ mention an account that has not @ mentioned
+  //   the twitter bot's account. commenting out this logic for now.
   // twitter_username is returned by the API, but is not on the OpenSeaCollection type
   // @ts-ignore
-  const twitterUsername = collection.twitter_username;
-  return twitterUsername
-    ? // add "@" to the collection twitter username so that twitter will hyperlink
-      // to that collection's twitter account
-      `@${twitterUsername}`
-    : collection.name;
+  // const twitterUsername = collection.twitter_username;
+  // return twitterUsername
+  //   ? // add "@" to the collection twitter username so that twitter will hyperlink
+  //     // to that collection's twitter account
+  //     `@${twitterUsername}`
+  //   : collection.name;
+
+  return collection.name;
 };
 
 const getTwitterHandleOrNameFromEvent = async (
