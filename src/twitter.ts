@@ -155,6 +155,11 @@ export const postTweetIfRelevant = async (event: PartyEvent) => {
 };
 
 const twitterApiPostTweet = async (tweetText: string): Promise<any> => {
+  if (config.nodeEnv === "development") {
+    console.log("tweets are logged in development:", tweetText, "\n");
+    return;
+  }
+
   const client = new TwitterApi({
     appKey: config.twitter.apiKey,
     appSecret: config.twitter.apiSecret,
