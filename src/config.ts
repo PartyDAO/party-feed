@@ -36,6 +36,10 @@ export const config = {
       "twitter access secret"
     ),
   },
+  nodeEnv: stringFromENVorThrow(
+    process.env.NODE_ENV || "development",
+    "node environment"
+  ),
   openSeaApiKey: stringFromENVorThrow(
     process.env.OPENSEA_API_KEY,
     "opensea api key"
