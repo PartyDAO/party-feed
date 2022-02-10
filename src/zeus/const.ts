@@ -1,5523 +1,5523 @@
 /* eslint-disable */
 
-export const AllTypesProps: Record<string, any> = {
-  Boolean_comparison_exp: {
-    _eq: {
-      type: "Boolean",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _gt: {
-      type: "Boolean",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _gte: {
-      type: "Boolean",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _in: {
-      type: "Boolean",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-    _is_null: {
-      type: "Boolean",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _lt: {
-      type: "Boolean",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _lte: {
-      type: "Boolean",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _neq: {
-      type: "Boolean",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _nin: {
-      type: "Boolean",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-  },
-  Int_comparison_exp: {
-    _eq: {
-      type: "Int",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _gt: {
-      type: "Int",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _gte: {
-      type: "Int",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _in: {
-      type: "Int",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-    _is_null: {
-      type: "Boolean",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _lt: {
-      type: "Int",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _lte: {
-      type: "Int",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _neq: {
-      type: "Int",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _nin: {
-      type: "Int",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-  },
-  String_comparison_exp: {
-    _eq: {
-      type: "String",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _gt: {
-      type: "String",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _gte: {
-      type: "String",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _ilike: {
-      type: "String",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _in: {
-      type: "String",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-    _iregex: {
-      type: "String",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _is_null: {
-      type: "Boolean",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _like: {
-      type: "String",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _lt: {
-      type: "String",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _lte: {
-      type: "String",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _neq: {
-      type: "String",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _nilike: {
-      type: "String",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _nin: {
-      type: "String",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-    _niregex: {
-      type: "String",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _nlike: {
-      type: "String",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _nregex: {
-      type: "String",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _nsimilar: {
-      type: "String",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _regex: {
-      type: "String",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _similar: {
-      type: "String",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  bid_bool_exp: {
-    _and: {
-      type: "bid_bool_exp",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-    _not: {
-      type: "bid_bool_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _or: {
-      type: "bid_bool_exp",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-    amount: {
-      type: "numeric_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    blockNumber: {
-      type: "numeric_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "Int_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    party: {
-      type: "party_bool_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyAddress: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "Int_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "Int_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    transactionHash: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  bid_order_by: {
-    amount: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    party: {
-      type: "party_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyAddress: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    transactionHash: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  bid_select_column: "enum",
-  bigint: "String",
-  bigint_comparison_exp: {
-    _eq: {
-      type: "bigint",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _gt: {
-      type: "bigint",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _gte: {
-      type: "bigint",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _in: {
-      type: "bigint",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-    _is_null: {
-      type: "Boolean",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _lt: {
-      type: "bigint",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _lte: {
-      type: "bigint",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _neq: {
-      type: "bigint",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _nin: {
-      type: "bigint",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-  },
-  block_bool_exp: {
-    _and: {
-      type: "block_bool_exp",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-    _not: {
-      type: "block_bool_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _or: {
-      type: "block_bool_exp",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-    blockNumber: {
-      type: "numeric_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    blockTimestamp: {
-      type: "numeric_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "Int_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  block_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    blockTimestamp: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  block_select_column: "enum",
-  ens_lookup_bool_exp: {
-    _and: {
-      type: "ens_lookup_bool_exp",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-    _not: {
-      type: "ens_lookup_bool_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _or: {
-      type: "ens_lookup_bool_exp",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-    address: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    ensName: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    fetchedAt: {
-      type: "numeric_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    found: {
-      type: "Boolean_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "Int_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  ens_lookup_order_by: {
-    address: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    ensName: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    fetchedAt: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    found: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  ens_lookup_select_column: "enum",
-  eth_price_bool_exp: {
-    _and: {
-      type: "eth_price_bool_exp",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-    _not: {
-      type: "eth_price_bool_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _or: {
-      type: "eth_price_bool_exp",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-    fetchedAt: {
-      type: "numeric_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "Int_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    priceUsd: {
-      type: "numeric_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  eth_price_order_by: {
-    fetchedAt: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    priceUsd: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  eth_price_select_column: "enum",
-  jsonb: "String",
-  jsonb_comparison_exp: {
-    _contained_in: {
-      type: "jsonb",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _contains: {
-      type: "jsonb",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _eq: {
-      type: "jsonb",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _gt: {
-      type: "jsonb",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _gte: {
-      type: "jsonb",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _has_key: {
-      type: "String",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _has_keys_all: {
-      type: "String",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-    _has_keys_any: {
-      type: "String",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-    _in: {
-      type: "jsonb",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-    _is_null: {
-      type: "Boolean",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _lt: {
-      type: "jsonb",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _lte: {
-      type: "jsonb",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _neq: {
-      type: "jsonb",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _nin: {
-      type: "jsonb",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-  },
-  numeric: "String",
-  numeric_comparison_exp: {
-    _eq: {
-      type: "numeric",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _gt: {
-      type: "numeric",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _gte: {
-      type: "numeric",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _in: {
-      type: "numeric",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-    _is_null: {
-      type: "Boolean",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _lt: {
-      type: "numeric",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _lte: {
-      type: "numeric",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _neq: {
-      type: "numeric",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _nin: {
-      type: "numeric",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-  },
-  open_sea_metadata: {
-    openSeaResponse: {
-      path: {
-        type: "String",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-    },
-  },
-  open_sea_metadata_bool_exp: {
-    _and: {
-      type: "open_sea_metadata_bool_exp",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-    _not: {
-      type: "open_sea_metadata_bool_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _or: {
-      type: "open_sea_metadata_bool_exp",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-    animationOriginalUrl: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    animationUrl: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    description: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    externalLink: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "Int_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    imageOriginalUrl: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    imagePreviewUrl: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    imageThumbnailUrl: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    imageUrl: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    name: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    openSeaResponse: {
-      type: "jsonb_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    tokenAddress: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    tokenId: {
-      type: "numeric_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  open_sea_metadata_order_by: {
-    animationOriginalUrl: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    animationUrl: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    description: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    externalLink: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    imageOriginalUrl: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    imagePreviewUrl: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    imageThumbnailUrl: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    imageUrl: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    name: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    openSeaResponse: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    tokenAddress: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    tokenId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  open_sea_metadata_select_column: "enum",
-  order_by: "enum",
-  party: {
-    party_claims: {
-      distinct_on: {
-        type: "party_claim_select_column",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      limit: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      offset: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      order_by: {
-        type: "party_claim_order_by",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      where: {
-        type: "party_claim_bool_exp",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-    },
-    party_contributions: {
-      distinct_on: {
-        type: "party_contribution_select_column",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      limit: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      offset: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      order_by: {
-        type: "party_contribution_order_by",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      where: {
-        type: "party_contribution_bool_exp",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-    },
-    party_contributions_aggregate: {
-      distinct_on: {
-        type: "party_contribution_select_column",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      limit: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      offset: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      order_by: {
-        type: "party_contribution_order_by",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      where: {
-        type: "party_contribution_bool_exp",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-    },
-    party_createds: {
-      distinct_on: {
-        type: "party_created_select_column",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      limit: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      offset: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      order_by: {
-        type: "party_created_order_by",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      where: {
-        type: "party_created_bool_exp",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-    },
-    party_finalizeds: {
-      distinct_on: {
-        type: "party_finalized_select_column",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      limit: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      offset: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      order_by: {
-        type: "party_finalized_order_by",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      where: {
-        type: "party_finalized_bool_exp",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-    },
-  },
-  party_bool_exp: {
-    _and: {
-      type: "party_bool_exp",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-    _not: {
-      type: "party_bool_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _or: {
-      type: "party_bool_exp",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-    auctionId: {
-      type: "numeric_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    blockNumber: {
-      type: "numeric_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    createdBy: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    gatedToken: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    gatedTokenAmount: {
-      type: "numeric_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "Int_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    marketWrapperAddress: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    name: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    nftContractAddress: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    nftTokenId: {
-      type: "numeric_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    open_sea_metadata: {
-      type: "open_sea_metadata_bool_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyAddress: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyType: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    party_claims: {
-      type: "party_claim_bool_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    party_contributions: {
-      type: "party_contribution_bool_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    party_createds: {
-      type: "party_created_bool_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    party_finalizeds: {
-      type: "party_finalized_bool_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    splitBasisPoints: {
-      type: "bigint_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    splitRecipient: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    symbol: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    transactionHash: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    versionNumber: {
-      type: "Int_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_claim_aggregate_order_by: {
-    avg: {
-      type: "party_claim_avg_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    count: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    max: {
-      type: "party_claim_max_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    min: {
-      type: "party_claim_min_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    stddev: {
-      type: "party_claim_stddev_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    stddev_pop: {
-      type: "party_claim_stddev_pop_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    stddev_samp: {
-      type: "party_claim_stddev_samp_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    sum: {
-      type: "party_claim_sum_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    var_pop: {
-      type: "party_claim_var_pop_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    var_samp: {
-      type: "party_claim_var_samp_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    variance: {
-      type: "party_claim_variance_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_claim_avg_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalEthContributedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalEthReturnedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalTokensReceivedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_claim_bool_exp: {
-    _and: {
-      type: "party_claim_bool_exp",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-    _not: {
-      type: "party_claim_bool_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _or: {
-      type: "party_claim_bool_exp",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-    blockNumber: {
-      type: "numeric_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    contributor: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "Int_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    party: {
-      type: "party_bool_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyAddress: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "Int_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    run: {
-      type: "run_bool_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "Int_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalEthContributedWei: {
-      type: "numeric_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalEthReturnedWei: {
-      type: "numeric_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalTokensReceivedWei: {
-      type: "numeric_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    transactionHash: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_claim_max_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    contributor: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyAddress: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalEthContributedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalEthReturnedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalTokensReceivedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    transactionHash: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_claim_min_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    contributor: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyAddress: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalEthContributedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalEthReturnedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalTokensReceivedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    transactionHash: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_claim_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    contributor: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    party: {
-      type: "party_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyAddress: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    run: {
-      type: "run_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalEthContributedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalEthReturnedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalTokensReceivedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    transactionHash: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_claim_select_column: "enum",
-  party_claim_stddev_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalEthContributedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalEthReturnedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalTokensReceivedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_claim_stddev_pop_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalEthContributedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalEthReturnedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalTokensReceivedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_claim_stddev_samp_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalEthContributedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalEthReturnedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalTokensReceivedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_claim_sum_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalEthContributedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalEthReturnedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalTokensReceivedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_claim_var_pop_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalEthContributedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalEthReturnedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalTokensReceivedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_claim_var_samp_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalEthContributedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalEthReturnedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalTokensReceivedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_claim_variance_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalEthContributedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalEthReturnedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalTokensReceivedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_contribution_aggregate_fields: {
-    count: {
-      columns: {
-        type: "party_contribution_select_column",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      distinct: {
-        type: "Boolean",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-    },
-  },
-  party_contribution_aggregate_order_by: {
-    avg: {
-      type: "party_contribution_avg_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    count: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    max: {
-      type: "party_contribution_max_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    min: {
-      type: "party_contribution_min_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    stddev: {
-      type: "party_contribution_stddev_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    stddev_pop: {
-      type: "party_contribution_stddev_pop_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    stddev_samp: {
-      type: "party_contribution_stddev_samp_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    sum: {
-      type: "party_contribution_sum_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    var_pop: {
-      type: "party_contribution_var_pop_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    var_samp: {
-      type: "party_contribution_var_samp_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    variance: {
-      type: "party_contribution_variance_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_contribution_avg_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    contributedAmountWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    previousTotalContributedToPartyWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalFromContributorWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_contribution_bool_exp: {
-    _and: {
-      type: "party_contribution_bool_exp",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-    _not: {
-      type: "party_contribution_bool_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _or: {
-      type: "party_contribution_bool_exp",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-    blockNumber: {
-      type: "numeric_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    contributedAmountWei: {
-      type: "numeric_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    contributedBy: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "Int_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    party: {
-      type: "party_bool_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyAddress: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "Int_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    previousTotalContributedToPartyWei: {
-      type: "numeric_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    run: {
-      type: "run_bool_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "Int_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalFromContributorWei: {
-      type: "numeric_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    transactionHash: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_contribution_max_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    contributedAmountWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    contributedBy: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyAddress: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    previousTotalContributedToPartyWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalFromContributorWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    transactionHash: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_contribution_min_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    contributedAmountWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    contributedBy: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyAddress: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    previousTotalContributedToPartyWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalFromContributorWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    transactionHash: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_contribution_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    contributedAmountWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    contributedBy: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    party: {
-      type: "party_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyAddress: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    previousTotalContributedToPartyWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    run: {
-      type: "run_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalFromContributorWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    transactionHash: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_contribution_select_column: "enum",
-  party_contribution_stddev_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    contributedAmountWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    previousTotalContributedToPartyWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalFromContributorWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_contribution_stddev_pop_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    contributedAmountWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    previousTotalContributedToPartyWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalFromContributorWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_contribution_stddev_samp_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    contributedAmountWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    previousTotalContributedToPartyWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalFromContributorWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_contribution_sum_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    contributedAmountWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    previousTotalContributedToPartyWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalFromContributorWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_contribution_var_pop_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    contributedAmountWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    previousTotalContributedToPartyWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalFromContributorWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_contribution_var_samp_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    contributedAmountWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    previousTotalContributedToPartyWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalFromContributorWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_contribution_variance_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    contributedAmountWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    previousTotalContributedToPartyWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalFromContributorWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_created_aggregate_order_by: {
-    avg: {
-      type: "party_created_avg_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    count: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    max: {
-      type: "party_created_max_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    min: {
-      type: "party_created_min_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    stddev: {
-      type: "party_created_stddev_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    stddev_pop: {
-      type: "party_created_stddev_pop_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    stddev_samp: {
-      type: "party_created_stddev_samp_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    sum: {
-      type: "party_created_sum_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    var_pop: {
-      type: "party_created_var_pop_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    var_samp: {
-      type: "party_created_var_samp_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    variance: {
-      type: "party_created_variance_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_created_avg_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_created_bool_exp: {
-    _and: {
-      type: "party_created_bool_exp",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-    _not: {
-      type: "party_created_bool_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _or: {
-      type: "party_created_bool_exp",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-    blockNumber: {
-      type: "numeric_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    createdBy: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "Int_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    party: {
-      type: "party_bool_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyAddress: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "Int_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    run: {
-      type: "run_bool_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "Int_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    transactionHash: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_created_max_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    createdBy: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyAddress: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    transactionHash: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_created_min_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    createdBy: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyAddress: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    transactionHash: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_created_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    createdBy: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    party: {
-      type: "party_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyAddress: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    run: {
-      type: "run_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    transactionHash: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_created_select_column: "enum",
-  party_created_stddev_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_created_stddev_pop_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_created_stddev_samp_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_created_sum_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_created_var_pop_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_created_var_samp_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_created_variance_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_finalized_aggregate_order_by: {
-    avg: {
-      type: "party_finalized_avg_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    count: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    max: {
-      type: "party_finalized_max_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    min: {
-      type: "party_finalized_min_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    stddev: {
-      type: "party_finalized_stddev_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    stddev_pop: {
-      type: "party_finalized_stddev_pop_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    stddev_samp: {
-      type: "party_finalized_stddev_samp_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    sum: {
-      type: "party_finalized_sum_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    var_pop: {
-      type: "party_finalized_var_pop_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    var_samp: {
-      type: "party_finalized_var_samp_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    variance: {
-      type: "party_finalized_variance_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_finalized_avg_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    feeWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    result: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalContributedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalSpentWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    versionNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_finalized_bool_exp: {
-    _and: {
-      type: "party_finalized_bool_exp",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-    _not: {
-      type: "party_finalized_bool_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _or: {
-      type: "party_finalized_bool_exp",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-    blockNumber: {
-      type: "numeric_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    feeWei: {
-      type: "numeric_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "Int_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    party: {
-      type: "party_bool_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyAddress: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "Int_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    result: {
-      type: "bigint_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    run: {
-      type: "run_bool_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "Int_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    tokenVault: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalContributedWei: {
-      type: "numeric_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalSpentWei: {
-      type: "numeric_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    transactionHash: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    versionNumber: {
-      type: "Int_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_finalized_max_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    feeWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyAddress: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    result: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    tokenVault: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalContributedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalSpentWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    transactionHash: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    versionNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_finalized_min_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    feeWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyAddress: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    result: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    tokenVault: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalContributedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalSpentWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    transactionHash: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    versionNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_finalized_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    feeWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    party: {
-      type: "party_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyAddress: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    result: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    run: {
-      type: "run_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    tokenVault: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalContributedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalSpentWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    transactionHash: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    versionNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_finalized_select_column: "enum",
-  party_finalized_stddev_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    feeWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    result: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalContributedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalSpentWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    versionNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_finalized_stddev_pop_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    feeWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    result: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalContributedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalSpentWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    versionNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_finalized_stddev_samp_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    feeWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    result: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalContributedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalSpentWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    versionNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_finalized_sum_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    feeWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    result: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalContributedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalSpentWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    versionNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_finalized_var_pop_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    feeWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    result: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalContributedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalSpentWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    versionNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_finalized_var_samp_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    feeWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    result: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalContributedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalSpentWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    versionNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_finalized_variance_order_by: {
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    feeWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    result: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalContributedWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    totalSpentWei: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    versionNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_order_by: {
-    auctionId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    blockNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    createdBy: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    gatedToken: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    gatedTokenAmount: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    marketWrapperAddress: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    name: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    nftContractAddress: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    nftTokenId: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    open_sea_metadata: {
-      type: "open_sea_metadata_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyAddress: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    partyType: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    party_claims_aggregate: {
-      type: "party_claim_aggregate_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    party_contributions_aggregate: {
-      type: "party_contribution_aggregate_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    party_createds_aggregate: {
-      type: "party_created_aggregate_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    party_finalizeds_aggregate: {
-      type: "party_finalized_aggregate_order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    splitBasisPoints: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    splitRecipient: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    symbol: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    transactionHash: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    versionNumber: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  party_select_column: "enum",
-  query_root: {
-    bid: {
-      distinct_on: {
-        type: "bid_select_column",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      limit: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      offset: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      order_by: {
-        type: "bid_order_by",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      where: {
-        type: "bid_bool_exp",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-    },
-    bid_by_pk: {
-      id: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: true,
-      },
-    },
-    block: {
-      distinct_on: {
-        type: "block_select_column",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      limit: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      offset: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      order_by: {
-        type: "block_order_by",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      where: {
-        type: "block_bool_exp",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-    },
-    block_by_pk: {
-      id: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: true,
-      },
-    },
-    ens_lookup: {
-      distinct_on: {
-        type: "ens_lookup_select_column",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      limit: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      offset: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      order_by: {
-        type: "ens_lookup_order_by",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      where: {
-        type: "ens_lookup_bool_exp",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-    },
-    ens_lookup_by_pk: {
-      id: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: true,
-      },
-    },
-    eth_price: {
-      distinct_on: {
-        type: "eth_price_select_column",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      limit: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      offset: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      order_by: {
-        type: "eth_price_order_by",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      where: {
-        type: "eth_price_bool_exp",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-    },
-    eth_price_by_pk: {
-      id: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: true,
-      },
-    },
-    open_sea_metadata: {
-      distinct_on: {
-        type: "open_sea_metadata_select_column",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      limit: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      offset: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      order_by: {
-        type: "open_sea_metadata_order_by",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      where: {
-        type: "open_sea_metadata_bool_exp",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-    },
-    open_sea_metadata_by_pk: {
-      id: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: true,
-      },
-    },
-    party: {
-      distinct_on: {
-        type: "party_select_column",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      limit: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      offset: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      order_by: {
-        type: "party_order_by",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      where: {
-        type: "party_bool_exp",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-    },
-    party_by_pk: {
-      id: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: true,
-      },
-    },
-    party_claim: {
-      distinct_on: {
-        type: "party_claim_select_column",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      limit: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      offset: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      order_by: {
-        type: "party_claim_order_by",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      where: {
-        type: "party_claim_bool_exp",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-    },
-    party_claim_by_pk: {
-      id: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: true,
-      },
-    },
-    party_contribution: {
-      distinct_on: {
-        type: "party_contribution_select_column",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      limit: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      offset: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      order_by: {
-        type: "party_contribution_order_by",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      where: {
-        type: "party_contribution_bool_exp",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-    },
-    party_contribution_aggregate: {
-      distinct_on: {
-        type: "party_contribution_select_column",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      limit: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      offset: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      order_by: {
-        type: "party_contribution_order_by",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      where: {
-        type: "party_contribution_bool_exp",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-    },
-    party_contribution_by_pk: {
-      id: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: true,
-      },
-    },
-    party_created: {
-      distinct_on: {
-        type: "party_created_select_column",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      limit: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      offset: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      order_by: {
-        type: "party_created_order_by",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      where: {
-        type: "party_created_bool_exp",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-    },
-    party_created_by_pk: {
-      id: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: true,
-      },
-    },
-    party_finalized: {
-      distinct_on: {
-        type: "party_finalized_select_column",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      limit: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      offset: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      order_by: {
-        type: "party_finalized_order_by",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      where: {
-        type: "party_finalized_bool_exp",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-    },
-    party_finalized_by_pk: {
-      id: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: true,
-      },
-    },
-    run: {
-      distinct_on: {
-        type: "run_select_column",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      limit: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      offset: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      order_by: {
-        type: "run_order_by",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      where: {
-        type: "run_bool_exp",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-    },
-    run_by_pk: {
-      id: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: true,
-      },
-    },
-  },
-  run_bool_exp: {
-    _and: {
-      type: "run_bool_exp",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-    _not: {
-      type: "run_bool_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    _or: {
-      type: "run_bool_exp",
-      array: true,
-      arrayRequired: false,
-      required: true,
-    },
-    fromBlock: {
-      type: "numeric_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "Int_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    ranAt: {
-      type: "bigint_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runTime: {
-      type: "numeric_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    status: {
-      type: "String_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    toBlock: {
-      type: "numeric_comparison_exp",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  run_order_by: {
-    fromBlock: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    id: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    ranAt: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    runTime: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    status: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-    toBlock: {
-      type: "order_by",
-      array: false,
-      arrayRequired: false,
-      required: false,
-    },
-  },
-  run_select_column: "enum",
-  subscription_root: {
-    bid: {
-      distinct_on: {
-        type: "bid_select_column",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      limit: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      offset: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      order_by: {
-        type: "bid_order_by",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      where: {
-        type: "bid_bool_exp",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-    },
-    bid_by_pk: {
-      id: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: true,
-      },
-    },
-    block: {
-      distinct_on: {
-        type: "block_select_column",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      limit: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      offset: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      order_by: {
-        type: "block_order_by",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      where: {
-        type: "block_bool_exp",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-    },
-    block_by_pk: {
-      id: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: true,
-      },
-    },
-    ens_lookup: {
-      distinct_on: {
-        type: "ens_lookup_select_column",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      limit: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      offset: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      order_by: {
-        type: "ens_lookup_order_by",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      where: {
-        type: "ens_lookup_bool_exp",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-    },
-    ens_lookup_by_pk: {
-      id: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: true,
-      },
-    },
-    eth_price: {
-      distinct_on: {
-        type: "eth_price_select_column",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      limit: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      offset: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      order_by: {
-        type: "eth_price_order_by",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      where: {
-        type: "eth_price_bool_exp",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-    },
-    eth_price_by_pk: {
-      id: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: true,
-      },
-    },
-    open_sea_metadata: {
-      distinct_on: {
-        type: "open_sea_metadata_select_column",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      limit: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      offset: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      order_by: {
-        type: "open_sea_metadata_order_by",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      where: {
-        type: "open_sea_metadata_bool_exp",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-    },
-    open_sea_metadata_by_pk: {
-      id: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: true,
-      },
-    },
-    party: {
-      distinct_on: {
-        type: "party_select_column",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      limit: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      offset: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      order_by: {
-        type: "party_order_by",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      where: {
-        type: "party_bool_exp",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-    },
-    party_by_pk: {
-      id: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: true,
-      },
-    },
-    party_claim: {
-      distinct_on: {
-        type: "party_claim_select_column",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      limit: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      offset: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      order_by: {
-        type: "party_claim_order_by",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      where: {
-        type: "party_claim_bool_exp",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-    },
-    party_claim_by_pk: {
-      id: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: true,
-      },
-    },
-    party_contribution: {
-      distinct_on: {
-        type: "party_contribution_select_column",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      limit: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      offset: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      order_by: {
-        type: "party_contribution_order_by",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      where: {
-        type: "party_contribution_bool_exp",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-    },
-    party_contribution_aggregate: {
-      distinct_on: {
-        type: "party_contribution_select_column",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      limit: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      offset: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      order_by: {
-        type: "party_contribution_order_by",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      where: {
-        type: "party_contribution_bool_exp",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-    },
-    party_contribution_by_pk: {
-      id: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: true,
-      },
-    },
-    party_created: {
-      distinct_on: {
-        type: "party_created_select_column",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      limit: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      offset: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      order_by: {
-        type: "party_created_order_by",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      where: {
-        type: "party_created_bool_exp",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-    },
-    party_created_by_pk: {
-      id: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: true,
-      },
-    },
-    party_finalized: {
-      distinct_on: {
-        type: "party_finalized_select_column",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      limit: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      offset: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      order_by: {
-        type: "party_finalized_order_by",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      where: {
-        type: "party_finalized_bool_exp",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-    },
-    party_finalized_by_pk: {
-      id: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: true,
-      },
-    },
-    run: {
-      distinct_on: {
-        type: "run_select_column",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      limit: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      offset: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-      order_by: {
-        type: "run_order_by",
-        array: true,
-        arrayRequired: false,
-        required: true,
-      },
-      where: {
-        type: "run_bool_exp",
-        array: false,
-        arrayRequired: false,
-        required: false,
-      },
-    },
-    run_by_pk: {
-      id: {
-        type: "Int",
-        array: false,
-        arrayRequired: false,
-        required: true,
-      },
-    },
-  },
-};
+export const AllTypesProps: Record<string,any> = {
+	Boolean_comparison_exp:{
+		_eq:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_gt:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_gte:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_in:{
+			type:"Boolean",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		_is_null:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_lt:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_lte:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_neq:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_nin:{
+			type:"Boolean",
+			array:true,
+			arrayRequired:false,
+			required:true
+		}
+	},
+	Int_comparison_exp:{
+		_eq:{
+			type:"Int",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_gt:{
+			type:"Int",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_gte:{
+			type:"Int",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_in:{
+			type:"Int",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		_is_null:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_lt:{
+			type:"Int",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_lte:{
+			type:"Int",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_neq:{
+			type:"Int",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_nin:{
+			type:"Int",
+			array:true,
+			arrayRequired:false,
+			required:true
+		}
+	},
+	String_comparison_exp:{
+		_eq:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_gt:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_gte:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_ilike:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_in:{
+			type:"String",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		_iregex:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_is_null:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_like:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_lt:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_lte:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_neq:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_nilike:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_nin:{
+			type:"String",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		_niregex:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_nlike:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_nregex:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_nsimilar:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_regex:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_similar:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	bid_bool_exp:{
+		_and:{
+			type:"bid_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		_not:{
+			type:"bid_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_or:{
+			type:"bid_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		amount:{
+			type:"numeric_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		blockNumber:{
+			type:"numeric_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"Int_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		party:{
+			type:"party_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyAddress:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"Int_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"Int_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		transactionHash:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	bid_order_by:{
+		amount:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		party:{
+			type:"party_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyAddress:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		transactionHash:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	bid_select_column: "enum",
+	bigint: "String",
+	bigint_comparison_exp:{
+		_eq:{
+			type:"bigint",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_gt:{
+			type:"bigint",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_gte:{
+			type:"bigint",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_in:{
+			type:"bigint",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		_is_null:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_lt:{
+			type:"bigint",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_lte:{
+			type:"bigint",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_neq:{
+			type:"bigint",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_nin:{
+			type:"bigint",
+			array:true,
+			arrayRequired:false,
+			required:true
+		}
+	},
+	block_bool_exp:{
+		_and:{
+			type:"block_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		_not:{
+			type:"block_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_or:{
+			type:"block_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		blockNumber:{
+			type:"numeric_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		blockTimestamp:{
+			type:"numeric_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"Int_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	block_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		blockTimestamp:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	block_select_column: "enum",
+	ens_lookup_bool_exp:{
+		_and:{
+			type:"ens_lookup_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		_not:{
+			type:"ens_lookup_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_or:{
+			type:"ens_lookup_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		address:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		ensName:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		fetchedAt:{
+			type:"numeric_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		found:{
+			type:"Boolean_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"Int_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	ens_lookup_order_by:{
+		address:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		ensName:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		fetchedAt:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		found:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	ens_lookup_select_column: "enum",
+	eth_price_bool_exp:{
+		_and:{
+			type:"eth_price_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		_not:{
+			type:"eth_price_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_or:{
+			type:"eth_price_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		fetchedAt:{
+			type:"numeric_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"Int_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		priceUsd:{
+			type:"numeric_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	eth_price_order_by:{
+		fetchedAt:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		priceUsd:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	eth_price_select_column: "enum",
+	jsonb: "String",
+	jsonb_comparison_exp:{
+		_contained_in:{
+			type:"jsonb",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_contains:{
+			type:"jsonb",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_eq:{
+			type:"jsonb",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_gt:{
+			type:"jsonb",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_gte:{
+			type:"jsonb",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_has_key:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_has_keys_all:{
+			type:"String",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		_has_keys_any:{
+			type:"String",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		_in:{
+			type:"jsonb",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		_is_null:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_lt:{
+			type:"jsonb",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_lte:{
+			type:"jsonb",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_neq:{
+			type:"jsonb",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_nin:{
+			type:"jsonb",
+			array:true,
+			arrayRequired:false,
+			required:true
+		}
+	},
+	numeric: "String",
+	numeric_comparison_exp:{
+		_eq:{
+			type:"numeric",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_gt:{
+			type:"numeric",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_gte:{
+			type:"numeric",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_in:{
+			type:"numeric",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		_is_null:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_lt:{
+			type:"numeric",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_lte:{
+			type:"numeric",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_neq:{
+			type:"numeric",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_nin:{
+			type:"numeric",
+			array:true,
+			arrayRequired:false,
+			required:true
+		}
+	},
+	open_sea_metadata:{
+		openSeaResponse:{
+			path:{
+				type:"String",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		}
+	},
+	open_sea_metadata_bool_exp:{
+		_and:{
+			type:"open_sea_metadata_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		_not:{
+			type:"open_sea_metadata_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_or:{
+			type:"open_sea_metadata_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		animationOriginalUrl:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		animationUrl:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		description:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		externalLink:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"Int_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		imageOriginalUrl:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		imagePreviewUrl:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		imageThumbnailUrl:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		imageUrl:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		name:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		openSeaResponse:{
+			type:"jsonb_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		tokenAddress:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		tokenId:{
+			type:"numeric_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	open_sea_metadata_order_by:{
+		animationOriginalUrl:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		animationUrl:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		description:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		externalLink:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		imageOriginalUrl:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		imagePreviewUrl:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		imageThumbnailUrl:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		imageUrl:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		name:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		openSeaResponse:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		tokenAddress:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		tokenId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	open_sea_metadata_select_column: "enum",
+	order_by: "enum",
+	party:{
+		party_claims:{
+			distinct_on:{
+				type:"party_claim_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"party_claim_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"party_claim_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		party_contributions:{
+			distinct_on:{
+				type:"party_contribution_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"party_contribution_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"party_contribution_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		party_contributions_aggregate:{
+			distinct_on:{
+				type:"party_contribution_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"party_contribution_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"party_contribution_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		party_createds:{
+			distinct_on:{
+				type:"party_created_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"party_created_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"party_created_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		party_finalizeds:{
+			distinct_on:{
+				type:"party_finalized_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"party_finalized_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"party_finalized_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		}
+	},
+	party_bool_exp:{
+		_and:{
+			type:"party_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		_not:{
+			type:"party_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_or:{
+			type:"party_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		auctionId:{
+			type:"numeric_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		blockNumber:{
+			type:"numeric_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		createdBy:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		gatedToken:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		gatedTokenAmount:{
+			type:"numeric_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"Int_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		marketWrapperAddress:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		name:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		nftContractAddress:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		nftTokenId:{
+			type:"numeric_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		open_sea_metadata:{
+			type:"open_sea_metadata_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyAddress:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyType:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		party_claims:{
+			type:"party_claim_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		party_contributions:{
+			type:"party_contribution_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		party_createds:{
+			type:"party_created_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		party_finalizeds:{
+			type:"party_finalized_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		splitBasisPoints:{
+			type:"bigint_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		splitRecipient:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		symbol:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		transactionHash:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		versionNumber:{
+			type:"Int_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_claim_aggregate_order_by:{
+		avg:{
+			type:"party_claim_avg_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		count:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		max:{
+			type:"party_claim_max_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		min:{
+			type:"party_claim_min_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		stddev:{
+			type:"party_claim_stddev_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		stddev_pop:{
+			type:"party_claim_stddev_pop_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		stddev_samp:{
+			type:"party_claim_stddev_samp_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		sum:{
+			type:"party_claim_sum_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		var_pop:{
+			type:"party_claim_var_pop_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		var_samp:{
+			type:"party_claim_var_samp_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		variance:{
+			type:"party_claim_variance_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_claim_avg_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalEthContributedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalEthReturnedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalTokensReceivedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_claim_bool_exp:{
+		_and:{
+			type:"party_claim_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		_not:{
+			type:"party_claim_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_or:{
+			type:"party_claim_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		blockNumber:{
+			type:"numeric_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		contributor:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"Int_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		party:{
+			type:"party_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyAddress:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"Int_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		run:{
+			type:"run_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"Int_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalEthContributedWei:{
+			type:"numeric_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalEthReturnedWei:{
+			type:"numeric_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalTokensReceivedWei:{
+			type:"numeric_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		transactionHash:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_claim_max_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		contributor:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyAddress:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalEthContributedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalEthReturnedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalTokensReceivedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		transactionHash:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_claim_min_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		contributor:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyAddress:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalEthContributedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalEthReturnedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalTokensReceivedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		transactionHash:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_claim_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		contributor:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		party:{
+			type:"party_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyAddress:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		run:{
+			type:"run_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalEthContributedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalEthReturnedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalTokensReceivedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		transactionHash:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_claim_select_column: "enum",
+	party_claim_stddev_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalEthContributedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalEthReturnedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalTokensReceivedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_claim_stddev_pop_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalEthContributedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalEthReturnedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalTokensReceivedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_claim_stddev_samp_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalEthContributedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalEthReturnedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalTokensReceivedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_claim_sum_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalEthContributedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalEthReturnedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalTokensReceivedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_claim_var_pop_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalEthContributedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalEthReturnedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalTokensReceivedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_claim_var_samp_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalEthContributedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalEthReturnedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalTokensReceivedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_claim_variance_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalEthContributedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalEthReturnedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalTokensReceivedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_contribution_aggregate_fields:{
+		count:{
+			columns:{
+				type:"party_contribution_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			distinct:{
+				type:"Boolean",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		}
+	},
+	party_contribution_aggregate_order_by:{
+		avg:{
+			type:"party_contribution_avg_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		count:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		max:{
+			type:"party_contribution_max_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		min:{
+			type:"party_contribution_min_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		stddev:{
+			type:"party_contribution_stddev_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		stddev_pop:{
+			type:"party_contribution_stddev_pop_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		stddev_samp:{
+			type:"party_contribution_stddev_samp_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		sum:{
+			type:"party_contribution_sum_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		var_pop:{
+			type:"party_contribution_var_pop_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		var_samp:{
+			type:"party_contribution_var_samp_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		variance:{
+			type:"party_contribution_variance_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_contribution_avg_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		contributedAmountWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		previousTotalContributedToPartyWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalFromContributorWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_contribution_bool_exp:{
+		_and:{
+			type:"party_contribution_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		_not:{
+			type:"party_contribution_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_or:{
+			type:"party_contribution_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		blockNumber:{
+			type:"numeric_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		contributedAmountWei:{
+			type:"numeric_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		contributedBy:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"Int_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		party:{
+			type:"party_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyAddress:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"Int_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		previousTotalContributedToPartyWei:{
+			type:"numeric_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		run:{
+			type:"run_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"Int_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalFromContributorWei:{
+			type:"numeric_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		transactionHash:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_contribution_max_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		contributedAmountWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		contributedBy:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyAddress:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		previousTotalContributedToPartyWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalFromContributorWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		transactionHash:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_contribution_min_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		contributedAmountWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		contributedBy:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyAddress:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		previousTotalContributedToPartyWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalFromContributorWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		transactionHash:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_contribution_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		contributedAmountWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		contributedBy:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		party:{
+			type:"party_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyAddress:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		previousTotalContributedToPartyWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		run:{
+			type:"run_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalFromContributorWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		transactionHash:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_contribution_select_column: "enum",
+	party_contribution_stddev_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		contributedAmountWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		previousTotalContributedToPartyWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalFromContributorWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_contribution_stddev_pop_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		contributedAmountWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		previousTotalContributedToPartyWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalFromContributorWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_contribution_stddev_samp_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		contributedAmountWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		previousTotalContributedToPartyWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalFromContributorWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_contribution_sum_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		contributedAmountWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		previousTotalContributedToPartyWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalFromContributorWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_contribution_var_pop_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		contributedAmountWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		previousTotalContributedToPartyWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalFromContributorWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_contribution_var_samp_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		contributedAmountWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		previousTotalContributedToPartyWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalFromContributorWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_contribution_variance_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		contributedAmountWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		previousTotalContributedToPartyWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalFromContributorWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_created_aggregate_order_by:{
+		avg:{
+			type:"party_created_avg_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		count:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		max:{
+			type:"party_created_max_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		min:{
+			type:"party_created_min_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		stddev:{
+			type:"party_created_stddev_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		stddev_pop:{
+			type:"party_created_stddev_pop_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		stddev_samp:{
+			type:"party_created_stddev_samp_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		sum:{
+			type:"party_created_sum_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		var_pop:{
+			type:"party_created_var_pop_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		var_samp:{
+			type:"party_created_var_samp_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		variance:{
+			type:"party_created_variance_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_created_avg_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_created_bool_exp:{
+		_and:{
+			type:"party_created_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		_not:{
+			type:"party_created_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_or:{
+			type:"party_created_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		blockNumber:{
+			type:"numeric_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		createdBy:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"Int_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		party:{
+			type:"party_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyAddress:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"Int_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		run:{
+			type:"run_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"Int_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		transactionHash:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_created_max_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		createdBy:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyAddress:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		transactionHash:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_created_min_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		createdBy:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyAddress:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		transactionHash:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_created_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		createdBy:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		party:{
+			type:"party_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyAddress:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		run:{
+			type:"run_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		transactionHash:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_created_select_column: "enum",
+	party_created_stddev_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_created_stddev_pop_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_created_stddev_samp_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_created_sum_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_created_var_pop_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_created_var_samp_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_created_variance_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_finalized_aggregate_order_by:{
+		avg:{
+			type:"party_finalized_avg_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		count:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		max:{
+			type:"party_finalized_max_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		min:{
+			type:"party_finalized_min_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		stddev:{
+			type:"party_finalized_stddev_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		stddev_pop:{
+			type:"party_finalized_stddev_pop_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		stddev_samp:{
+			type:"party_finalized_stddev_samp_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		sum:{
+			type:"party_finalized_sum_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		var_pop:{
+			type:"party_finalized_var_pop_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		var_samp:{
+			type:"party_finalized_var_samp_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		variance:{
+			type:"party_finalized_variance_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_finalized_avg_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		feeWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		result:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalContributedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalSpentWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		versionNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_finalized_bool_exp:{
+		_and:{
+			type:"party_finalized_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		_not:{
+			type:"party_finalized_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_or:{
+			type:"party_finalized_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		blockNumber:{
+			type:"numeric_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		feeWei:{
+			type:"numeric_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"Int_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		party:{
+			type:"party_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyAddress:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"Int_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		result:{
+			type:"bigint_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		run:{
+			type:"run_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"Int_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		tokenVault:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalContributedWei:{
+			type:"numeric_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalSpentWei:{
+			type:"numeric_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		transactionHash:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		versionNumber:{
+			type:"Int_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_finalized_max_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		feeWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyAddress:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		result:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		tokenVault:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalContributedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalSpentWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		transactionHash:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		versionNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_finalized_min_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		feeWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyAddress:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		result:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		tokenVault:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalContributedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalSpentWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		transactionHash:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		versionNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_finalized_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		feeWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		party:{
+			type:"party_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyAddress:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		result:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		run:{
+			type:"run_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		tokenVault:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalContributedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalSpentWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		transactionHash:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		versionNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_finalized_select_column: "enum",
+	party_finalized_stddev_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		feeWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		result:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalContributedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalSpentWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		versionNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_finalized_stddev_pop_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		feeWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		result:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalContributedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalSpentWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		versionNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_finalized_stddev_samp_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		feeWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		result:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalContributedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalSpentWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		versionNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_finalized_sum_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		feeWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		result:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalContributedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalSpentWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		versionNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_finalized_var_pop_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		feeWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		result:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalContributedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalSpentWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		versionNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_finalized_var_samp_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		feeWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		result:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalContributedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalSpentWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		versionNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_finalized_variance_order_by:{
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		feeWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		result:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalContributedWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		totalSpentWei:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		versionNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_order_by:{
+		auctionId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		blockNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		createdBy:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		gatedToken:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		gatedTokenAmount:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		marketWrapperAddress:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		name:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		nftContractAddress:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		nftTokenId:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		open_sea_metadata:{
+			type:"open_sea_metadata_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyAddress:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		partyType:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		party_claims_aggregate:{
+			type:"party_claim_aggregate_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		party_contributions_aggregate:{
+			type:"party_contribution_aggregate_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		party_createds_aggregate:{
+			type:"party_created_aggregate_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		party_finalizeds_aggregate:{
+			type:"party_finalized_aggregate_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		splitBasisPoints:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		splitRecipient:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		symbol:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		transactionHash:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		versionNumber:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	party_select_column: "enum",
+	query_root:{
+		bid:{
+			distinct_on:{
+				type:"bid_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"bid_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"bid_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		bid_by_pk:{
+			id:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		block:{
+			distinct_on:{
+				type:"block_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"block_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"block_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		block_by_pk:{
+			id:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		ens_lookup:{
+			distinct_on:{
+				type:"ens_lookup_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"ens_lookup_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"ens_lookup_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		ens_lookup_by_pk:{
+			id:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		eth_price:{
+			distinct_on:{
+				type:"eth_price_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"eth_price_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"eth_price_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		eth_price_by_pk:{
+			id:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		open_sea_metadata:{
+			distinct_on:{
+				type:"open_sea_metadata_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"open_sea_metadata_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"open_sea_metadata_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		open_sea_metadata_by_pk:{
+			id:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		party:{
+			distinct_on:{
+				type:"party_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"party_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"party_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		party_by_pk:{
+			id:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		party_claim:{
+			distinct_on:{
+				type:"party_claim_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"party_claim_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"party_claim_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		party_claim_by_pk:{
+			id:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		party_contribution:{
+			distinct_on:{
+				type:"party_contribution_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"party_contribution_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"party_contribution_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		party_contribution_aggregate:{
+			distinct_on:{
+				type:"party_contribution_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"party_contribution_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"party_contribution_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		party_contribution_by_pk:{
+			id:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		party_created:{
+			distinct_on:{
+				type:"party_created_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"party_created_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"party_created_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		party_created_by_pk:{
+			id:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		party_finalized:{
+			distinct_on:{
+				type:"party_finalized_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"party_finalized_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"party_finalized_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		party_finalized_by_pk:{
+			id:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		run:{
+			distinct_on:{
+				type:"run_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"run_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"run_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		run_by_pk:{
+			id:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		}
+	},
+	run_bool_exp:{
+		_and:{
+			type:"run_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		_not:{
+			type:"run_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_or:{
+			type:"run_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		fromBlock:{
+			type:"numeric_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"Int_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		ranAt:{
+			type:"bigint_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runTime:{
+			type:"numeric_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		status:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		toBlock:{
+			type:"numeric_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	run_order_by:{
+		fromBlock:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		ranAt:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		runTime:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		status:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		toBlock:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	run_select_column: "enum",
+	subscription_root:{
+		bid:{
+			distinct_on:{
+				type:"bid_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"bid_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"bid_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		bid_by_pk:{
+			id:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		block:{
+			distinct_on:{
+				type:"block_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"block_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"block_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		block_by_pk:{
+			id:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		ens_lookup:{
+			distinct_on:{
+				type:"ens_lookup_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"ens_lookup_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"ens_lookup_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		ens_lookup_by_pk:{
+			id:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		eth_price:{
+			distinct_on:{
+				type:"eth_price_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"eth_price_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"eth_price_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		eth_price_by_pk:{
+			id:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		open_sea_metadata:{
+			distinct_on:{
+				type:"open_sea_metadata_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"open_sea_metadata_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"open_sea_metadata_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		open_sea_metadata_by_pk:{
+			id:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		party:{
+			distinct_on:{
+				type:"party_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"party_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"party_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		party_by_pk:{
+			id:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		party_claim:{
+			distinct_on:{
+				type:"party_claim_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"party_claim_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"party_claim_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		party_claim_by_pk:{
+			id:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		party_contribution:{
+			distinct_on:{
+				type:"party_contribution_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"party_contribution_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"party_contribution_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		party_contribution_aggregate:{
+			distinct_on:{
+				type:"party_contribution_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"party_contribution_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"party_contribution_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		party_contribution_by_pk:{
+			id:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		party_created:{
+			distinct_on:{
+				type:"party_created_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"party_created_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"party_created_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		party_created_by_pk:{
+			id:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		party_finalized:{
+			distinct_on:{
+				type:"party_finalized_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"party_finalized_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"party_finalized_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		party_finalized_by_pk:{
+			id:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		run:{
+			distinct_on:{
+				type:"run_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"run_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"run_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		run_by_pk:{
+			id:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		}
+	}
+}
 
-export const ReturnTypes: Record<string, any> = {
-  cached: {
-    ttl: "Int",
-    refresh: "Boolean",
-  },
-  bid: {
-    amount: "numeric",
-    blockNumber: "numeric",
-    id: "Int",
-    party: "party",
-    partyAddress: "String",
-    partyId: "Int",
-    runId: "Int",
-    transactionHash: "String",
-  },
-  block: {
-    blockNumber: "numeric",
-    blockTimestamp: "numeric",
-    id: "Int",
-  },
-  ens_lookup: {
-    address: "String",
-    ensName: "String",
-    fetchedAt: "numeric",
-    found: "Boolean",
-    id: "Int",
-  },
-  eth_price: {
-    fetchedAt: "numeric",
-    id: "Int",
-    priceUsd: "numeric",
-  },
-  open_sea_metadata: {
-    animationOriginalUrl: "String",
-    animationUrl: "String",
-    description: "String",
-    externalLink: "String",
-    id: "Int",
-    imageOriginalUrl: "String",
-    imagePreviewUrl: "String",
-    imageThumbnailUrl: "String",
-    imageUrl: "String",
-    name: "String",
-    openSeaResponse: "jsonb",
-    tokenAddress: "String",
-    tokenId: "numeric",
-  },
-  party: {
-    auctionId: "numeric",
-    blockNumber: "numeric",
-    createdBy: "String",
-    gatedToken: "String",
-    gatedTokenAmount: "numeric",
-    id: "Int",
-    marketWrapperAddress: "String",
-    name: "String",
-    nftContractAddress: "String",
-    nftTokenId: "numeric",
-    open_sea_metadata: "open_sea_metadata",
-    partyAddress: "String",
-    partyType: "String",
-    party_claims: "party_claim",
-    party_contributions: "party_contribution",
-    party_contributions_aggregate: "party_contribution_aggregate",
-    party_createds: "party_created",
-    party_finalizeds: "party_finalized",
-    splitBasisPoints: "bigint",
-    splitRecipient: "String",
-    symbol: "String",
-    transactionHash: "String",
-    versionNumber: "Int",
-  },
-  party_claim: {
-    blockNumber: "numeric",
-    contributor: "String",
-    id: "Int",
-    party: "party",
-    partyAddress: "String",
-    partyId: "Int",
-    run: "run",
-    runId: "Int",
-    totalEthContributedWei: "numeric",
-    totalEthReturnedWei: "numeric",
-    totalTokensReceivedWei: "numeric",
-    transactionHash: "String",
-  },
-  party_contribution: {
-    blockNumber: "numeric",
-    contributedAmountWei: "numeric",
-    contributedBy: "String",
-    id: "Int",
-    party: "party",
-    partyAddress: "String",
-    partyId: "Int",
-    previousTotalContributedToPartyWei: "numeric",
-    run: "run",
-    runId: "Int",
-    totalFromContributorWei: "numeric",
-    transactionHash: "String",
-  },
-  party_contribution_aggregate: {
-    aggregate: "party_contribution_aggregate_fields",
-    nodes: "party_contribution",
-  },
-  party_contribution_aggregate_fields: {
-    avg: "party_contribution_avg_fields",
-    count: "Int",
-    max: "party_contribution_max_fields",
-    min: "party_contribution_min_fields",
-    stddev: "party_contribution_stddev_fields",
-    stddev_pop: "party_contribution_stddev_pop_fields",
-    stddev_samp: "party_contribution_stddev_samp_fields",
-    sum: "party_contribution_sum_fields",
-    var_pop: "party_contribution_var_pop_fields",
-    var_samp: "party_contribution_var_samp_fields",
-    variance: "party_contribution_variance_fields",
-  },
-  party_contribution_avg_fields: {
-    blockNumber: "Float",
-    contributedAmountWei: "Float",
-    id: "Float",
-    partyId: "Float",
-    previousTotalContributedToPartyWei: "Float",
-    runId: "Float",
-    totalFromContributorWei: "Float",
-  },
-  party_contribution_max_fields: {
-    blockNumber: "numeric",
-    contributedAmountWei: "numeric",
-    contributedBy: "String",
-    id: "Int",
-    partyAddress: "String",
-    partyId: "Int",
-    previousTotalContributedToPartyWei: "numeric",
-    runId: "Int",
-    totalFromContributorWei: "numeric",
-    transactionHash: "String",
-  },
-  party_contribution_min_fields: {
-    blockNumber: "numeric",
-    contributedAmountWei: "numeric",
-    contributedBy: "String",
-    id: "Int",
-    partyAddress: "String",
-    partyId: "Int",
-    previousTotalContributedToPartyWei: "numeric",
-    runId: "Int",
-    totalFromContributorWei: "numeric",
-    transactionHash: "String",
-  },
-  party_contribution_stddev_fields: {
-    blockNumber: "Float",
-    contributedAmountWei: "Float",
-    id: "Float",
-    partyId: "Float",
-    previousTotalContributedToPartyWei: "Float",
-    runId: "Float",
-    totalFromContributorWei: "Float",
-  },
-  party_contribution_stddev_pop_fields: {
-    blockNumber: "Float",
-    contributedAmountWei: "Float",
-    id: "Float",
-    partyId: "Float",
-    previousTotalContributedToPartyWei: "Float",
-    runId: "Float",
-    totalFromContributorWei: "Float",
-  },
-  party_contribution_stddev_samp_fields: {
-    blockNumber: "Float",
-    contributedAmountWei: "Float",
-    id: "Float",
-    partyId: "Float",
-    previousTotalContributedToPartyWei: "Float",
-    runId: "Float",
-    totalFromContributorWei: "Float",
-  },
-  party_contribution_sum_fields: {
-    blockNumber: "numeric",
-    contributedAmountWei: "numeric",
-    id: "Int",
-    partyId: "Int",
-    previousTotalContributedToPartyWei: "numeric",
-    runId: "Int",
-    totalFromContributorWei: "numeric",
-  },
-  party_contribution_var_pop_fields: {
-    blockNumber: "Float",
-    contributedAmountWei: "Float",
-    id: "Float",
-    partyId: "Float",
-    previousTotalContributedToPartyWei: "Float",
-    runId: "Float",
-    totalFromContributorWei: "Float",
-  },
-  party_contribution_var_samp_fields: {
-    blockNumber: "Float",
-    contributedAmountWei: "Float",
-    id: "Float",
-    partyId: "Float",
-    previousTotalContributedToPartyWei: "Float",
-    runId: "Float",
-    totalFromContributorWei: "Float",
-  },
-  party_contribution_variance_fields: {
-    blockNumber: "Float",
-    contributedAmountWei: "Float",
-    id: "Float",
-    partyId: "Float",
-    previousTotalContributedToPartyWei: "Float",
-    runId: "Float",
-    totalFromContributorWei: "Float",
-  },
-  party_created: {
-    blockNumber: "numeric",
-    createdBy: "String",
-    id: "Int",
-    party: "party",
-    partyAddress: "String",
-    partyId: "Int",
-    run: "run",
-    runId: "Int",
-    transactionHash: "String",
-  },
-  party_finalized: {
-    blockNumber: "numeric",
-    feeWei: "numeric",
-    id: "Int",
-    party: "party",
-    partyAddress: "String",
-    partyId: "Int",
-    result: "bigint",
-    run: "run",
-    runId: "Int",
-    tokenVault: "String",
-    totalContributedWei: "numeric",
-    totalSpentWei: "numeric",
-    transactionHash: "String",
-    versionNumber: "Int",
-  },
-  query_root: {
-    bid: "bid",
-    bid_by_pk: "bid",
-    block: "block",
-    block_by_pk: "block",
-    ens_lookup: "ens_lookup",
-    ens_lookup_by_pk: "ens_lookup",
-    eth_price: "eth_price",
-    eth_price_by_pk: "eth_price",
-    open_sea_metadata: "open_sea_metadata",
-    open_sea_metadata_by_pk: "open_sea_metadata",
-    party: "party",
-    party_by_pk: "party",
-    party_claim: "party_claim",
-    party_claim_by_pk: "party_claim",
-    party_contribution: "party_contribution",
-    party_contribution_aggregate: "party_contribution_aggregate",
-    party_contribution_by_pk: "party_contribution",
-    party_created: "party_created",
-    party_created_by_pk: "party_created",
-    party_finalized: "party_finalized",
-    party_finalized_by_pk: "party_finalized",
-    run: "run",
-    run_by_pk: "run",
-  },
-  run: {
-    fromBlock: "numeric",
-    id: "Int",
-    ranAt: "bigint",
-    runTime: "numeric",
-    status: "String",
-    toBlock: "numeric",
-  },
-  subscription_root: {
-    bid: "bid",
-    bid_by_pk: "bid",
-    block: "block",
-    block_by_pk: "block",
-    ens_lookup: "ens_lookup",
-    ens_lookup_by_pk: "ens_lookup",
-    eth_price: "eth_price",
-    eth_price_by_pk: "eth_price",
-    open_sea_metadata: "open_sea_metadata",
-    open_sea_metadata_by_pk: "open_sea_metadata",
-    party: "party",
-    party_by_pk: "party",
-    party_claim: "party_claim",
-    party_claim_by_pk: "party_claim",
-    party_contribution: "party_contribution",
-    party_contribution_aggregate: "party_contribution_aggregate",
-    party_contribution_by_pk: "party_contribution",
-    party_created: "party_created",
-    party_created_by_pk: "party_created",
-    party_finalized: "party_finalized",
-    party_finalized_by_pk: "party_finalized",
-    run: "run",
-    run_by_pk: "run",
-  },
-};
+export const ReturnTypes: Record<string,any> = {
+	cached:{
+		ttl:"Int",
+		refresh:"Boolean"
+	},
+	bid:{
+		amount:"numeric",
+		blockNumber:"numeric",
+		id:"Int",
+		party:"party",
+		partyAddress:"String",
+		partyId:"Int",
+		runId:"Int",
+		transactionHash:"String"
+	},
+	block:{
+		blockNumber:"numeric",
+		blockTimestamp:"numeric",
+		id:"Int"
+	},
+	ens_lookup:{
+		address:"String",
+		ensName:"String",
+		fetchedAt:"numeric",
+		found:"Boolean",
+		id:"Int"
+	},
+	eth_price:{
+		fetchedAt:"numeric",
+		id:"Int",
+		priceUsd:"numeric"
+	},
+	open_sea_metadata:{
+		animationOriginalUrl:"String",
+		animationUrl:"String",
+		description:"String",
+		externalLink:"String",
+		id:"Int",
+		imageOriginalUrl:"String",
+		imagePreviewUrl:"String",
+		imageThumbnailUrl:"String",
+		imageUrl:"String",
+		name:"String",
+		openSeaResponse:"jsonb",
+		tokenAddress:"String",
+		tokenId:"numeric"
+	},
+	party:{
+		auctionId:"numeric",
+		blockNumber:"numeric",
+		createdBy:"String",
+		gatedToken:"String",
+		gatedTokenAmount:"numeric",
+		id:"Int",
+		marketWrapperAddress:"String",
+		name:"String",
+		nftContractAddress:"String",
+		nftTokenId:"numeric",
+		open_sea_metadata:"open_sea_metadata",
+		partyAddress:"String",
+		partyType:"String",
+		party_claims:"party_claim",
+		party_contributions:"party_contribution",
+		party_contributions_aggregate:"party_contribution_aggregate",
+		party_createds:"party_created",
+		party_finalizeds:"party_finalized",
+		splitBasisPoints:"bigint",
+		splitRecipient:"String",
+		symbol:"String",
+		transactionHash:"String",
+		versionNumber:"Int"
+	},
+	party_claim:{
+		blockNumber:"numeric",
+		contributor:"String",
+		id:"Int",
+		party:"party",
+		partyAddress:"String",
+		partyId:"Int",
+		run:"run",
+		runId:"Int",
+		totalEthContributedWei:"numeric",
+		totalEthReturnedWei:"numeric",
+		totalTokensReceivedWei:"numeric",
+		transactionHash:"String"
+	},
+	party_contribution:{
+		blockNumber:"numeric",
+		contributedAmountWei:"numeric",
+		contributedBy:"String",
+		id:"Int",
+		party:"party",
+		partyAddress:"String",
+		partyId:"Int",
+		previousTotalContributedToPartyWei:"numeric",
+		run:"run",
+		runId:"Int",
+		totalFromContributorWei:"numeric",
+		transactionHash:"String"
+	},
+	party_contribution_aggregate:{
+		aggregate:"party_contribution_aggregate_fields",
+		nodes:"party_contribution"
+	},
+	party_contribution_aggregate_fields:{
+		avg:"party_contribution_avg_fields",
+		count:"Int",
+		max:"party_contribution_max_fields",
+		min:"party_contribution_min_fields",
+		stddev:"party_contribution_stddev_fields",
+		stddev_pop:"party_contribution_stddev_pop_fields",
+		stddev_samp:"party_contribution_stddev_samp_fields",
+		sum:"party_contribution_sum_fields",
+		var_pop:"party_contribution_var_pop_fields",
+		var_samp:"party_contribution_var_samp_fields",
+		variance:"party_contribution_variance_fields"
+	},
+	party_contribution_avg_fields:{
+		blockNumber:"Float",
+		contributedAmountWei:"Float",
+		id:"Float",
+		partyId:"Float",
+		previousTotalContributedToPartyWei:"Float",
+		runId:"Float",
+		totalFromContributorWei:"Float"
+	},
+	party_contribution_max_fields:{
+		blockNumber:"numeric",
+		contributedAmountWei:"numeric",
+		contributedBy:"String",
+		id:"Int",
+		partyAddress:"String",
+		partyId:"Int",
+		previousTotalContributedToPartyWei:"numeric",
+		runId:"Int",
+		totalFromContributorWei:"numeric",
+		transactionHash:"String"
+	},
+	party_contribution_min_fields:{
+		blockNumber:"numeric",
+		contributedAmountWei:"numeric",
+		contributedBy:"String",
+		id:"Int",
+		partyAddress:"String",
+		partyId:"Int",
+		previousTotalContributedToPartyWei:"numeric",
+		runId:"Int",
+		totalFromContributorWei:"numeric",
+		transactionHash:"String"
+	},
+	party_contribution_stddev_fields:{
+		blockNumber:"Float",
+		contributedAmountWei:"Float",
+		id:"Float",
+		partyId:"Float",
+		previousTotalContributedToPartyWei:"Float",
+		runId:"Float",
+		totalFromContributorWei:"Float"
+	},
+	party_contribution_stddev_pop_fields:{
+		blockNumber:"Float",
+		contributedAmountWei:"Float",
+		id:"Float",
+		partyId:"Float",
+		previousTotalContributedToPartyWei:"Float",
+		runId:"Float",
+		totalFromContributorWei:"Float"
+	},
+	party_contribution_stddev_samp_fields:{
+		blockNumber:"Float",
+		contributedAmountWei:"Float",
+		id:"Float",
+		partyId:"Float",
+		previousTotalContributedToPartyWei:"Float",
+		runId:"Float",
+		totalFromContributorWei:"Float"
+	},
+	party_contribution_sum_fields:{
+		blockNumber:"numeric",
+		contributedAmountWei:"numeric",
+		id:"Int",
+		partyId:"Int",
+		previousTotalContributedToPartyWei:"numeric",
+		runId:"Int",
+		totalFromContributorWei:"numeric"
+	},
+	party_contribution_var_pop_fields:{
+		blockNumber:"Float",
+		contributedAmountWei:"Float",
+		id:"Float",
+		partyId:"Float",
+		previousTotalContributedToPartyWei:"Float",
+		runId:"Float",
+		totalFromContributorWei:"Float"
+	},
+	party_contribution_var_samp_fields:{
+		blockNumber:"Float",
+		contributedAmountWei:"Float",
+		id:"Float",
+		partyId:"Float",
+		previousTotalContributedToPartyWei:"Float",
+		runId:"Float",
+		totalFromContributorWei:"Float"
+	},
+	party_contribution_variance_fields:{
+		blockNumber:"Float",
+		contributedAmountWei:"Float",
+		id:"Float",
+		partyId:"Float",
+		previousTotalContributedToPartyWei:"Float",
+		runId:"Float",
+		totalFromContributorWei:"Float"
+	},
+	party_created:{
+		blockNumber:"numeric",
+		createdBy:"String",
+		id:"Int",
+		party:"party",
+		partyAddress:"String",
+		partyId:"Int",
+		run:"run",
+		runId:"Int",
+		transactionHash:"String"
+	},
+	party_finalized:{
+		blockNumber:"numeric",
+		feeWei:"numeric",
+		id:"Int",
+		party:"party",
+		partyAddress:"String",
+		partyId:"Int",
+		result:"bigint",
+		run:"run",
+		runId:"Int",
+		tokenVault:"String",
+		totalContributedWei:"numeric",
+		totalSpentWei:"numeric",
+		transactionHash:"String",
+		versionNumber:"Int"
+	},
+	query_root:{
+		bid:"bid",
+		bid_by_pk:"bid",
+		block:"block",
+		block_by_pk:"block",
+		ens_lookup:"ens_lookup",
+		ens_lookup_by_pk:"ens_lookup",
+		eth_price:"eth_price",
+		eth_price_by_pk:"eth_price",
+		open_sea_metadata:"open_sea_metadata",
+		open_sea_metadata_by_pk:"open_sea_metadata",
+		party:"party",
+		party_by_pk:"party",
+		party_claim:"party_claim",
+		party_claim_by_pk:"party_claim",
+		party_contribution:"party_contribution",
+		party_contribution_aggregate:"party_contribution_aggregate",
+		party_contribution_by_pk:"party_contribution",
+		party_created:"party_created",
+		party_created_by_pk:"party_created",
+		party_finalized:"party_finalized",
+		party_finalized_by_pk:"party_finalized",
+		run:"run",
+		run_by_pk:"run"
+	},
+	run:{
+		fromBlock:"numeric",
+		id:"Int",
+		ranAt:"bigint",
+		runTime:"numeric",
+		status:"String",
+		toBlock:"numeric"
+	},
+	subscription_root:{
+		bid:"bid",
+		bid_by_pk:"bid",
+		block:"block",
+		block_by_pk:"block",
+		ens_lookup:"ens_lookup",
+		ens_lookup_by_pk:"ens_lookup",
+		eth_price:"eth_price",
+		eth_price_by_pk:"eth_price",
+		open_sea_metadata:"open_sea_metadata",
+		open_sea_metadata_by_pk:"open_sea_metadata",
+		party:"party",
+		party_by_pk:"party",
+		party_claim:"party_claim",
+		party_claim_by_pk:"party_claim",
+		party_contribution:"party_contribution",
+		party_contribution_aggregate:"party_contribution_aggregate",
+		party_contribution_by_pk:"party_contribution",
+		party_created:"party_created",
+		party_created_by_pk:"party_created",
+		party_finalized:"party_finalized",
+		party_finalized_by_pk:"party_finalized",
+		run:"run",
+		run_by_pk:"run"
+	}
+}

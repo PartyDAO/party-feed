@@ -28,4 +28,5 @@ export const sanitizeAsset = (asset: OpenSeaAsset): OpenSeaAsset => {
 
 export const openSeaPort = new OpenSeaPort(ethersProvider, {
   networkName: Network.Main,
+  apiKey: config.openSeaApiKey,
 });

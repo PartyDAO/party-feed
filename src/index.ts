@@ -1,5 +1,6 @@
 import { getLastKnownBlockNumber } from "./fetchers";
 import { alertDiscord } from "./discord";
+// import { postTweetIfRelevant } from "./twitter";
 import { getAllPartyEvents } from "./party_events";
 import {
   getIsRunning,
@@ -20,6 +21,12 @@ const alertForBlocks = async (fromBlock: number) => {
   console.log(`Alerting on ${allNewEvents.length} events`);
   for (const newEvent of allNewEvents) {
     await alertDiscord(newEvent);
+    // try {
+    //   await postTweetIfRelevant(newEvent);
+    // } catch (e) {
+    //   console.error("Error posting to twitter");
+    //   console.error(e);
+    // }
     await delay(2000);
   }
 };

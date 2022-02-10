@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "tsc && node ./transpiled/index.js",
-    "generate:typechain": "typechain --target ethers-v5 --outDir ./src/contracts './abis/*.json'"
+    "generate:typechain": "typechain --target ethers-v5 --outDir ./src/contracts './abis/*.json'",
+    "test:types": "./node_modules/.bin/tsc --noEmit"
   },
   "devDependencies": {
     "@types/node-cron": "^2.0.3",
@@ -23,9 +24,11 @@
     "ethers": "^5.0.23",
     "lodash": "^4.17.20",
     "node-cron": "^2.0.3",
+    "node-fetch": "^2.6.0",
     "oauth": "^0.9.15",
     "opensea-js": "^1.1.10",
     "redis": "^3.0.2",
+    "twitter-api-v2": "^1.10.0",
     "typechain": "^4.0.0"
   }
 }

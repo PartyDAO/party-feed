@@ -6,6 +6,10 @@ import {
 } from "./fetchers";
 import { getRedisAsync, setRedisAsync } from "./redis_util";
 import {
+  getHaveAlertedAboutNewPartyCacheKey,
+  getHaveAlertedAboutPartyHalfwayCacheKey,
+} from "./redis_key_util";
+import {
   PartyEvent,
   StartPartyEvent,
   ContributionPartyEvent,
@@ -75,4 +79,52 @@ export const getAllPartyEvents = async (fromBlock: number) => {
   events.push(...finalizations);
 
   return events;
+};
+
+export const getHaveAlertedAboutNewParty = async (
+  partyAddress: string
+): Promise<boolean> => {
+  const key = getHaveAlertedAboutNewPartyCacheKey(partyAddress);
+  const res = await getRedisAsync(key);
+  if (res) {
+    console.info(
+      `already alerted about new party with contribution ${partyAddress}`
+    );
+    return true;
+  } else {
+    console.info(
+      `have NOT alerted about new party with contribution ${partyAddress}`
+    );
+    return false;
+  }
+};
+
+export const setHaveAlertedAboutNewParty = async (partyAddress: string) => {
+  const key = getHaveAlertedAboutNewPartyCacheKey(partyAddress);
+  console.info(`setting new party with contribution ${partyAddress}`);
+  await setRedisAsync(key, "true");
+};
+
+export const getHaveAlertedAboutPartyHalfway = async (
+  partyAddress: string
+): Promise<boolean> => {
+  const key = getHaveAlertedAboutPartyHalfwayCacheKey(partyAddress);
+  const res = await getRedisAsync(key);
+  if (res) {
+    console.info(
+      `already alerted about new party with contribution ${partyAddress}`
+    );
+    return true;
+  } else {
+    console.info(
+      `have NOT alerted about new party with contribution ${partyAddress}`
+    );
+    return false;
+  }
+};
+
+export const setHaveAlertedAboutPartyHalfway = async (partyAddress: string) => {
+  const key = getHaveAlertedAboutPartyHalfwayCacheKey(partyAddress);
+  console.info(`setting party halfway ${partyAddress}`);
+  await setRedisAsync(key, "true");
 };
