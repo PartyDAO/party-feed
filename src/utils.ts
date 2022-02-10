@@ -1,3 +1,5 @@
+import axios from "axios";
+import { BigNumber } from "ethers";
 import { ContributionPartyEvent } from "types";
 import { ethersProvider } from "./ethereum";
 import {
@@ -50,14 +52,20 @@ export const getShouldAlertAboutPartyHalfWay = async (
     return false;
   }
 
-  // todo:
-  // 1. create api endpoint that does the following:
-  //   * if partybid - fetch auction reserve price
-  //   * if partybuy - fetch maxPrice from contract
-  //   * if collectionbuy - fetch current floor price
-  // 2. compare (fetched value) / totalContributions >= .5
-  // 3. return boolean
-  const isPartyHalfway = false;
+  const API_ENDPOINT = ""; // todo: add this
+  const totalEthNeeded = await axios.get<{ totalEthNeeded: string }>(
+    `${API_ENDPOINT}?address=${event.party.partyAddress}&type=${event.party.partyType}`
+  );
+
+  // convert wei values to BigNumbers
+  const totalEthNeededBN = BigNumber.from(totalEthNeeded);
+  const totalContributionAmountBN = BigNumber.from(
+    event.contribution.amountInEth // todo: this is not the right value. get totalContribution from event
+  );
+
+  // BN.js cannot handle decimal values, so instead we multiply the total contributions by 2 and compare to
+  // total eth needed
+  const isPartyHalfway = totalContributionAmountBN.mul(2).gte(totalEthNeededBN);
   if (isPartyHalfway) {
     await setHaveAlertedAboutPartyHalfway(partyAddress);
     return true;
