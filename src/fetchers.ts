@@ -10,6 +10,7 @@ import {
   StartPartyEvent,
   PartyInfo,
 } from "./types";
+import { BigNumber } from "ethers";
 
 const chain = Chain(config.hasuraUrl);
 
@@ -75,6 +76,7 @@ export const getContributions = async (
         blockNumber: true,
         transactionHash: true,
         contributedAmountWei: true,
+        previousTotalContributedToPartyWei: true,
       },
     ],
   });
@@ -87,6 +89,11 @@ export const getContributions = async (
         contribution: {
           contributorAddress: c.contributedBy,
           amountInEth: (parseInt(c.contributedAmountWei) / 10 ** 18).toString(),
+          totalAmountContributedToParyInWei: BigNumber.from(
+            c.contributedAmountWei
+          )
+            .add(BigNumber.from(c.previousTotalContributedToPartyWei))
+            .toString(),
         },
       };
     }
