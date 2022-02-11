@@ -1,6 +1,6 @@
 import { getLastKnownBlockNumber } from "./fetchers";
 import { alertDiscord } from "./discord";
-// import { postTweetIfRelevant } from "./twitter";
+import { postTweetIfRelevant } from "./twitter";
 import { getAllPartyEvents } from "./party_events";
 import {
   getIsRunning,
@@ -9,9 +9,6 @@ import {
   setIsRunning,
   setLastBlockAlerted,
 } from "./storage";
-import axios from "axios";
-import * as fs from "fs";
-import { schedule } from "node-cron";
 import delay from "delay";
 
 const DEFAULT_START_BLOCK = 13839598;
@@ -21,12 +18,12 @@ const alertForBlocks = async (fromBlock: number) => {
   console.log(`Alerting on ${allNewEvents.length} events`);
   for (const newEvent of allNewEvents) {
     await alertDiscord(newEvent);
-    // try {
-    //   await postTweetIfRelevant(newEvent);
-    // } catch (e) {
-    //   console.error("Error posting to twitter");
-    //   console.error(e);
-    // }
+    try {
+      await postTweetIfRelevant(newEvent);
+    } catch (e) {
+      console.error("Error posting to twitter");
+      console.error(e);
+    }
     await delay(2000);
   }
 };
