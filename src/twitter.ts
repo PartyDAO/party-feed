@@ -85,7 +85,7 @@ const getTwitterHandleOrNameFromEvent = async (
   }
 };
 
-const eventText = async (event: PartyEvent): Promise<string | undefined> => {
+const getEventText = async (event: PartyEvent): Promise<string | undefined> => {
   const partyDesc = `${event.party.name} (${event.party.symbol})`;
   const creatorName = await bestUserName(event.party.createdBy);
   const twitterHandleOrName = await getTwitterHandleOrNameFromEvent(event);
@@ -129,13 +129,13 @@ export const postTweetIfRelevant = async (event: PartyEvent) => {
     return;
   }
 
-  let tweetText = "";
-  tweetText += await eventText(event);
+  const eventText = await getEventText(event);
   // do not tweet if the event is unknown
-  if (!tweetText) {
+  if (!eventText) {
     return;
   }
 
+  let tweetText = eventText;
   if (
     event.eventType === "contribution" ||
     event.eventType === "finalization"
