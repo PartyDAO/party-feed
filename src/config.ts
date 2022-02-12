@@ -44,4 +44,8 @@ export const config = {
     process.env.OPENSEA_API_KEY,
     "opensea api key"
   ),
+  partybidApiBase: stringFromENVorThrow(
+    process.env.PARTYBID_API_BASE || "https://partybid.app/api",
+    "partybid api base"
+  ),
 };

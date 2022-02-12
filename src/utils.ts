@@ -1,6 +1,7 @@
 import axios from "axios";
 import { BigNumber } from "ethers";
 import { ContributionPartyEvent } from "types";
+import { config } from "./config";
 import { ethersProvider } from "./ethereum";
 import {
   getHaveAlertedAboutNewParty,
@@ -52,7 +53,7 @@ export const getShouldAlertAboutPartyHalfWay = async (
     return false;
   }
 
-  const API_ENDPOINT = "https://partybid.app/api/party/price_details";
+  const API_ENDPOINT = `${config.partybidApiBase}/party/price_details`;
   const totalEthNeeded = await axios.get<{ totalEthNeeded: string }>(
     `${API_ENDPOINT}?address=${event.party.partyAddress}&type=${event.party.partyType}`
   );
