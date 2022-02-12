@@ -117,8 +117,12 @@ const getEventText = async (event: PartyEvent): Promise<string | undefined> => {
       } else {
         return undefined;
       }
+    case "bid":
+    case "start":
+      // no tweet text defined for these events
+      return undefined;
     default:
-      console.error("Unknown event", event);
+      console.error("twitter.ts::Unknown event", event);
       return undefined;
   }
 };
