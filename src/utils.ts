@@ -53,7 +53,7 @@ export const getShouldAlertAboutPartyHalfWay = async (
     return false;
   }
 
-  const API_ENDPOINT = `${config.partybidApiBase}/party/price_details`;
+  const API_ENDPOINT = `${config.partybidApiBase}/party_price_details`;
   const totalEthNeeded = await axios.get<{ totalEthNeeded: string }>(
     `${API_ENDPOINT}?address=${event.party.partyAddress}&type=${event.party.partyType}`
   );
