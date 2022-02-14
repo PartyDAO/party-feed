@@ -21,9 +21,11 @@ const getOpenseaCollection = async (
   const {
     party: { nftContractAddress, nftTokenId },
   } = event;
+  // collection buys do not have an associated nftTokenId. in this case, we default to tokenId 1
+  const tokenId = nftTokenId ? nftTokenId : 1;
   try {
     const r = await axios.get(
-      `https://api.opensea.io/api/v1/asset/${nftContractAddress}/${nftTokenId}`,
+      `https://api.opensea.io/api/v1/asset/${nftContractAddress}/${tokenId}`,
       {
         headers: {
           "X-API-KEY": config.openSeaApiKey,
