@@ -110,7 +110,7 @@ const getEventText = async (event: PartyEvent): Promise<string | undefined> => {
         event
       );
       if (shouldAlertAboutPartyHalfWay) {
-        return `${partyDesc}${twitterHandleOrNameStr} is half way to winning…`;
+        return `${partyDesc}${twitterHandleOrNameStr} is halfway to winning…`;
       }
 
       return undefined;
