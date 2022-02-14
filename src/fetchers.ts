@@ -90,9 +90,11 @@ export const getContributions = async (
           contributorAddress: c.contributedBy,
           amountInEth: (parseInt(c.contributedAmountWei) / 10 ** 18).toString(),
           totalAmountContributedToParyInWei: BigNumber.from(
-            c.contributedAmountWei
+            c.contributedAmountWei.toString()
           )
-            .add(BigNumber.from(c.previousTotalContributedToPartyWei))
+            .add(
+              BigNumber.from(c.previousTotalContributedToPartyWei.toString())
+            )
             .toString(),
         },
       };

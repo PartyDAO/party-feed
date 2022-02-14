@@ -54,9 +54,10 @@ export const getShouldAlertAboutPartyHalfWay = async (
   }
 
   const API_ENDPOINT = `${config.partybidApiBase}/party_price_details`;
-  const totalEthNeeded = await axios.get<{ totalEthNeeded: string }>(
+  const resp = await axios.get<{ totalEthNeeded: string }>(
     `${API_ENDPOINT}?address=${event.party.partyAddress}&type=${event.party.partyType}`
   );
+  const totalEthNeeded = resp.data.totalEthNeeded;
 
   // convert wei values to BigNumbers
   const totalEthNeededBN = BigNumber.from(totalEthNeeded);
