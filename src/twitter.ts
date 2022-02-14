@@ -21,9 +21,11 @@ const getOpenseaCollection = async (
   const {
     party: { nftContractAddress, nftTokenId },
   } = event;
+  // collection buys do not have an associated nftTokenId. in this case, we default to tokenId 1
+  const tokenId = nftTokenId ? nftTokenId : 1;
   try {
     const r = await axios.get(
-      `https://api.opensea.io/api/v1/asset/${nftContractAddress}/${nftTokenId}`,
+      `https://api.opensea.io/api/v1/asset/${nftContractAddress}/${tokenId}`,
       {
         headers: {
           "X-API-KEY": config.openSeaApiKey,
@@ -85,7 +87,7 @@ const getTwitterHandleOrNameFromEvent = async (
   }
 };
 
-const eventText = async (event: PartyEvent): Promise<string | undefined> => {
+const getEventText = async (event: PartyEvent): Promise<string | undefined> => {
   const partyDesc = `${event.party.name} (${event.party.symbol})`;
   const creatorName = await bestUserName(event.party.createdBy);
   const twitterHandleOrName = await getTwitterHandleOrNameFromEvent(event);
@@ -117,8 +119,12 @@ const eventText = async (event: PartyEvent): Promise<string | undefined> => {
       } else {
         return undefined;
       }
+    case "bid":
+    case "start":
+      // no tweet text defined for these events
+      return undefined;
     default:
-      console.error("Unknown event", event);
+      console.error("twitter.ts::Unknown event", event);
       return undefined;
   }
 };
@@ -129,13 +135,13 @@ export const postTweetIfRelevant = async (event: PartyEvent) => {
     return;
   }
 
-  let tweetText = "";
-  tweetText += await eventText(event);
+  const eventText = await getEventText(event);
   // do not tweet if the event is unknown
-  if (!tweetText) {
+  if (!eventText) {
     return;
   }
 
+  let tweetText = eventText;
   if (
     event.eventType === "contribution" ||
     event.eventType === "finalization"
