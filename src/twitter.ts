@@ -7,7 +7,7 @@ import { PartyEvent } from "./types";
 import {
   bestUserName,
   getShouldAlertAboutNewParty,
-  // getShouldAlertAboutPartyHalfWay,
+  getShouldAlertAboutPartyHalfWay,
 } from "./utils";
 
 /**
@@ -106,11 +106,12 @@ const getEventText = async (event: PartyEvent): Promise<string | undefined> => {
         );
       }
 
-      // todo: add support for "party halfway" alert
-      // const shouldAlertAboutPartyHalfWay = await getShouldAlertAboutPartyHalfWay(event);
-      // if (shouldAlertAboutPartyHalfWay) {
-      //   return `${partyDesc}${twitterHandleOrNameStr} is half way to winning…`;
-      // }
+      const shouldAlertAboutPartyHalfWay = await getShouldAlertAboutPartyHalfWay(
+        event
+      );
+      if (shouldAlertAboutPartyHalfWay) {
+        return `${partyDesc}${twitterHandleOrNameStr} is halfway to winning…`;
+      }
 
       return undefined;
     case "finalization":
