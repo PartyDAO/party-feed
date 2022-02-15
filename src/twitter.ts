@@ -100,7 +100,7 @@ const getEventText = async (event: PartyEvent): Promise<string | undefined> => {
       const shouldAlertAboutNewParty = await getShouldAlertAboutNewParty(event);
       if (shouldAlertAboutNewParty) {
         return (
-          `What's this? The party created by ${creatorName} just got its first contribution…` +
+          `What's this? A new party created by ${creatorName} just got its first contribution…` +
           "\n\n" +
           `${partyDesc}${twitterHandleOrNameStr}`
         );
