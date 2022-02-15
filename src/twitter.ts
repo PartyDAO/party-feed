@@ -100,7 +100,7 @@ const getEventText = async (event: PartyEvent): Promise<string | undefined> => {
       const shouldAlertAboutNewParty = await getShouldAlertAboutNewParty(event);
       if (shouldAlertAboutNewParty) {
         return (
-          `New party created by ${creatorName} has its first contribution…` +
+          `What's this? The party created by ${creatorName} just got its first contribution…` +
           "\n\n" +
           `${partyDesc}${twitterHandleOrNameStr}`
         );
@@ -110,13 +110,13 @@ const getEventText = async (event: PartyEvent): Promise<string | undefined> => {
         event
       );
       if (shouldAlertAboutPartyHalfWay) {
-        return `${partyDesc}${twitterHandleOrNameStr} is halfway to winning…`;
+        return `$Oh wow…{partyDesc}${twitterHandleOrNameStr} is halfway to winning…`;
       }
 
       return undefined;
     case "finalization":
       if (event.finalization.won) {
-        return `${partyDesc}${twitterHandleOrNameStr} has won!`;
+        return `What?!! ${partyDesc}${twitterHandleOrNameStr} has won!`;
       } else {
         return undefined;
       }
