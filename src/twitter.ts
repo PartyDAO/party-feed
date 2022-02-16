@@ -1,4 +1,5 @@
 import axios from "axios";
+import { ethers } from "ethers";
 import { OpenSeaCollection } from "opensea-js/lib/types";
 import { TwitterApi } from "twitter-api-v2";
 import { config } from "./config";
@@ -110,13 +111,25 @@ const getEventText = async (event: PartyEvent): Promise<string | undefined> => {
         event
       );
       if (shouldAlertAboutPartyHalfWay) {
-        return `$Oh wow…{partyDesc}${twitterHandleOrNameStr} is halfway to winning…`;
+        const totalEthContributed = ethers.utils.formatEther(
+          event.contribution.totalAmountContributedToPartyInWei
+        );
+        return (
+          `$Oh wow…{partyDesc}${twitterHandleOrNameStr} is halfway to winning…` +
+          "\n\n" +
+          `${totalEthContributed} ETH raised.`
+        );
       }
 
       return undefined;
     case "finalization":
       if (event.finalization.won) {
-        return `What?!! ${partyDesc}${twitterHandleOrNameStr} has won!`;
+        const { totalSpentInEth } = event.finalization;
+        return (
+          `What?!! ${partyDesc}${twitterHandleOrNameStr} has won!` +
+          "\n\n" +
+          `${totalSpentInEth} ETH spent.`
+        );
       } else {
         return undefined;
       }
