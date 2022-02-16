@@ -117,7 +117,7 @@ const getEventText = async (event: PartyEvent): Promise<string | undefined> => {
         return (
           `$Oh wow…${partyDesc}${twitterHandleOrNameStr} is halfway to winning…` +
           "\n\n" +
-          `${totalEthContributed} ETH raised.`
+          `Party balance: ${totalEthContributed} ETH`
         );
       }
 
@@ -128,7 +128,7 @@ const getEventText = async (event: PartyEvent): Promise<string | undefined> => {
         return (
           `What?!! ${partyDesc}${twitterHandleOrNameStr} has won!` +
           "\n\n" +
-          `${totalSpentInEth} ETH spent.`
+          `Total spent: ${totalSpentInEth} ETH`
         );
       } else {
         return undefined;
