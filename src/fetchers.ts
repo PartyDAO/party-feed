@@ -89,7 +89,7 @@ export const getContributions = async (
         contribution: {
           contributorAddress: c.contributedBy,
           amountInEth: (parseInt(c.contributedAmountWei) / 10 ** 18).toString(),
-          totalAmountContributedToParyInWei: BigNumber.from(
+          totalAmountContributedToPartyInWei: BigNumber.from(
             c.contributedAmountWei.toString()
           )
             .add(

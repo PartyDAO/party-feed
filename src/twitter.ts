@@ -1,4 +1,5 @@
 import axios from "axios";
+import { ethers } from "ethers";
 import { OpenSeaCollection } from "opensea-js/lib/types";
 import { TwitterApi } from "twitter-api-v2";
 import { config } from "./config";
@@ -88,7 +89,7 @@ const getTwitterHandleOrNameFromEvent = async (
 };
 
 const getEventText = async (event: PartyEvent): Promise<string | undefined> => {
-  const partyDesc = `${event.party.name} (${event.party.symbol})`;
+  const partyName = event.party.name;
   const creatorName = await bestUserName(event.party.createdBy);
   const twitterHandleOrName = await getTwitterHandleOrNameFromEvent(event);
   const twitterHandleOrNameStr = twitterHandleOrName
@@ -102,7 +103,7 @@ const getEventText = async (event: PartyEvent): Promise<string | undefined> => {
         return (
           `What's this? A new party created by ${creatorName} just got its first contribution…` +
           "\n\n" +
-          `${partyDesc}${twitterHandleOrNameStr}`
+          `${partyName}${twitterHandleOrNameStr}`
         );
       }
 
@@ -110,13 +111,25 @@ const getEventText = async (event: PartyEvent): Promise<string | undefined> => {
         event
       );
       if (shouldAlertAboutPartyHalfWay) {
-        return `$Oh wow…{partyDesc}${twitterHandleOrNameStr} is halfway to winning…`;
+        const totalEthContributed = ethers.utils.formatEther(
+          event.contribution.totalAmountContributedToPartyInWei
+        );
+        return (
+          `$Oh wow…${partyName}${twitterHandleOrNameStr} is halfway to winning…` +
+          "\n\n" +
+          `Party balance: ${totalEthContributed} ETH`
+        );
       }
 
       return undefined;
     case "finalization":
       if (event.finalization.won) {
-        return `What?!! ${partyDesc}${twitterHandleOrNameStr} has won!`;
+        const { totalSpentInEth } = event.finalization;
+        return (
+          `What?!! ${partyName}${twitterHandleOrNameStr} has won!` +
+          "\n\n" +
+          `Total spent: ${totalSpentInEth} ETH`
+        );
       } else {
         return undefined;
       }

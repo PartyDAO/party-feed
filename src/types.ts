@@ -15,7 +15,7 @@ export interface Bid {
 export interface Contribution {
   contributorAddress: string;
   amountInEth: string;
-  totalAmountContributedToParyInWei: string;
+  totalAmountContributedToPartyInWei: string;
 }
 
 export interface Finalization {
