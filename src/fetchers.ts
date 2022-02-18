@@ -176,3 +176,42 @@ export const getLastKnownBlockNumber = async (): Promise<number> => {
   });
   return parseInt(zr.run[0].toBlock);
 };
+
+export const getAllPartyAddressesWithContributions = async (): Promise<
+  string[]
+> => {
+  // const zr = await chain("query")({
+  //   party_contribution: [
+  //     lookupAttrs(fromBlock),
+  //     {
+  //       party: PARTY_ATTRIBUTES,
+  //       contributedBy: true,
+  //       blockNumber: true,
+  //       transactionHash: true,
+  //       contributedAmountWei: true,
+  //       previousTotalContributedToPartyWei: true,
+  //     },
+  //   ],
+  // });
+  // return zr.party_contribution.map(
+  //   (c): ContributionPartyEvent => {
+  //     return {
+  //       eventType: "contribution",
+  //       party: c.party,
+  //       txHash: c.transactionHash,
+  //       contribution: {
+  //         contributorAddress: c.contributedBy,
+  //         amountInEth: (parseInt(c.contributedAmountWei) / 10 ** 18).toString(),
+  //         totalAmountContributedToPartyInWei: BigNumber.from(
+  //           c.contributedAmountWei.toString()
+  //         )
+  //           .add(
+  //             BigNumber.from(c.previousTotalContributedToPartyWei.toString())
+  //           )
+  //           .toString(),
+  //       },
+  //     };
+  //   }
+  // );
+  return [];
+};
