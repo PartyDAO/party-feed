@@ -39,3 +39,10 @@ export const down = async () => {
 
   console.log("finished down migration");
 };
+
+/// UNCOMMENT THE FUNCTION YOU WANT TO USE FOR THE MIGRATION
+// I want to migrate the data forward (most likely what you want to do)
+// up();
+//
+// DANGER ZONE: Something went wrong, and I want to undo the migration
+// down();
