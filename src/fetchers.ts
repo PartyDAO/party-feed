@@ -1,5 +1,5 @@
 import { config } from "./config";
-import { Chain, order_by } from "./zeus";
+import { Chain, order_by, party_select_column } from "./zeus";
 import {
   Bid,
   Contribution,
@@ -180,38 +180,40 @@ export const getLastKnownBlockNumber = async (): Promise<number> => {
 export const getAllPartyAddressesWithContributions = async (): Promise<
   string[]
 > => {
-  // const zr = await chain("query")({
-  //   party_contribution: [
-  //     lookupAttrs(fromBlock),
-  //     {
-  //       party: PARTY_ATTRIBUTES,
-  //       contributedBy: true,
-  //       blockNumber: true,
-  //       transactionHash: true,
-  //       contributedAmountWei: true,
-  //       previousTotalContributedToPartyWei: true,
-  //     },
-  //   ],
-  // });
-  // return zr.party_contribution.map(
-  //   (c): ContributionPartyEvent => {
-  //     return {
-  //       eventType: "contribution",
-  //       party: c.party,
-  //       txHash: c.transactionHash,
-  //       contribution: {
-  //         contributorAddress: c.contributedBy,
-  //         amountInEth: (parseInt(c.contributedAmountWei) / 10 ** 18).toString(),
-  //         totalAmountContributedToPartyInWei: BigNumber.from(
-  //           c.contributedAmountWei.toString()
-  //         )
-  //           .add(
-  //             BigNumber.from(c.previousTotalContributedToPartyWei.toString())
-  //           )
-  //           .toString(),
-  //       },
-  //     };
+  // query MyQuery {
+  //   party(distinct_on: partyAddress) {
+  //     partyAddress
+  //     party_contributions(where: {}) {
+  //       contributedBy
+  //     }
+  //     createdBy
   //   }
-  // );
-  return [];
+  // }
+  const zr = await chain("query")({
+    party: [
+      { distinct_on: [party_select_column.partyAddress] },
+      {
+        createdBy: true,
+        partyAddress: true,
+        party_contributions: [{}, { contributedBy: true }],
+      },
+    ],
+  });
+
+  const partiesWithContributions = zr.party.filter((party) => {
+    const partyContributions = party.party_contributions;
+    if (!(partyContributions && partyContributions.length)) {
+      return false;
+    }
+
+    // filter out contributions from party owner
+    const partyOwner = party.createdBy.toLowerCase();
+    const contributionsNotIncludingPartyOwner = partyContributions.filter(
+      (contribution) => contribution.contributedBy.toLowerCase() !== partyOwner
+    );
+    return !!contributionsNotIncludingPartyOwner.length;
+  });
+
+  // extract party addresses
+  return partiesWithContributions.map((party) => party.partyAddress);
 };
