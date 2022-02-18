@@ -1,7 +1,5 @@
 # Migrations
 
-===
-
 Migration files for redis
 
 ### Usage
