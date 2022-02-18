@@ -12,7 +12,7 @@ export const up = async () => {
   const partyAddressWithContributions = await getAllPartyAddressesWithContributions();
 
   for (let i = 0; i < partyAddressWithContributions.length; i++) {
-    const partyAddress = partyAddressWithContributions[i];
+    const partyAddress = partyAddressWithContributions[i].toLowerCase();
     console.info(`setting new party with contribution ${partyAddress} to true`);
     await setHaveAlertedAboutNewParty(partyAddress);
   }
@@ -29,7 +29,7 @@ export const down = async () => {
   const partyAddressWithContributions = await getAllPartyAddressesWithContributions();
 
   for (let i = 0; i < partyAddressWithContributions.length; i++) {
-    const partyAddress = partyAddressWithContributions[i];
+    const partyAddress = partyAddressWithContributions[i].toLowerCase();
     const key = getHaveAlertedAboutNewPartyCacheKey(partyAddress);
     console.info(
       `setting new party with contribution ${partyAddress} to false`
