@@ -202,6 +202,8 @@ export const getAllPartyAddressesWithContributions = async (): Promise<
 
   const partiesWithContributions = zr.party.filter((party) => {
     const partyContributions = party.party_contributions;
+
+    // filter out parties with no contributions
     if (!(partyContributions && partyContributions.length)) {
       return false;
     }
