@@ -1,5 +1,5 @@
 import { config } from "./config";
-import { Chain, order_by } from "./zeus";
+import { Chain, order_by, party_select_column } from "./zeus";
 import {
   Bid,
   Contribution,
@@ -175,4 +175,47 @@ export const getLastKnownBlockNumber = async (): Promise<number> => {
     ],
   });
   return parseInt(zr.run[0].toBlock);
+};
+
+export const getAllPartyAddressesWithContributions = async (): Promise<
+  string[]
+> => {
+  // query MyQuery {
+  //   party(distinct_on: partyAddress) {
+  //     partyAddress
+  //     party_contributions(where: {}) {
+  //       contributedBy
+  //     }
+  //     createdBy
+  //   }
+  // }
+  const zr = await chain("query")({
+    party: [
+      { distinct_on: [party_select_column.partyAddress] },
+      {
+        createdBy: true,
+        partyAddress: true,
+        party_contributions: [{}, { contributedBy: true }],
+      },
+    ],
+  });
+
+  const partiesWithContributions = zr.party.filter((party) => {
+    const partyContributions = party.party_contributions;
+
+    // filter out parties with no contributions
+    if (!(partyContributions && partyContributions.length)) {
+      return false;
+    }
+
+    // filter out contributions from party owner
+    const partyOwner = party.createdBy.toLowerCase();
+    const contributionsNotIncludingPartyOwner = partyContributions.filter(
+      (contribution) => contribution.contributedBy.toLowerCase() !== partyOwner
+    );
+    return !!contributionsNotIncludingPartyOwner.length;
+  });
+
+  // extract party addresses
+  return partiesWithContributions.map((party) => party.partyAddress);
 };
