@@ -101,9 +101,11 @@ const getEventText = async (event: PartyEvent): Promise<string | undefined> => {
       const shouldAlertAboutNewParty = await getShouldAlertAboutNewParty(event);
       if (shouldAlertAboutNewParty) {
         return (
-          `What's this? A new party created by ${creatorName} just got its first contribution…` +
+          `What's this? A new party just got its first contribution…` +
           "\n\n" +
-          `${partyName}${twitterHandleOrNameStr}`
+          `${partyName}${twitterHandleOrNameStr}` +
+          "\n\n" +
+          `Created by ${creatorName}`
         );
       }
 
@@ -115,9 +117,11 @@ const getEventText = async (event: PartyEvent): Promise<string | undefined> => {
           event.contribution.totalAmountContributedToPartyInWei
         );
         return (
-          `Oh wow…${partyName}${twitterHandleOrNameStr} is halfway to winning…` +
+          `Oh wow…this party is halfway to winning…` +
           "\n\n" +
-          `Party balance: ${totalEthContributed} ETH`
+          `${partyName}${twitterHandleOrNameStr}` +
+          "\n\n" +
+          `Balance: ${totalEthContributed} ETH`
         );
       }
 
@@ -128,7 +132,7 @@ const getEventText = async (event: PartyEvent): Promise<string | undefined> => {
         return (
           `What?!! ${partyName}${twitterHandleOrNameStr} has won!` +
           "\n\n" +
-          `Total spent: ${totalSpentInEth} ETH`
+          `Bought for: ${totalSpentInEth} ETH`
         );
       } else {
         return undefined;
