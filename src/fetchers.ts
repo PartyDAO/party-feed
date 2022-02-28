@@ -11,6 +11,7 @@ import {
   PartyInfo,
 } from "./types";
 import { BigNumber } from "ethers";
+import { BigNumber as BNE } from "bignumber.js";
 
 const chain = Chain(config.hasuraUrl);
 
@@ -89,12 +90,8 @@ export const getContributions = async (
         contribution: {
           contributorAddress: c.contributedBy,
           amountInEth: (parseInt(c.contributedAmountWei) / 10 ** 18).toString(),
-          totalAmountContributedToPartyInWei: BigNumber.from(
-            c.contributedAmountWei.toString()
-          )
-            .add(
-              BigNumber.from(c.previousTotalContributedToPartyWei.toString())
-            )
+          totalAmountContributedToPartyInWei: new BNE(c.contributedAmountWei)
+            .plus(new BNE(c.previousTotalContributedToPartyWei))
             .toString(),
         },
       };
