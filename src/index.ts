@@ -11,7 +11,7 @@ import {
 } from "./storage";
 import delay from "delay";
 
-const DEFAULT_START_BLOCK = 13839598;
+const DEFAULT_START_BLOCK = 14283088;
 
 const alertForBlocks = async (fromBlock: number) => {
   const allNewEvents = await getAllPartyEvents(fromBlock);
@@ -63,13 +63,13 @@ const tick = async () => {
     console.log(
       `Tick successfully completed from ${lastBlockAlerted} to ${lastBlock}`
     );
+    await setLastBlockAlerted(lastBlock);
+    console.log("setting lastBlock", lastBlock);
   } catch (e) {
     console.log("error");
     console.error(e);
     console.log("Tick errored out.");
   } finally {
-    console.log("setting lastBlock", lastBlock);
-    await setLastBlockAlerted(lastBlock);
     await setIsNotRunning();
   }
 };
