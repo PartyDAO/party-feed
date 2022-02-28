@@ -12,6 +12,20 @@ export const getLastBlockAlerted = async (): Promise<number | undefined> => {
   return parseInt(foundVal);
 };
 
+export const setAlertedTxn = async (
+  type: "discord" | "twitter",
+  txnHash: string
+) => {
+  await setRedisAsync(`alerted:${type}:${txnHash.toLowerCase()}`, "true");
+};
+export const getAlertedTxn = async (
+  type: "discord" | "twitter",
+  txnHash: string
+) => {
+  const res = await getRedisAsync(`alerted:${type}:${txnHash.toLowerCase()}`);
+  return res === "true";
+};
+
 export const setIsRunning = async () => {
   await setRedisAsync(IS_RUNNING_KEY_NAME, "true");
 };

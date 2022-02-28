@@ -1,3 +1,4 @@
+import { getAlertedTxn, setAlertedTxn } from "./storage";
 import axios from "axios";
 import { ethers } from "ethers";
 import { OpenSeaCollection } from "opensea-js/lib/types";
@@ -181,8 +182,14 @@ export const postTweetIfRelevant = async (event: PartyEvent) => {
     }
   }
 
-  console.info(`Sending tweet ${tweetText}`);
-  return twitterApiPostTweet(tweetText);
+  const didAlert = await getAlertedTxn("twitter", event.txHash);
+  if (didAlert) {
+    console.info(`Skipping alerting on ${tweetText} on twitter`);
+  } else {
+    console.info(`Sending tweet ${tweetText}`);
+    await twitterApiPostTweet(tweetText);
+    await setAlertedTxn("twitter", event.txHash);
+  }
 };
 
 const twitterApiPostTweet = async (tweetText: string): Promise<any> => {

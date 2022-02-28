@@ -1,3 +1,4 @@
+import { getAlertedTxn, setAlertedTxn } from "./storage";
 import { PartyEvent } from "./types";
 import { openSeaPort } from "./opensea";
 import { ethersProvider } from "./ethereum";
@@ -97,9 +98,16 @@ export const alertDiscord = async (event: PartyEvent) => {
   }
   const imageUrl = await getImageUrl(event);
   const embeds: DiscordEmbed = imageUrl ? [{ image: { url: imageUrl } }] : [];
-  console.info(`Sending alert ${discordText}`);
-  return axios.post(config.discordWebhookUrl, {
-    content: discordText,
-    embeds,
-  });
+
+  const didAlert = await getAlertedTxn("discord", event.txHash);
+  if (didAlert) {
+    console.info(`Skipping alerting on ${discordText} on discord`);
+  } else {
+    console.info(`Sending alert ${discordText}`);
+    await axios.post(config.discordWebhookUrl, {
+      content: discordText,
+      embeds,
+    });
+    await setAlertedTxn("discord", event.txHash);
+  }
 };
