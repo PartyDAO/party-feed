@@ -71,6 +71,11 @@ const getTwitterHandleOrNameFromCollection = (
   return collection.name;
 };
 
+/**
+ * Get collection's Twitter handle or collection's name
+ * @param event
+ * @returns {string} collection's twitter handle or collections' name
+ */
 const getTwitterHandleOrNameFromEvent = async (
   event: PartyEvent
 ): Promise<string> => {
@@ -91,9 +96,11 @@ const getTwitterHandleOrNameFromEvent = async (
 const getEventText = async (event: PartyEvent): Promise<string | undefined> => {
   const partyName = event.party.name;
   const creatorName = await bestUserName(event.party.createdBy);
-  const twitterHandleOrName = await getTwitterHandleOrNameFromEvent(event);
-  const twitterHandleOrNameStr = twitterHandleOrName
-    ? ` on ${twitterHandleOrName}`
+  const collectionTwitterHandleOrName = await getTwitterHandleOrNameFromEvent(
+    event
+  );
+  const collectionTwitterHandleOrNameStr = collectionTwitterHandleOrName
+    ? ` on ${collectionTwitterHandleOrName}`
     : "";
 
   switch (event.eventType) {
@@ -101,9 +108,11 @@ const getEventText = async (event: PartyEvent): Promise<string | undefined> => {
       const shouldAlertAboutNewParty = await getShouldAlertAboutNewParty(event);
       if (shouldAlertAboutNewParty) {
         return (
-          `What's this? A new party created by ${creatorName} just got its first contribution…` +
+          `What's this? A new party just got its first contribution…` +
           "\n\n" +
-          `${partyName}${twitterHandleOrNameStr}`
+          `${partyName}${collectionTwitterHandleOrNameStr}` +
+          "\n\n" +
+          `Created by ${creatorName}`
         );
       }
 
@@ -115,9 +124,11 @@ const getEventText = async (event: PartyEvent): Promise<string | undefined> => {
           event.contribution.totalAmountContributedToPartyInWei
         );
         return (
-          `Oh wow…${partyName}${twitterHandleOrNameStr} is halfway to winning…` +
+          `Oh wow…this party is halfway to winning…` +
           "\n\n" +
-          `Party balance: ${totalEthContributed} ETH`
+          `${partyName}${collectionTwitterHandleOrNameStr}` +
+          "\n\n" +
+          `Balance: ${totalEthContributed} ETH`
         );
       }
 
@@ -126,9 +137,9 @@ const getEventText = async (event: PartyEvent): Promise<string | undefined> => {
       if (event.finalization.won) {
         const { totalSpentInEth } = event.finalization;
         return (
-          `What?!! ${partyName}${twitterHandleOrNameStr} has won!` +
+          `What?!! ${partyName}${collectionTwitterHandleOrNameStr} has won!` +
           "\n\n" +
-          `Total spent: ${totalSpentInEth} ETH`
+          `Bought for: ${totalSpentInEth} ETH`
         );
       } else {
         return undefined;
