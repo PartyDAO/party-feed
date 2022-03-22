@@ -3,10 +3,10 @@ import { alertDiscord } from "./discord";
 import { postTweetIfRelevant } from "./twitter";
 import { getAllPartyEvents } from "./party_events";
 import {
-  getIsRunning,
+  fetchIsRunningTimestamp,
   getLastBlockAlerted,
-  setIsNotRunning,
-  setIsRunning,
+  setIsNotRunningTimestamp,
+  setIsRunningTimestamp,
   setLastBlockAlerted,
 } from "./storage";
 import delay from "delay";
@@ -41,9 +41,9 @@ const checkBlockNum = async () => {
 const tick = async () => {
   await checkBlockNum();
 
-  const isRunning = await getIsRunning();
+  const isRunning = await fetchIsRunningTimestamp();
   if (isRunning) {
-    console.log(`Not ticking because running`);
+    console.log(`Not ticking because running.`);
     return;
   }
 
@@ -57,20 +57,20 @@ const tick = async () => {
   const lastBlock = await getLastKnownBlockNumber();
   console.info(`Querying from `, lastBlockAlerted, "to", lastBlock);
 
-  await setIsRunning();
+  await setIsRunningTimestamp();
   try {
     await alertForBlocks(lastBlockAlerted);
     console.log(
       `Tick successfully completed from ${lastBlockAlerted} to ${lastBlock}`
     );
+    console.log("setting lastBlock", lastBlock);
+    await setLastBlockAlerted(lastBlock);
   } catch (e) {
     console.log("error");
     console.error(e);
     console.log("Tick errored out.");
   } finally {
-    console.log("setting lastBlock", lastBlock);
-    await setLastBlockAlerted(lastBlock);
-    await setIsNotRunning();
+    await setIsNotRunningTimestamp();
   }
 };
 
