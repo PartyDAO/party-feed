@@ -3,7 +3,7 @@ import { getRedisAsync, setRedisAsync } from "./redis_util";
 
 const LAST_BLOCK_KEY_NAME = "last_block";
 const IS_RUNNING_KEY_NAME = "is_running";
-const RUNNING_TIMESTAMP_KEY = "is_running";
+const RUNNING_TIMESTAMP_KEY = "is_running_2";
 
 const ONE_MINUTE = 60;
 const RESET_RUNNING_THRESHOLD_SECONDS = ONE_MINUTE * 30; // 30 mins
