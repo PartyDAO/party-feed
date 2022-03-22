@@ -32,7 +32,7 @@ export const setIsNotRunningTimestamp = async () => {
 export const fetchIsRunningTimestamp = async () => {
   const runningTimestamp = await getIsRunningTimestamp();
   console.log({ runningTimestamp });
-  if (runningTimestamp == 0) {
+  if (runningTimestamp === 0) {
     return false;
   }
 
