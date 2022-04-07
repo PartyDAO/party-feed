@@ -16,9 +16,11 @@ export const verifyProxyContract = async (
   }
 
   try {
+    const params = new URLSearchParams();
+    params.append("address", address);
     const resp = await axios.post(
       `${config.etherscan.apiBase}/?module=contract&action=verifyproxycontract&apikey=${config.etherscan.apiKey}`,
-      { address }
+      params
     );
 
     if (!(resp && resp.data)) {
@@ -31,6 +33,7 @@ export const verifyProxyContract = async (
       );
       return true;
     } else {
+      console.log("data", data);
       throw new Error(`Could not verify proxy contract for ${address}`);
     }
   } catch (error) {
