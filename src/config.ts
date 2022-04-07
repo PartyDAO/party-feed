@@ -19,7 +19,7 @@ export const config = {
     apiBase: "https://api.etherscan.io/api",
     apiKey: stringFromENVorThrow(
       process.env.ETHERSCAN_API_KEY,
-      "twitter api key"
+      "etherscan api key"
     ),
   },
   infuraId: stringFromENVorThrow(process.env.INFURA_ID, "infura id"),
