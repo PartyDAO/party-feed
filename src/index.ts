@@ -10,7 +10,7 @@ import {
   setLastBlockAlerted,
 } from "./storage";
 import delay from "delay";
-import { verifyProxyContractForStartEvent } from "etherscan";
+import { verifyProxyContractForStartEvent } from "./etherscan";
 
 const DEFAULT_START_BLOCK = 13839598;
 
