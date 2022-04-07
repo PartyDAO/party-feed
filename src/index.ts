@@ -10,6 +10,7 @@ import {
   setLastBlockAlerted,
 } from "./storage";
 import delay from "delay";
+import { verifyProxyContractForStartEvent } from "etherscan";
 
 const DEFAULT_START_BLOCK = 13839598;
 
@@ -22,6 +23,12 @@ const alertForBlocks = async (fromBlock: number) => {
       await postTweetIfRelevant(newEvent);
     } catch (e) {
       console.error("Error posting to twitter");
+      console.error(e);
+    }
+    try {
+      await verifyProxyContractForStartEvent(newEvent);
+    } catch (e) {
+      console.error("Error verifying proxy contract on etherscan");
       console.error(e);
     }
     await delay(2000);
