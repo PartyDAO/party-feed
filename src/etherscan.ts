@@ -1,4 +1,5 @@
 import axios from "axios";
+import { config } from "./config";
 import { PartyEvent } from "types";
 
 /**
@@ -16,7 +17,7 @@ export const verifyProxyContract = async (
 
   try {
     const resp = await axios.post(
-      `https://api.etherscan.io/api?module=contract&action=verifyproxycontract&apikey=${ETHERSCAN_API_KEY}`,
+      `${config.etherscan.apiBase}/?module=contract&action=verifyproxycontract&apikey=${config.etherscan.apiKey}`,
       { address }
     );
 

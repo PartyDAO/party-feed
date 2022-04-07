@@ -15,6 +15,13 @@ export const config = {
     process.env.DISCORD_WEBHOOK_URL,
     "discord webhook url"
   ),
+  etherscan: {
+    apiBase: "https://api.etherscan.io/api",
+    apiKey: stringFromENVorThrow(
+      process.env.ETHERSCAN_API_KEY,
+      "twitter api key"
+    ),
+  },
   infuraId: stringFromENVorThrow(process.env.INFURA_ID, "infura id"),
   hasuraUrl: stringFromENVorThrow(process.env.HASURA_URL, "hasura url"),
   redisUri: stringFromENVorThrow(process.env.REDIS_URI, "redis uri"),
