@@ -27,13 +27,13 @@ export const verifyProxyContract = async (
       throw new Error(`Invalid response from Etherscan API for ${address}`);
     }
     const { data } = resp;
+    console.log("etherscan:: data", data);
     if (data.status === "1" && data.result) {
       console.log(
-        `Successfully verified proxy contract for ${address}. guid ${data.result}.`
+        `etherscan:: successfully verified proxy contract for ${address}. guid ${data.result}.`
       );
       return true;
     } else {
-      console.log("data", data);
       throw new Error(`Could not verify proxy contract for ${address}`);
     }
   } catch (error) {
