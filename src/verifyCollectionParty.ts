@@ -43,6 +43,35 @@ import axios from "axios";
 import { ethers } from "ethers";
 import { config } from "./config";
 
+const getCollectionPartyDeployedLog = async (
+  collectionPartyAddress: string
+): Promise<{
+  nftContract: string;
+  maxPrice: number;
+  secondsToTimeout: number;
+  deciders: string[];
+  splitRecipient: string;
+  splitBasisPoints: number;
+  gatedToken: string;
+  gatedTokenAmount: number;
+  name: string;
+  symbol: string;
+}> => {
+  // index_topic_1 address partyProxy
+  // index_topic_2 address creator
+  // index_topic_3 address nftContract
+  // uint256 maxPrice
+  // uint256 secondsToTimeout
+  // address[] deciders
+  // address splitRecipient
+  // uint256 splitBasisPoints
+  // address gatedToken
+  // uint256 gatedTokenAmount
+  // string name
+  // string symbol
+  return {};
+};
+
 // https://github.com/PartyDAO/partybid/blob/main/contracts/CollectionPartyFactory.sol#L76-L86
 type InitializationCalldataArguments = {
   collectionPartyInitializeMethodSelector: string;
@@ -148,8 +177,13 @@ const getParamsForEtherscan = ({
   return params;
 };
 
-const verifyCollectionParty = async (address: string): Promise<boolean> => {
+const verifyCollectionParty = async (
+  collectionPartyAddress: string
+): Promise<boolean> => {
   const logicAddress = "0x0c696f63a8cfd4b456f725f1174f1d5b48d1e876";
+  const collectionPartyDeployedLog = await getCollectionPartyDeployedLog(
+    collectionPartyAddress
+  );
   const initializationCalldata = {
     collectionPartyInitializeMethodSelector: "",
     nftContract: "",
@@ -172,7 +206,7 @@ const verifyCollectionParty = async (address: string): Promise<boolean> => {
 
   try {
     const params = getParamsForEtherscan({
-      contractAddress: address,
+      contractAddress: collectionPartyAddress,
       codeFormat: "solidity-single-file",
       contractName: "NonReceivableInitializedProxy", // .sol?
       compilerVersion: "v0.8.9+commit.e5eed63a",
@@ -187,17 +221,21 @@ const verifyCollectionParty = async (address: string): Promise<boolean> => {
     );
 
     if (!(resp && resp.data)) {
-      throw new Error(`Invalid response from Etherscan API for ${address}`);
+      throw new Error(
+        `Invalid response from Etherscan API for ${collectionPartyAddress}`
+      );
     }
     const { data } = resp;
     console.log("etherscan:: data", data);
     if (data.status === "1" && data.result) {
       console.log(
-        `verifyCollectionParty:: successfully verified proxy contract for ${address}. guid ${data.result}.`
+        `verifyCollectionParty:: successfully verified collection party contract for ${collectionPartyAddress}. guid ${data.result}.`
       );
       return true;
     } else {
-      throw new Error(`Could not verify proxy contract for ${address}`);
+      throw new Error(
+        `Could not verify collection party contract for ${collectionPartyAddress}`
+      );
     }
   } catch (error) {
     console.error(error);
