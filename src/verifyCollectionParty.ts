@@ -40,106 +40,76 @@
 //   licenseType: 3 (3 stands for MIT https://etherscan.io/contract-license-types)
 
 import axios from "axios";
-import { BigNumber, ethers } from "ethers";
 import { config } from "./config";
 
-// const getCollectionPartyDeployedLog = async (
-//   collectionPartyAddress: string
-// ): Promise<{
-//   nftContract: string;
-//   maxPrice: number;
-//   secondsToTimeout: number;
-//   deciders: string[];
-//   splitRecipient: string;
-//   splitBasisPoints: number;
-//   gatedToken: string;
-//   gatedTokenAmount: number;
-//   name: string;
-//   symbol: string;
-// }> => {
-//   // index_topic_1 address partyProxy
-//   // index_topic_2 address creator
-//   // index_topic_3 address nftContract
-//   // uint256 maxPrice
-//   // uint256 secondsToTimeout
-//   // address[] deciders
-//   // address splitRecipient
-//   // uint256 splitBasisPoints
-//   // address gatedToken
-//   // uint256 gatedTokenAmount
-//   // string name
-//   // string symbol
-//   return {};
-// };
-
-// https://github.com/PartyDAO/partybid/blob/main/contracts/CollectionPartyFactory.sol#L76-L86
-type InitializationCalldataArguments = {
-  nftContract: string;
-  maxPrice: BigNumber;
-  secondsToTimeout: number;
-  deciders: string[];
-  split: (string | number)[];
-  tokenGate: (string | number)[];
-  name: string;
-  symbol: string;
+type AlchemyTrace = {
+  action: {
+    from: string;
+    gas: string;
+    init: string;
+    value: string;
+  };
+  blockHash: string;
+  blockNumber: number;
+  result: {
+    address: string;
+    code: string;
+    gasUsed: string;
+  };
+  subtraces: number;
+  traceAddress: string[];
+  transactionHash: string;
+  transactionPosition: number;
+  type: "call" | "create";
 };
-const getInitializationCalldataBytecode = ({
-  nftContract,
-  maxPrice,
-  secondsToTimeout,
-  deciders,
-  split,
-  tokenGate,
-  name,
-  symbol,
-}: InitializationCalldataArguments): string => {
-  const initializationCalldata = ethers.utils.hexConcat([
-    ethers.utils.id(
-      "initialize(address,uint256,uint256,address[],tuple(address,uint256),tuple(address,uint256),string,string))"
-    ),
-    ethers.utils.defaultAbiCoder.encode(
-      [
-        "address",
-        "uint256",
-        "uint256",
-        "address[]",
-        "tuple(address,uint256)",
-        "tuple(address,uint256)",
-        "string",
-        "string",
-      ],
-      [
-        nftContract,
-        maxPrice,
-        secondsToTimeout,
-        deciders,
-        split,
-        tokenGate,
-        name,
-        symbol,
-      ]
-    ),
-  ]);
-  return initializationCalldata;
+type AlchemyTraceApiResponse = {
+  result: Array<AlchemyTrace>;
 };
 
-type ConstructorArguments = {
-  logicAddress: string;
-  initializationCalldataBytecode: string;
+const getContractCreationBytecode = async (
+  collectionPartyCreationTx: string
+): Promise<string> => {
+  const resp = await axios.post<AlchemyTraceApiResponse>(
+    `${config.alchemy.apiBase}/${config.alchemy.apiKey}`,
+    {
+      method: "trace_transaction",
+      params: [collectionPartyCreationTx],
+      id: 1,
+      jsonrpc: "2.0",
+    }
+  );
+
+  if (!(resp && resp.data && resp.data.result && resp.data.result.length)) {
+    throw new Error(
+      `Could not fetch tx data from alchemy for tx: ${collectionPartyCreationTx}`
+    );
+  }
+  const { result } = resp.data;
+  const createTraceArr = result.filter(
+    (trace: AlchemyTrace) => trace.type === "create"
+  );
+
+  if (!createTraceArr.length) {
+    throw new Error(
+      `Could not find create trace for tx: ${collectionPartyCreationTx}`
+    );
+  }
+
+  const createTrace = createTraceArr[0];
+  const contractCreationBytecode = createTrace.action.init;
+
+  return contractCreationBytecode;
 };
-const getConstructorArgumentsBytecode = ({
-  logicAddress,
-  initializationCalldataBytecode,
-}: ConstructorArguments): string => {
-  console.log("id", ethers.utils.id("(address,bytes)"));
-  const initializationCalldata = ethers.utils.hexConcat([
-    ethers.utils.id("constructor(address,bytes)"),
-    ethers.utils.defaultAbiCoder.encode(
-      ["address", "bytes"],
-      [logicAddress, initializationCalldataBytecode]
-    ),
-  ]);
-  return initializationCalldata;
+
+const getConstructorArgumentsBytecode = (
+  contractCreationBytecode: string,
+  logicAddress: string
+): string => {
+  const [_, initializationCalldata] = contractCreationBytecode.split(
+    logicAddress
+  );
+  const constructorArgumentsBytecode = `0x${logicAddress}${initializationCalldata}`;
+  return constructorArgumentsBytecode;
 };
 
 // https://docs.etherscan.io/tutorials/verifying-contracts-programmatically
@@ -171,7 +141,7 @@ const getParamsForEtherscan = ({
   params.append("codeformat", codeFormat);
   params.append("contractname", contractName);
   params.append("compilerversion", compilerVersion);
-  params.append("optimizationUsed", optimizationUsed.toString());
+  params.append("optimizationused", optimizationUsed.toString());
   params.append("runs", runs.toString());
   params.append("constructorArguments", constructorArguments);
   params.append("licenseType", licenseType.toString());
@@ -180,35 +150,21 @@ const getParamsForEtherscan = ({
 };
 
 export const verifyCollectionParty = async (
-  collectionPartyAddress: string
+  collectionPartyAddress: string,
+  collectionPartyCreationTx: string
 ): Promise<boolean> => {
-  const logicAddress = "0x0c696f63a8cfd4b456f725f1174f1d5b48d1e876";
-  // const collectionPartyDeployedLog = await getCollectionPartyDeployedLog(
-  //   collectionPartyAddress
-  // );
-  const initializationCalldata = {
-    nftContract: "0x1e988ba4692e52bc50b375bcc8585b95c48aad77",
-    maxPrice: ethers.BigNumber.from("1000000000000000000000000000"),
-    secondsToTimeout: 2592000,
-    deciders: ["0xc247a2a860ec45854f2c697f42db41840df8962e"],
-    split: ["0x0000000000000000000000000000000000000000", 0],
-    tokenGate: ["0x0000000000000000000000000000000000000000", 0],
-    name: "Bufficorn",
-    symbol: "SWAG",
-  };
-  const initializationCalldataBytecode = getInitializationCalldataBytecode(
-    initializationCalldata
+  const contractCreationBytecode = await getContractCreationBytecode(
+    collectionPartyCreationTx
   );
-  console.log("initialzationCalldataBytecode", initializationCalldataBytecode);
 
-  const constructorArgumentsBytecode = getConstructorArgumentsBytecode({
-    logicAddress,
-    initializationCalldataBytecode,
-  });
-
+  // const logicAddress = "0x0c696f63a8cfd4b456f725f1174f1d5b48d1e876";
+  const logicAddress =
+    "0000000000000000000000000c696f63a8cfd4b456f725f1174f1d5b48d1e876";
+  const constructorArgumentsBytecode = getConstructorArgumentsBytecode(
+    contractCreationBytecode,
+    logicAddress
+  );
   console.log("constructorArgumentsBytecode", constructorArgumentsBytecode);
-
-  return;
 
   try {
     const params = getParamsForEtherscan({
@@ -251,8 +207,7 @@ export const verifyCollectionParty = async (
   return false;
 };
 
-const NonReceivableInitializedProxySourceCode = `
-// SPDX-License-Identifier: MIT
+const NonReceivableInitializedProxySourceCode = `// SPDX-License-Identifier: MIT
 pragma solidity 0.8.9;
 
 /**
