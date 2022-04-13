@@ -74,7 +74,6 @@ const getCollectionPartyDeployedLog = async (
 
 // https://github.com/PartyDAO/partybid/blob/main/contracts/CollectionPartyFactory.sol#L76-L86
 type InitializationCalldataArguments = {
-  collectionPartyInitializeMethodSelector: string;
   nftContract: string;
   maxPrice: number;
   secondsToTimeout: number;
@@ -85,7 +84,6 @@ type InitializationCalldataArguments = {
   symbol: string;
 };
 const getInitializationCalldataBytecode = ({
-  collectionPartyInitializeMethodSelector,
   nftContract,
   maxPrice,
   secondsToTimeout,
@@ -96,15 +94,17 @@ const getInitializationCalldataBytecode = ({
   symbol,
 }: InitializationCalldataArguments): string => {
   const initializationCalldata = ethers.utils.hexConcat([
-    collectionPartyInitializeMethodSelector,
+    ethers.utils.id(
+      "initialize(address,uint256,uint256,address[],tuple(address,uint256),tuple(address,uint256),string,string))"
+    ),
     ethers.utils.defaultAbiCoder.encode(
       [
         "address",
         "uint256",
         "uint256",
         "address[]",
-        "Structs.AddressAndAmount",
-        "Structs.AddressAndAmount",
+        "tuple(address, uint256)",
+        "tuple(address, uint256)",
         "string",
         "string",
       ],
@@ -124,17 +124,15 @@ const getInitializationCalldataBytecode = ({
 };
 
 type ConstructorArguments = {
-  constructorMethodSelector: string;
   logicAddress: string;
   initializationCalldataBytecode: string;
 };
 const getConstructorArgumentsBytecode = ({
-  constructorMethodSelector,
   logicAddress,
   initializationCalldataBytecode,
 }: ConstructorArguments): string => {
   const initializationCalldata = ethers.utils.hexConcat([
-    constructorMethodSelector,
+    ethers.utils.id("constructor(address,bytes)"),
     ethers.utils.defaultAbiCoder.encode(
       ["address", "bytes"],
       [logicAddress, initializationCalldataBytecode]
@@ -145,6 +143,7 @@ const getConstructorArgumentsBytecode = ({
 
 // https://docs.etherscan.io/tutorials/verifying-contracts-programmatically
 type ContractParams = {
+  sourceCode: string;
   contractAddress: string;
   codeFormat: "solidity-single-file" | "solidity-standard-json-input";
   contractName: string;
@@ -155,6 +154,7 @@ type ContractParams = {
   licenseType: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14; // https://etherscan.io/contract-license-types
 };
 const getParamsForEtherscan = ({
+  sourceCode,
   contractAddress,
   codeFormat,
   contractName,
@@ -165,6 +165,7 @@ const getParamsForEtherscan = ({
   licenseType,
 }: ContractParams): URLSearchParams => {
   const params = new URLSearchParams();
+  params.append("sourcecode", sourceCode);
   params.append("contractaddress", contractAddress);
   params.append("codeformat", codeFormat);
   params.append("contractname", contractName);
@@ -185,7 +186,6 @@ const verifyCollectionParty = async (
     collectionPartyAddress
   );
   const initializationCalldata = {
-    collectionPartyInitializeMethodSelector: "",
     nftContract: "",
     maxPrice: 0,
     secondsToTimeout: 0,
@@ -199,13 +199,13 @@ const verifyCollectionParty = async (
     initializationCalldata
   );
   const constructorArgumentsBytecode = getConstructorArgumentsBytecode({
-    constructorMethodSelector: "",
     logicAddress,
     initializationCalldataBytecode,
   });
 
   try {
     const params = getParamsForEtherscan({
+      sourceCode: NonReceivableInitializedProxySourceCode,
       contractAddress: collectionPartyAddress,
       codeFormat: "solidity-single-file",
       contractName: "NonReceivableInitializedProxy", // .sol?
@@ -243,3 +243,49 @@ const verifyCollectionParty = async (
   }
   return false;
 };
+
+const NonReceivableInitializedProxySourceCode = `
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.9;
+
+/**
+ * @title NonReceivableInitializedProxy
+ * @author Anna Carroll
+ */
+contract NonReceivableInitializedProxy {
+    // address of logic contract
+    address public immutable logic;
+
+    // ======== Constructor =========
+
+    constructor(address _logic, bytes memory _initializationCalldata) {
+        logic = _logic;
+        // Delegatecall into the logic contract, supplying initialization calldata
+        (bool _ok, bytes memory returnData) = _logic.delegatecall(
+            _initializationCalldata
+        );
+        // Revert if delegatecall to implementation reverts
+        require(_ok, string(returnData));
+    }
+
+    // ======== Fallback =========
+
+    fallback() external payable {
+        address _impl = logic;
+        assembly {
+            let ptr := mload(0x40)
+            calldatacopy(ptr, 0, calldatasize())
+            let result := delegatecall(gas(), _impl, ptr, calldatasize(), 0, 0)
+            let size := returndatasize()
+            returndatacopy(ptr, 0, size)
+
+            switch result
+            case 0 {
+                revert(ptr, size)
+            }
+            default {
+                return(ptr, size)
+            }
+        }
+    }
+}`;
