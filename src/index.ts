@@ -14,9 +14,9 @@ import { verifyProxyContractForStartEvent } from "./etherscan";
 
 import { verifyCollectionParty } from "./verifyCollectionParty";
 
-const collectionPartyAddress = "0x7e9d7eaf3a4fdcca46c12297c15934bddf87a6a3";
+const collectionPartyAddress = "0x74e0da59d46535463053f8ff44837d581a77dfab";
 const collectionPartyCreationTx =
-  "0xa94b2b5b1155e2456823c64e35227c91cffeeb8be6a070af5f2e9fb12c647e99";
+  "0x3f5f54c00839143e6f95422184b63142a8fa614fbe70ccb5f1b1b195f4db6fa7";
 verifyCollectionParty(collectionPartyAddress, collectionPartyCreationTx);
 
 // const DEFAULT_START_BLOCK = 13839598;

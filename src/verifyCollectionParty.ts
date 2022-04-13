@@ -108,12 +108,15 @@ const getConstructorArgumentsBytecode = (
   const [_, initializationCalldata] = contractCreationBytecode.split(
     logicAddress
   );
-  const constructorArgumentsBytecode = `0x${logicAddress}${initializationCalldata}`;
+  const constructorArgumentsBytecode = `${logicAddress}${initializationCalldata}`;
   return constructorArgumentsBytecode;
 };
 
 // https://docs.etherscan.io/tutorials/verifying-contracts-programmatically
 type ContractParams = {
+  apiKey: string;
+  module: string;
+  action: string;
   sourceCode: string;
   contractAddress: string;
   codeFormat: "solidity-single-file" | "solidity-standard-json-input";
@@ -125,6 +128,9 @@ type ContractParams = {
   licenseType: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14; // https://etherscan.io/contract-license-types
 };
 const getParamsForEtherscan = ({
+  apiKey,
+  module,
+  action,
   sourceCode,
   contractAddress,
   codeFormat,
@@ -136,14 +142,17 @@ const getParamsForEtherscan = ({
   licenseType,
 }: ContractParams): URLSearchParams => {
   const params = new URLSearchParams();
-  params.append("sourcecode", sourceCode);
+  params.append("apikey", apiKey);
+  params.append("module", module);
+  params.append("action", action);
+  params.append("sourceCode", sourceCode);
   params.append("contractaddress", contractAddress);
   params.append("codeformat", codeFormat);
   params.append("contractname", contractName);
   params.append("compilerversion", compilerVersion);
   params.append("optimizationused", optimizationUsed.toString());
   params.append("runs", runs.toString());
-  params.append("constructorArguments", constructorArguments);
+  params.append("constructorArguements", constructorArguments);
   params.append("licenseType", licenseType.toString());
 
   return params;
@@ -168,6 +177,9 @@ export const verifyCollectionParty = async (
 
   try {
     const params = getParamsForEtherscan({
+      apiKey: config.etherscan.apiKey,
+      module: "contract",
+      action: "verifysourcecode",
       sourceCode: NonReceivableInitializedProxySourceCode,
       contractAddress: collectionPartyAddress,
       codeFormat: "solidity-single-file",
@@ -178,10 +190,7 @@ export const verifyCollectionParty = async (
       constructorArguments: constructorArgumentsBytecode,
       licenseType: 3, // enum for MIT
     });
-    const resp = await axios.post(
-      `${config.etherscan.apiBase}/?module=contract&action=verifysourcecode&apikey=${config.etherscan.apiKey}`,
-      params
-    );
+    const resp = await axios.post(config.etherscan.apiBase, params);
 
     if (!(resp && resp.data)) {
       throw new Error(
