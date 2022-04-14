@@ -3,6 +3,16 @@ import { PartyEvent } from "types";
 import { config } from "../config";
 import { NonReceivableInitializedProxySourceCode } from "./constants";
 
+/**
+ * This module verifies the NonReceivableInitializedProxy contract for collection parties. The following steps
+ * are taken to verify the source code:
+ *   1. fetch the NonReceivableInitializedProxy contract creation bytecode from the collection party creation tx
+ *      using alchemy trace api
+ *   2. extract the constructor arguments bytecode from the contract creation bytecode
+ *   3. construct params needed to verify the contract source on etherscan
+ *   4. call etherscan verify contract api with params
+ */
+
 type AlchemyTrace = {
   action: {
     from: string;
