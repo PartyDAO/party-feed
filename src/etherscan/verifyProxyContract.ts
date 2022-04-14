@@ -9,7 +9,8 @@ import { PartyEvent } from "types";
  * @returns {boolean} - true if verified, false otherwise
  */
 export const verifyProxyContract = async (
-  address: string
+  address: string,
+  expectedImplementationAddress?: string
 ): Promise<boolean> => {
   if (!address) {
     throw new Error("Missing argument: address");
@@ -18,6 +19,9 @@ export const verifyProxyContract = async (
   try {
     const params = new URLSearchParams();
     params.append("address", address);
+    if (expectedImplementationAddress) {
+      params.append("expectedimplementation", expectedImplementationAddress);
+    }
     const resp = await axios.post(
       `${config.etherscan.apiBase}/?module=contract&action=verifyproxycontract&apikey=${config.etherscan.apiKey}`,
       params
