@@ -10,7 +10,7 @@ import {
   setLastBlockAlerted,
 } from "./storage";
 import delay from "delay";
-import etherscanTasks from "./etherscan";
+import etherscanTasks from "./etherscan/index";
 
 const DEFAULT_START_BLOCK = 13839598;
 
