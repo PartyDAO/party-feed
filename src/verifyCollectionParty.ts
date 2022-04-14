@@ -1,44 +1,3 @@
-// Verifying CollectionParty NonReceivableInitializedProxy contracts
-//
-// 1. log listener for all CollectionPartyDeployed events from CollectionPartyFactory (0xd084d7849d4ebe564a2a41e085b2a74f6dde5300)
-//   emit CollectionPartyDeployed(
-//     partyProxy,
-//     msg.sender,
-//     _nftContract,
-//     _maxPrice,
-//     _secondsToTimeout,
-//     _deciders,
-//     _split.addr,
-//     _split.amount,
-//     _tokenGate.addr,
-//     _tokenGate.amount,
-//     _name,
-//     _symbol
-//   );
-// 2. loop through each CollectionPartyDeployed events
-// 3. hardcode CollectionParty logic address 0x0c696f63a8cfd4b456f725f1174f1d5b48d1e876
-// 4. reconstruct _initializationCalldata (https://github.com/PartyDAO/partybid/blob/main/contracts/CollectionPartyFactory.sol#L76-L86) from CollectionPartyDeployed event data
-//   bytes memory _initializationCalldata = abi.encodeWithSelector(
-//     CollectionParty.initialize.selector,
-//     _nftContract,
-//     _maxPrice,
-//     _secondsToTimeout,
-//     _deciders,
-//     _split,
-//     _tokenGate,
-//     _name,
-//     _symbol
-//   );
-// 5. call Etherscan API https://docs.etherscan.io/tutorials/verifying-contracts-programmatically
-//   contractaddress: partyProxy (from CollectionPartyDeployed event data)
-//   codeformat: "solidity-single-file"
-//   contractname: NonReceivableInitializedProxy
-//   compilerversion: "v0.8.9+commit.e5eed63a"
-//   optimizationUsed: 1
-//   runs: 999999
-//   constructorArguments: abi encoded (logic, _initializationCalldata)
-//   licenseType: 3 (3 stands for MIT https://etherscan.io/contract-license-types)
-
 import axios from "axios";
 import { config } from "./config";
 
@@ -66,6 +25,11 @@ type AlchemyTraceApiResponse = {
   result: Array<AlchemyTrace>;
 };
 
+/**
+ *
+ * @param {string} collectionPartyCreationTx tx of colection party creation
+ * @returns contract creation bytecode
+ */
 const getContractCreationBytecode = async (
   collectionPartyCreationTx: string
 ): Promise<string> => {
@@ -101,6 +65,12 @@ const getContractCreationBytecode = async (
   return contractCreationBytecode;
 };
 
+/**
+ *
+ * @param contractCreationBytecode - contract bytecode and constructor params bytecode
+ * @param logicAddress - bytecode for logic address
+ * @returns - constructor params bytecode
+ */
 const getConstructorArgumentsBytecode = (
   contractCreationBytecode: string,
   logicAddress: string
@@ -127,6 +97,11 @@ type ContractParams = {
   constructorArguments: string;
   licenseType: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14; // https://etherscan.io/contract-license-types
 };
+/**
+ *
+ * @param {object} params contract params for etherscan
+ * @returns x-www-form-urlencoded params
+ */
 const getParamsForEtherscan = ({
   apiKey,
   module,
@@ -158,6 +133,12 @@ const getParamsForEtherscan = ({
   return params;
 };
 
+/**
+ *
+ * @param {string} collectionPartyAddress address of the collection party
+ * @param {string} collectionPartyCreationTx tx of the collection party creation
+ * @returns {boolean} verification request succeeded or failed. this _does not_ mean the verification passed.
+ */
 export const verifyCollectionParty = async (
   collectionPartyAddress: string,
   collectionPartyCreationTx: string
@@ -166,16 +147,19 @@ export const verifyCollectionParty = async (
     collectionPartyCreationTx
   );
 
-  // const logicAddress = "0x0c696f63a8cfd4b456f725f1174f1d5b48d1e876";
-  const logicAddress =
-    "0000000000000000000000000c696f63a8cfd4b456f725f1174f1d5b48d1e876";
+  // NOTE: this must match the logic variable of the deployed CollectionPartyFactory contract https://github.com/PartyDAO/partybid/blob/main/contracts/CollectionPartyFactory.sol#L32
+  const logicAddress = "0x0c696f63a8cfd4b456f725f1174f1d5b48d1e876";
+  const logicAddressHexEncoded = `000000000000000000000000${logicAddress.replace(
+    "0x",
+    ""
+  )}`;
   const constructorArgumentsBytecode = getConstructorArgumentsBytecode(
     contractCreationBytecode,
-    logicAddress
+    logicAddressHexEncoded
   );
-  console.log("constructorArgumentsBytecode", constructorArgumentsBytecode);
 
   try {
+    // NOTE: these arguments must match the hardhat configuration from: https://github.com/PartyDAO/partybid/blob/main/hardhat.config.js
     const params = getParamsForEtherscan({
       apiKey: config.etherscan.apiKey,
       module: "contract",
@@ -216,6 +200,8 @@ export const verifyCollectionParty = async (
   return false;
 };
 
+// source code for NonReceivableInitializedProxySourceCode from https://github.com/PartyDAO/partybid/blob/main/contracts/NonReceivableInitializedProxy.sol
+// todo: should we download this from github rather than hardcode it?
 const NonReceivableInitializedProxySourceCode = `// SPDX-License-Identifier: MIT
 pragma solidity 0.8.9;
 
