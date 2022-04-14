@@ -1,5 +1,7 @@
 import axios from "axios";
-import { config } from "./config";
+import { PartyEvent } from "types";
+import { config } from "../config";
+import { NonReceivableInitializedProxySourceCode } from "./constants";
 
 type AlchemyTrace = {
   action: {
@@ -200,49 +202,20 @@ export const verifyCollectionParty = async (
   return false;
 };
 
-// source code for NonReceivableInitializedProxySourceCode from https://github.com/PartyDAO/partybid/blob/main/contracts/NonReceivableInitializedProxy.sol
-// todo: should we download this from github rather than hardcode it?
-const NonReceivableInitializedProxySourceCode = `// SPDX-License-Identifier: MIT
-pragma solidity 0.8.9;
-
 /**
- * @title NonReceivableInitializedProxy
- * @author Anna Carroll
+ * verify proxy contract on etherscan if the event is a start event
+ * @param {PartyEvent} event
+ * @returns true/false if verified
  */
-contract NonReceivableInitializedProxy {
-    // address of logic contract
-    address public immutable logic;
-
-    // ======== Constructor =========
-
-    constructor(address _logic, bytes memory _initializationCalldata) {
-        logic = _logic;
-        // Delegatecall into the logic contract, supplying initialization calldata
-        (bool _ok, bytes memory returnData) = _logic.delegatecall(
-            _initializationCalldata
-        );
-        // Revert if delegatecall to implementation reverts
-        require(_ok, string(returnData));
-    }
-
-    // ======== Fallback =========
-
-    fallback() external payable {
-        address _impl = logic;
-        assembly {
-            let ptr := mload(0x40)
-            calldatacopy(ptr, 0, calldatasize())
-            let result := delegatecall(gas(), _impl, ptr, calldatasize(), 0, 0)
-            let size := returndatasize()
-            returndatacopy(ptr, 0, size)
-
-            switch result
-            case 0 {
-                revert(ptr, size)
-            }
-            default {
-                return(ptr, size)
-            }
-        }
-    }
-}`;
+export const verifyCollectionPartyContractForEvent = async (
+  event: PartyEvent
+): Promise<boolean> => {
+  if (event.party.partyType !== "collection") {
+    return;
+  }
+  // todo: check etherscan API to see if collection party source code is verified
+  // and save value in redis
+  const { txHash } = event;
+  const { partyAddress } = event.party;
+  return verifyCollectionParty(partyAddress, txHash);
+};

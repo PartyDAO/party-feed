@@ -10,84 +10,77 @@ import {
   setLastBlockAlerted,
 } from "./storage";
 import delay from "delay";
-import { verifyProxyContractForStartEvent } from "./etherscan";
+import etherscanTasks from "./etherscan";
 
-import { verifyCollectionParty } from "./verifyCollectionParty";
+const DEFAULT_START_BLOCK = 13839598;
 
-const collectionPartyAddress = "0x74e0da59d46535463053f8ff44837d581a77dfab";
-const collectionPartyCreationTx =
-  "0x3f5f54c00839143e6f95422184b63142a8fa614fbe70ccb5f1b1b195f4db6fa7";
-verifyCollectionParty(collectionPartyAddress, collectionPartyCreationTx);
+const alertForBlocks = async (fromBlock: number) => {
+  const allNewEvents = await getAllPartyEvents(fromBlock);
+  console.log(`Alerting on ${allNewEvents.length} events`);
+  for (const newEvent of allNewEvents) {
+    await alertDiscord(newEvent);
+    try {
+      await postTweetIfRelevant(newEvent);
+    } catch (e) {
+      console.error("Error posting to twitter");
+      console.error(e);
+    }
+    try {
+      await etherscanTasks(newEvent);
+    } catch (e) {
+      console.error("Error verifying proxy contract on etherscan");
+      console.error(e);
+    }
+    await delay(2000);
+  }
+};
 
-// const DEFAULT_START_BLOCK = 13839598;
+const checkBlockNum = async () => {
+  const lastBlockNum = await getLastBlockAlerted();
+  if (!lastBlockNum) {
+    await setLastBlockAlerted(DEFAULT_START_BLOCK);
+    console.info(
+      `~*~*~* Block number set to latest ${DEFAULT_START_BLOCK} ~*~*~*`
+    );
+  }
+};
 
-// const alertForBlocks = async (fromBlock: number) => {
-//   const allNewEvents = await getAllPartyEvents(fromBlock);
-//   console.log(`Alerting on ${allNewEvents.length} events`);
-//   for (const newEvent of allNewEvents) {
-//     await alertDiscord(newEvent);
-//     try {
-//       await postTweetIfRelevant(newEvent);
-//     } catch (e) {
-//       console.error("Error posting to twitter");
-//       console.error(e);
-//     }
-//     try {
-//       await verifyProxyContractForStartEvent(newEvent);
-//     } catch (e) {
-//       console.error("Error verifying proxy contract on etherscan");
-//       console.error(e);
-//     }
-//     await delay(2000);
-//   }
-// };
+const tick = async () => {
+  await checkBlockNum();
 
-// const checkBlockNum = async () => {
-//   const lastBlockNum = await getLastBlockAlerted();
-//   if (!lastBlockNum) {
-//     await setLastBlockAlerted(DEFAULT_START_BLOCK);
-//     console.info(
-//       `~*~*~* Block number set to latest ${DEFAULT_START_BLOCK} ~*~*~*`
-//     );
-//   }
-// };
+  const isRunning = await fetchIsRunningTimestamp();
+  if (isRunning) {
+    console.log(`Not ticking because running.`);
+    return;
+  }
 
-// const tick = async () => {
-//   await checkBlockNum();
+  console.log(`${new Date().toLocaleString()} Ticking...`);
 
-//   const isRunning = await fetchIsRunningTimestamp();
-//   if (isRunning) {
-//     console.log(`Not ticking because running.`);
-//     return;
-//   }
+  const lastBlockAlerted = await getLastBlockAlerted();
+  if (!lastBlockAlerted) {
+    throw new Error(`No last block set`);
+  }
 
-//   console.log(`${new Date().toLocaleString()} Ticking...`);
+  const lastBlock = await getLastKnownBlockNumber();
+  console.info(`Querying from `, lastBlockAlerted, "to", lastBlock);
 
-//   const lastBlockAlerted = await getLastBlockAlerted();
-//   if (!lastBlockAlerted) {
-//     throw new Error(`No last block set`);
-//   }
+  await setIsRunningTimestamp();
+  try {
+    await alertForBlocks(lastBlockAlerted);
+    console.log(
+      `Tick successfully completed from ${lastBlockAlerted} to ${lastBlock}`
+    );
+    console.log("setting lastBlock", lastBlock);
+    await setLastBlockAlerted(lastBlock);
+  } catch (e) {
+    console.log("error");
+    console.error(e);
+    console.log("Tick errored out.");
+  } finally {
+    await setIsNotRunningTimestamp();
+  }
+};
 
-//   const lastBlock = await getLastKnownBlockNumber();
-//   console.info(`Querying from `, lastBlockAlerted, "to", lastBlock);
-
-//   await setIsRunningTimestamp();
-//   try {
-//     await alertForBlocks(lastBlockAlerted);
-//     console.log(
-//       `Tick successfully completed from ${lastBlockAlerted} to ${lastBlock}`
-//     );
-//     console.log("setting lastBlock", lastBlock);
-//     await setLastBlockAlerted(lastBlock);
-//   } catch (e) {
-//     console.log("error");
-//     console.error(e);
-//     console.log("Tick errored out.");
-//   } finally {
-//     await setIsNotRunningTimestamp();
-//   }
-// };
-
-// tick().then(() => {
-//   process.exit();
-// });
+tick().then(() => {
+  process.exit();
+});

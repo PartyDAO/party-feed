@@ -1,5 +1,5 @@
 import axios from "axios";
-import { config } from "./config";
+import { config } from "../config";
 import { PartyEvent } from "types";
 
 /**
@@ -47,11 +47,11 @@ export const verifyProxyContract = async (
  * @param {PartyEvent} event
  * @returns true/false if verified
  */
-export const verifyProxyContractForStartEvent = async (
+export const verifyProxyContractForEvent = async (
   event: PartyEvent
 ): Promise<boolean> => {
-  if (event.eventType === "start") {
-    const { partyAddress } = event.party;
-    return verifyProxyContract(partyAddress);
-  }
+  // todo: check etherscan API to see if collection party source code is verified
+  // and save value in redis
+  const { partyAddress } = event.party;
+  return verifyProxyContract(partyAddress);
 };
