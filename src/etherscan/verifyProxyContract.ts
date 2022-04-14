@@ -1,5 +1,6 @@
 import axios from "axios";
 import { config } from "../config";
+import { partyLogicAddresses } from "./constants";
 import { PartyEvent } from "types";
 
 /**
@@ -9,7 +10,8 @@ import { PartyEvent } from "types";
  * @returns {boolean} - true if verified, false otherwise
  */
 export const verifyProxyContract = async (
-  address: string
+  address: string,
+  expectedImplementationAddress?: string
 ): Promise<boolean> => {
   if (!address) {
     throw new Error("Missing argument: address");
@@ -18,6 +20,11 @@ export const verifyProxyContract = async (
   try {
     const params = new URLSearchParams();
     params.append("address", address);
+    // note: if expectedImplementationAddress is not provided, etherscan will try to determine the implementation
+    // based on similar contracts
+    if (expectedImplementationAddress) {
+      params.append("expectedimplementation", expectedImplementationAddress);
+    }
     const resp = await axios.post(
       `${config.etherscan.apiBase}/?module=contract&action=verifyproxycontract&apikey=${config.etherscan.apiKey}`,
       params
@@ -52,6 +59,7 @@ export const verifyProxyContractForEvent = async (
 ): Promise<boolean> => {
   // todo: check etherscan API to see if collection party source code is verified
   // and save value in redis
-  const { partyAddress } = event.party;
-  return verifyProxyContract(partyAddress);
+  const { partyAddress, partyType } = event.party;
+  const logicAddress: string = partyLogicAddresses[partyType];
+  return verifyProxyContract(partyAddress, logicAddress);
 };
