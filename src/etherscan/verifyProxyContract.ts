@@ -14,7 +14,7 @@ import {
  */
 export const verifyProxyContract = async (
   address: string
-): Promise<{ isSuccess: boolean; guid: string }> => {
+): Promise<{ isSuccess: boolean; guid?: string }> => {
   if (!address) {
     throw new Error("Missing argument: address");
   }
