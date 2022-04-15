@@ -2,6 +2,7 @@ import axios from "axios";
 import { config } from "../config";
 import { PartyEvent } from "types";
 import {
+  getEtherscanVerifyContractGuid,
   getEtherscanVerifyProxyContractGuid,
   setEtherscanVerifyProxyContractGuid,
 } from "./helpers";
@@ -59,8 +60,21 @@ export const verifyProxyContractForEvent = async (
   // and save value in redis
   const { partyAddress } = event.party;
 
-  const existingGuid = await getEtherscanVerifyProxyContractGuid(partyAddress);
-  if (existingGuid) {
+  // first check to see if we have verified the NonReceivableInitializedProxy party contract.
+  // if the party contract is not verified, we cannot verify the proxy contract.
+  const existingVerifyContractGuid = await getEtherscanVerifyContractGuid(
+    partyAddress
+  );
+  if (!existingVerifyContractGuid) {
+    // if we have not verified the party contract, do not try to verify the proxy contract
+    return;
+  }
+
+  // next, check to see if we have perviously attempted to verify the proxy contract
+  const existingVerifyProxyContractGuid = await getEtherscanVerifyProxyContractGuid(
+    partyAddress
+  );
+  if (existingVerifyProxyContractGuid) {
     // we have already made an api request to etherscan to verify this proxy contract
     return;
   }
