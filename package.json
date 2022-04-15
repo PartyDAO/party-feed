@@ -37,6 +37,6 @@
     "typechain": "^4.0.0"
   },
   "lint-staged": {
-    "*.{js,css,md}": "prettier --write"
+    "*.{ts,js,json,css,md}": "prettier --write"
   }
 }
