@@ -5,6 +5,10 @@ import {
   partyLogicAddresses,
   NonReceivableInitializedProxySourceCode,
 } from "./constants";
+import {
+  getEtherscanVerifyContractGuid,
+  setEtherscanVerifyContractGuid,
+} from "./helpers";
 
 /**
  * This module verifies the NonReceivableInitializedProxy contract for collection parties. The following steps
@@ -152,12 +156,12 @@ const getParamsForEtherscan = ({
  *
  * @param {string} collectionPartyAddress address of the collection party
  * @param {string} collectionPartyCreationTx tx of the collection party creation
- * @returns {boolean} verification request succeeded or failed. this _does not_ mean the verification passed.
+ * @returns {{ isSuccess: boolean, guid?: string}} verification request succeeded or failed. this _does not_ mean the verification passed.
  */
 export const verifyCollectionParty = async (
   collectionPartyAddress: string,
   collectionPartyCreationTx: string
-): Promise<boolean> => {
+): Promise<{ isSuccess: boolean; guid?: string }> => {
   const contractCreationBytecode = await getContractCreationBytecode(
     collectionPartyCreationTx
   );
@@ -199,10 +203,11 @@ export const verifyCollectionParty = async (
     const { data } = resp;
     console.log("etherscan:: data", data);
     if (data.status === "1" && data.result) {
+      const guid = data.result;
       console.log(
-        `verifyCollectionParty:: successfully verified collection party contract for ${collectionPartyAddress}. guid ${data.result}.`
+        `verifyCollectionParty:: successfully verified collection party contract for ${collectionPartyAddress}. guid ${guid}.`
       );
-      return true;
+      return { isSuccess: true, guid };
     } else {
       throw new Error(
         `Could not verify collection party contract for ${collectionPartyAddress}`
@@ -210,9 +215,9 @@ export const verifyCollectionParty = async (
     }
   } catch (error) {
     console.error(error);
-    return false;
+    return { isSuccess: false };
   }
-  return false;
+  return { isSuccess: false };
 };
 
 /**
@@ -226,9 +231,20 @@ export const verifyCollectionPartyContractForEvent = async (
   if (event.party.partyType !== "collection") {
     return;
   }
+
+  const { partyAddress } = event.party;
+  const existingGuid = await getEtherscanVerifyContractGuid(partyAddress);
+  if (existingGuid) {
+    // we have already made an api request to etherscan to verify this contract
+    return;
+  }
+
   // todo: check etherscan API to see if collection party source code is verified
   // and save value in redis
   const { txHash } = event;
-  const { partyAddress } = event.party;
-  return verifyCollectionParty(partyAddress, txHash);
+  const { isSuccess, guid } = await verifyCollectionParty(partyAddress, txHash);
+  if (isSuccess && guid) {
+    await setEtherscanVerifyContractGuid(partyAddress, guid);
+  }
+  return isSuccess;
 };
