@@ -1,5 +1,6 @@
 import axios from "axios";
 import { config } from "../config";
+import { partyLogicAddresses } from "./constants";
 import { PartyEvent } from "types";
 import {
   getEtherscanVerifyContractGuid,
@@ -15,6 +16,7 @@ import {
  */
 export const verifyProxyContract = async (
   address: string
+  expectedImplementationAddress?: string
 ): Promise<{ isSuccess: boolean; guid?: string }> => {
   if (!address) {
     throw new Error("Missing argument: address");
@@ -23,6 +25,11 @@ export const verifyProxyContract = async (
   try {
     const params = new URLSearchParams();
     params.append("address", address);
+    // note: if expectedImplementationAddress is not provided, etherscan will try to determine the implementation
+    // based on similar contracts
+    if (expectedImplementationAddress) {
+      params.append("expectedimplementation", expectedImplementationAddress);
+    }
     const resp = await axios.post(
       `${config.etherscan.apiBase}/?module=contract&action=verifyproxycontract&apikey=${config.etherscan.apiKey}`,
       params
@@ -58,7 +65,7 @@ export const verifyProxyContractForEvent = async (
 ): Promise<boolean> => {
   // todo: check etherscan API to see if collection party source code is verified
   // and save value in redis
-  const { partyAddress } = event.party;
+  const { partyAddress, partyType } = event.party;
 
   // first check to see if we have verified the NonReceivableInitializedProxy party contract.
   // if the party contract is not verified, we cannot verify the proxy contract.
@@ -79,7 +86,8 @@ export const verifyProxyContractForEvent = async (
     return;
   }
 
-  const { isSuccess, guid } = await verifyProxyContract(partyAddress);
+  const logicAddress: string = partyLogicAddresses[partyType];
+  const { isSuccess, guid } = await verifyProxyContract(partyAddress, logicAddress);
   if (isSuccess && guid) {
     await setEtherscanVerifyProxyContractGuid(partyAddress, guid);
   }

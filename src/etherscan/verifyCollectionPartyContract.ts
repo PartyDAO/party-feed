@@ -1,7 +1,10 @@
 import axios from "axios";
 import { PartyEvent } from "types";
 import { config } from "../config";
-import { NonReceivableInitializedProxySourceCode } from "./constants";
+import {
+  partyLogicAddresses,
+  NonReceivableInitializedProxySourceCode,
+} from "./constants";
 import {
   getEtherscanVerifyContractGuid,
   setEtherscanVerifyContractGuid,
@@ -164,7 +167,7 @@ export const verifyCollectionParty = async (
   );
 
   // NOTE: this must match the logic variable of the deployed CollectionPartyFactory contract https://github.com/PartyDAO/partybid/blob/main/contracts/CollectionPartyFactory.sol#L32
-  const logicAddress = "0x0c696f63a8cfd4b456f725f1174f1d5b48d1e876";
+  const logicAddress = partyLogicAddresses.collection;
   const logicAddressHexEncoded = `000000000000000000000000${logicAddress.replace(
     "0x",
     ""

@@ -1,3 +1,10 @@
+// NOTE: these must stay up-to-date with the latest party factory contracts https://github.com/PartyDAO/partybid/tree/main/deploy
+export const partyLogicAddresses = Object.freeze({
+  bid: "0x744c2be04d079eddb21c1a9bb13bb5259a368614",
+  buy: "0x2045427276b2ad409202eea1e0c81e150f3203e4",
+  collection: "0x0c696f63a8cfd4b456f725f1174f1d5b48d1e876",
+});
+
 // source code for NonReceivableInitializedProxySourceCode from https://github.com/PartyDAO/partybid/blob/main/contracts/NonReceivableInitializedProxy.sol
 // todo: should we download this from github rather than hardcode it?
 export const NonReceivableInitializedProxySourceCode = `// SPDX-License-Identifier: MIT
