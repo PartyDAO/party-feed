@@ -11,6 +11,13 @@ const stringFromENVorThrow = (value: string, description: string) => {
 export const etherscanIo = "etherscan.io";
 
 export const config = {
+  alchemy: {
+    apiBase: "https://eth-mainnet.alchemyapi.io/v2",
+    apiKey: stringFromENVorThrow(
+      process.env.ALCHEMY_API_KEY,
+      "alchemy api key"
+    ),
+  },
   discordWebhookUrl: stringFromENVorThrow(
     process.env.DISCORD_WEBHOOK_URL,
     "discord webhook url"

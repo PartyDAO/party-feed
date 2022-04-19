@@ -10,7 +10,7 @@ import {
   setLastBlockAlerted,
 } from "./storage";
 import delay from "delay";
-import { verifyProxyContractForStartEvent } from "./etherscan";
+import etherscanTasks from "./etherscan/index";
 
 const DEFAULT_START_BLOCK = 13839598;
 
@@ -26,7 +26,7 @@ const alertForBlocks = async (fromBlock: number) => {
       console.error(e);
     }
     try {
-      await verifyProxyContractForStartEvent(newEvent);
+      await etherscanTasks(newEvent);
     } catch (e) {
       console.error("Error verifying proxy contract on etherscan");
       console.error(e);
