@@ -15,7 +15,7 @@ import {
  * @returns {{ isSuccess: boolean, guid?: string}} - true if verified, false otherwise
  */
 export const verifyProxyContract = async (
-  address: string
+  address: string,
   expectedImplementationAddress?: string
 ): Promise<{ isSuccess: boolean; guid?: string }> => {
   if (!address) {
@@ -78,16 +78,18 @@ export const verifyProxyContractForEvent = async (
   }
 
   // next, check to see if we have perviously attempted to verify the proxy contract
-  const existingVerifyProxyContractGuid = await getEtherscanVerifyProxyContractGuid(
-    partyAddress
-  );
+  const existingVerifyProxyContractGuid =
+    await getEtherscanVerifyProxyContractGuid(partyAddress);
   if (existingVerifyProxyContractGuid) {
     // we have already made an api request to etherscan to verify this proxy contract
     return;
   }
 
   const logicAddress: string = partyLogicAddresses[partyType];
-  const { isSuccess, guid } = await verifyProxyContract(partyAddress, logicAddress);
+  const { isSuccess, guid } = await verifyProxyContract(
+    partyAddress,
+    logicAddress
+  );
   if (isSuccess && guid) {
     await setEtherscanVerifyProxyContractGuid(partyAddress, guid);
   }
